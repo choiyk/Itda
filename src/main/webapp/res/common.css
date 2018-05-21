@@ -2,8 +2,18 @@
 	max-width:1500px;
 	margin: 0 auto;
 	background-color:white;
-	padding-top:100px;
+	padding-top: 50px;
 	height:100%;
+}
+
+@media (max-width: 768px) {
+	 #body{
+		max-width:1500px;
+		margin: 0 auto;
+		background-color:white;
+		padding-top: 30px;
+		height:100%;
+	}
 }
 
 #main_logo_img{
@@ -52,4 +62,31 @@
 	color: #b3b3b3;
 	background-color: white;
 	padding:0px 10px;
+}
+
+#myInf{
+	position: relative;
+	top:-32px;
+}
+
+.myInf_text{
+	font-family: "Montserrat", sans-serif;
+	display: inline-block;
+}
+
+@media (max-width: 768px) {
+	 .myInf_text{
+		display:none;
+	}
+}
+
+.myInf_icon{
+	width:32px;
+	height:32px;
+	border: 2px solid #17a2b8;
+	color:#17a2b8;
+	display: inline-block;
+	border-radius:50px;
+	text-align:center;
+	font-weight:bold;
 }

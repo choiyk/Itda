@@ -77,8 +77,22 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
 }
 
+@media (max-width: 768px) {
+	#header {
+	  padding: 10px 0;
+	  height: 50px;
+	  position: fixed;
+	  left: 0;
+	  top: 0;
+	  right: 0;
+	  transition: all 0.5s;
+	  z-index: 997;
+	}
+}
+
 #header #logo {
-  float: left;
+  /*float: left;*/
+  text-align:center;
 }
 
 #header #logo h1 {
@@ -117,6 +131,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
+}
+
+@media (max-width: 768px) {
+	#header.header-fixed {
+	  background: linear-gradient(45deg, #1de099, #1dc8cd);
+	  padding: 10px 0;
+	  height: 52px;
+	  transition: all 0.5s;
+	}
 }
 
 /*--------------------------------------------------------------
