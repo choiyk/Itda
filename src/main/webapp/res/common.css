@@ -1,0 +1,47 @@
+#body{
+	max-width:750px;
+	margin: 0 auto;
+	background-color:white;
+	padding-top:100px;
+}
+
+#main_logo_img{
+	width: 100px;
+	height:100%;
+}
+
+@media (max-width: 768px) {
+	 #main_logo_img{
+		width: 60px;
+		height:100%;
+	}
+}
+
+.center{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.margin{
+	margin-top:25px;
+	padding-top:25px;
+}
+
+.btn{
+	border:1px solid #515e61;
+	padding: 6px 30px;
+	border-radius:20px;
+	color: #515e61;
+	font-size: 1em;
+	font-family: "Montserrat", sans-serif;
+	transition:none;
+	background-color:transparent;
+}
+
+.bar_text{
+	position: relative;
+	top:-30px;
+	color: #b3b3b3;
+	background-color: white;
+	padding:0px 10px;
+}
