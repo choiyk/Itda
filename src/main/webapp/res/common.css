@@ -1,8 +1,9 @@
 #body{
-	max-width:750px;
+	max-width:1500px;
 	margin: 0 auto;
 	background-color:white;
 	padding-top:100px;
+	height:100%;
 }
 
 #main_logo_img{
@@ -15,6 +16,13 @@
 		width: 60px;
 		height:100%;
 	}
+}
+
+.container{
+	width:100%;
+	padding: 0px 15px 30px 15px;
+	margin: 0 auto;
+	
 }
 
 .center{
