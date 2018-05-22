@@ -3,97 +3,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
-hello world
-<br/>
+<section id="content">
+	<div class="container">
+		<div id="more-features" class="row">
+			<div class="col-lg-12">
+				<div class="box" data-url="#">
+					<p class="title">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임</p>
+					<p class="description">최윤경</p>
+					<button class="icon" data-url="#">관리</button>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<div class="box">
+					<p class="title">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임</p>
+					<p class="description">최윤경</p>
+					<button class="icon">관리</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

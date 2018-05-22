@@ -28,11 +28,21 @@
 	}
 }
 
+#content{
+	margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+	#content{
+		margin-top: 50px;
+		font-size: 0.6em;
+	}
+}
+
 .container{
 	width:100%;
 	padding: 0px 15px 30px 15px;
 	margin: 0 auto;
-	
 }
 
 .center{
