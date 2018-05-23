@@ -15,8 +15,10 @@
 						</select>
 					</div>
 					<div id="category-btn" class="form-group">
-						<button class="btn pull-right" data-url="#">모임관리</button>
-						<button class="btn pull-right" data-url="#">글쓰기</button>
+						<!-- <button class="btn pull-right" data-url="#">모임관리</button>
+						<button class="btn pull-right" data-url="#">글쓰기</button> -->
+						<p class="pull-right">모임 관리 <i class="ion-android-settings"></i></p>
+						<p class="pull-right">글쓰기 <i class="ion-android-create"></i></p>
 					</div>
 				</div>
 			</form>
@@ -43,14 +45,14 @@
 	<div class="form">
 			<form>
 				<div class="form-row">
-					<div id="category" class="form-group col-10">
+					<div class="form-group col-10">
 						<input type="text" class="form-control" placeholder="검색어를 입력하세요.">
 					</div>
-					<div id="category-btn" class="form-group col-2">
+					<div class="form-group col-2">
 						<button type="submit" class="btn pull-right">검색</button>
 					</div>
 				</div>
 			</form>
 		</div>
-</div>
+	</div>
 </section>

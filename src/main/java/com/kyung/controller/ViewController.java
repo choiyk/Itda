@@ -26,4 +26,9 @@ public class ViewController {
 		return "meeting";
 	}
 
+	@RequestMapping("article")
+	public String article(){
+		return "article";
+	}
+
 }

@@ -35,7 +35,7 @@
 @media (max-width: 768px) {
 	#content{
 		margin-top: 50px;
-		font-size: 0.6em;
+		font-size: 0.7rem;
 	}
 }
 
@@ -47,7 +47,7 @@
 
 @media (max-width: 768px) {
 	.form-control{
-		font-size:0.6rem;
+		font-size:0.7rem;
 	}	
 	#category .form-control{
 		padding: 1px;
@@ -73,7 +73,7 @@
 	padding: 6px 30px;
 	border-radius:20px;
 	color: #515e61;
-	font-size: 1em;
+	font-size: 1rem;
 	font-family: "Montserrat", sans-serif;
 	transition:none;
 	background-color:transparent;
@@ -83,7 +83,7 @@
 	.btn{
 		padding: 3px 15px;
 		height:100%;
-		font-size:0.6rem;
+		font-size:0.7rem;
 	}	
 }
 
@@ -144,10 +144,54 @@
 	}
 }
 
+#category-btn p:last-child{
+	margin-right:20px;
+}
+
+#category-btn p:first-chid{
+	margin-right:0px;
+}
+
+@media (max-width: 768px) {
+	#category-btn p:last-child{
+		margin-right:10px;
+	}	
+}
+
 .notice{
 	background-color: #f17070;
     color: white;
     border-radius: 5px;
     padding: 3px;
     margin-right: 3px;
+}
+
+.article-inf{
+	float: right;
+    font-size: 0.8rem;
+    color: #b3b3b3;
+}
+
+@media (max-width: 768px) {
+	.article-inf{
+	    font-size: 0.5rem;
+	}
+}
+
+.article-content{
+	min-height:300px;
+}
+
+.comment{
+	border-bottom: 1px solid #eae7e7;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.comment i:nth-child(2){
+	margin-right: 10px;
+}
+
+.comment i:first-child{
+	margin-right:0px;
 }

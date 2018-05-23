@@ -854,7 +854,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (max-width: 767px) {
 	#more-features{
-		font-size: 0.6em;
+		font-size: 0.7rem;
+		padding: 20px 0px;
 	}
   #more-features .box {
     margin-bottom: 20px;
