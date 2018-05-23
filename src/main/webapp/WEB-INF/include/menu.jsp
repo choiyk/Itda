@@ -3,7 +3,7 @@
 <c:url var="R" value="/" />
 
 <header id="header">
-	<div class="container">
+	<div class="container menu">
 		<div id="logo">
 			<h1 data-url="#">Itda</h1>
 		</div>

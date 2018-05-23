@@ -21,4 +21,9 @@ public class ViewController {
 		return "main";
 	}
 
+	@RequestMapping("meeting")
+	public String meeting(){
+		return "meeting";
+	}
+
 }
