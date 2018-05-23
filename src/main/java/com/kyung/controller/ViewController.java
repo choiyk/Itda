@@ -31,4 +31,9 @@ public class ViewController {
 		return "article";
 	}
 
+	@RequestMapping("articleWrite")
+	public String articleWrite(){
+		return "article_write";
+	}
+
 }

@@ -42,7 +42,7 @@
 						<i class="ion-close-round pull-right" data-url="#"></i>
 						<i class="ion-android-create pull-right" data-url="#"></i>
 						<p class="description">최윤경 / 2018.05.23 14:30</p>
-						<div>모임 일정 잘 보았습니다! 다음 모임 때 뵙겠습니다.</div>
+						<div>모임 일정 확인했습니다! 다음 모임 때 뵙겠습니다.</div>
 					</div>	
 					
 					<div class="form">
@@ -56,7 +56,8 @@
 								</div>
 							</div>
 						</form>
-					</div>		
+					</div>
+	
 				</div>
 			</div>
 		</div>
