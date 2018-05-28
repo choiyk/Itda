@@ -3,7 +3,12 @@ package com.kyung.dto;
 public class MeetingMember {
 	int id;
 	int meetingId; // f.k
-	int member; // f.k
+	int memberId; // f.k
+	String userName;
+	String userStudentNumber;
+	String userNickname;
+	int userDepartmentId;
+	int userGender;
 	
 	public int getId() 
 	{
@@ -21,12 +26,12 @@ public class MeetingMember {
 	{
 		this.meetingId = meetingId;
 	}
-	public int getMember() 
+	public int getMemberId() 
 	{
-		return member;
+		return memberId;
 	}
-	public void setMember(int member) 
+	public void setMemberId(int memberId) 
 	{
-		this.member = member;
+		this.memberId = memberId;
 	}
 }

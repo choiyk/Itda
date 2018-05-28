@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kyung.mapper.MeetingMemberMapper">
+	<select id="findAll" resultType="MeetingMember">
+		SELECT m.meetingId, u.name, u.studentNumber, u.nickname, u.departmentId, u.gender 
+		FROM meetingMember m LEFT JOIN user u 
+		ON m.memberId = u.id
+	</select>
+	
+	<select id="findUsersByMeeting" resultType="MeetingMember">
+		SELECT m.meetingId, u.name, u.studentNumber, u.nickname, u.departmentId, u.gender 
+		FROM meetingMember m LEFT JOIN user u 
+		ON m.memberId = u.id
+		WHERE m.meetingId = #{meetingId} 
+	</select>
+	
+	<update id="update">
+		UPDATE MeetingMember SET 
+			id = #{id},
+			meetingId = #{meetingId},
+			member = #{member}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM MeetingMember 
+		WHERE meetingId = #{meetingId} 
+		AND memberId = #{memberId}
+	</delete>
+</mapper>
