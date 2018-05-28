@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+             
+<mapper namespace="com.kyung.mapper.BoardMapper">
+	<select id="findOne" resultType="Board">
+		SELECT * FROM Board WHERE id = #{id}
+	</select>
+	<select id="findAll" resultType="Board">
+		SELECT * FROM Board
+	</select>
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT Board(meetingId, name)
+		VALUES (#{meetindId}, #{name})
+	</insert>
+	<delete id="delete">
+		delete FROM Board WHERE id = #{id}
+	</delete>
+</mapper>

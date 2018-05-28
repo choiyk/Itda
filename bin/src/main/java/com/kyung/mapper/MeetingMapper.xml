@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+             
+<mapper namespace="com.kyung.mapper.MeetingMapper">
+	<select id="findAll" resultType="Meeting">
+		SELECT * FROM Meeting
+	</select>
+	
+	<select id="findOne" resultType="Meeting">
+		SELECT * FROM id = #{id}
+	</select>
+	
+	<select id="findByName" resultType="Meeting">
+		SELECT * FROM name = #{name}
+	</select>
+	
+	<select id="findByLeader" resultType="Meeting">
+		SELECT * FROM leader = #{leader}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM Meeting WHERE id = #{id}
+	</delete>
+	
+	<update id="update">
+		UPDATE Meeting SET
+			name = #{name},
+			explain = #{explain},
+			leader = #{leader}
+	</update>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT Meeting(name, explain, leader)
+		VALUES (#{name}, #{explain}, #{leader})
+	</insert>
+	
+</mapper>

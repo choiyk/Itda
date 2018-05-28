@@ -1,0 +1,153 @@
+#body{
+	max-width:1500px;
+	margin: 0 auto;
+	background-color:white;
+	padding-top: 50px;
+	height:100%;
+}
+
+@media (max-width: 768px) {
+	 #body{
+		max-width:1500px;
+		margin: 0 auto;
+		background-color:white;
+		padding-top: 30px;
+		height:100%;
+	}
+}
+
+#main_logo_img{
+	width: 100px;
+	height:100%;
+}
+
+@media (max-width: 768px) {
+	 #main_logo_img{
+		width: 60px;
+		height:100%;
+	}
+}
+
+#content{
+	margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+	#content{
+		margin-top: 50px;
+		font-size: 0.6em;
+	}
+}
+
+.container{
+	width:100%;
+	padding: 0px 15px 30px 15px;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+	.form-control{
+		font-size:0.6rem;
+	}	
+	#category .form-control{
+		padding: 1px;
+	}
+}
+
+.menu{
+	height:70px;
+}
+
+.center{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.margin{
+	margin-top:25px;
+	padding-top:25px;
+}
+
+.btn{
+	border:1px solid #515e61;
+	padding: 6px 30px;
+	border-radius:20px;
+	color: #515e61;
+	font-size: 1em;
+	font-family: "Montserrat", sans-serif;
+	transition:none;
+	background-color:transparent;
+}
+
+@media (max-width: 768px) {
+	.btn{
+		padding: 3px 15px;
+		height:100%;
+		font-size:0.6rem;
+	}	
+}
+
+.btn.pull-right:last-child{
+	margin-right: 10px;
+}
+
+.btn.pull-right:first-child{
+	margin-right:0px;
+}
+
+.bar_text{
+	position: relative;
+	top:-30px;
+	color: #b3b3b3;
+	background-color: white;
+	padding:0px 10px;
+}
+
+#myInf{
+	position: relative;
+	top:-32px;
+}
+
+.myInf_text{
+	font-family: "Montserrat", sans-serif;
+	display: inline-block;
+}
+
+@media (max-width: 768px) {
+	 .myInf_text{
+		display:none;
+	}
+}
+
+.myInf_icon{
+	width:32px;
+	height:32px;
+	border: 2px solid #17a2b8;
+	color:#17a2b8;
+	display: inline-block;
+	border-radius:50px;
+	text-align:center;
+	font-weight:bold;
+}
+
+.add-icon{
+	text-align:center;
+}
+
+.add-icon i{
+	font-size: 40px;
+}
+
+@media (max-width: 768px) {
+	.add-icon i{
+		font-size: 30px;
+	}
+}
+
+.notice{
+	background-color: #f17070;
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 3px;
+}
