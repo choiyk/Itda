@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
+<div class="margin"></div>
+
 <section>
 	<div class="container text-center">
 		<img id="main_logo_img" src="${R}img/favicon.png">
@@ -20,7 +22,12 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
-						<input type="password" class="form-control" placeholder="비밀번호">
+						<input name="password" type="password" class="form-control" placeholder="비밀번호">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group center col-lg-8">
+						<input name="password2" type="password" class="form-control" placeholder="비밀번호 확인">
 					</div>
 				</div>
 				<div class="form-row">
