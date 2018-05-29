@@ -18,12 +18,47 @@ public class ViewController {
 
 	@RequestMapping("main")
 	public String main(){
-		return "main";
+		return "user/main";
 	}
 
 	@RequestMapping("meeting")
 	public String meeting(){
-		return "meeting";
+		return "user/meeting";
+	}
+
+	@RequestMapping("article")
+	public String article(){
+		return "user/article";
+	}
+
+	@RequestMapping("article_write")
+	public String articleWrite(){
+		return "user/article_write";
+	}
+
+	@RequestMapping("meetung_setting")
+	public String meetingSetting(){
+		return "user/meetung_setting";
+	}
+
+	@RequestMapping("mypage")
+	public String mypage(){
+		return "user/mypage";
+	}
+
+	@RequestMapping("myinfo_setting")
+	public String myinfoSetting(){
+		return "user/myinfo_setting";
+	}
+
+	@RequestMapping("mypw_auth")
+	public String mypw_auth(){
+		return "user/mypw_auth";
+	}
+
+	@RequestMapping("mypw_setting")
+	public String mypwSetting(){
+		return "user/mypw_setting";
 	}
 
 }

@@ -8,7 +8,7 @@ $(function() {
 		$("#category-btn").addClass("col-8");
 	}
 	else{
-		$("#category").removeClass("col-44");
+		$("#category").removeClass("col-4");
 		$("#category").addClass("col-lg-2");
 		$("#category-btn").removeClass("col-8");
 		$("#category-btn").addClass("col-lg-10");
@@ -24,7 +24,7 @@ $(function() {
 			$("#category-btn").addClass("col-8");
 		}
 		else{
-			$("#category").removeClass("col-44");
+			$("#category").removeClass("col-4");
 			$("#category").addClass("col-lg-2");
 			$("#category-btn").removeClass("col-8");
 			$("#category-btn").addClass("col-lg-10");
