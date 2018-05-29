@@ -13,22 +13,22 @@
 			</div>
 			<div class="col-6">
 				<div class="box" data-url="#">
-					<p class="bigbutton">비밀번호 변경</p>
-				</div>
-			</div>
-			<div class="col-6">
-				<div class="box" data-url="#">
-					<p class="bigbutton">내 모임</p>
-				</div>
-			</div>
-			<div class="col-6">
-				<div class="box" data-url="#">
 					<p class="bigbutton">내가 쓴 글</p>
 				</div>
 			</div>
 			<div class="col-6">
 				<div class="box" data-url="#">
+					<p class="bigbutton">비밀번호 변경</p>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="box" data-url="#">
 					<p class="bigbutton">내가 쓴 댓글</p>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="box" data-url="#">
+					<p class="bigbutton">내 모임</p>
 				</div>
 			</div>
 			<div class="col-6">

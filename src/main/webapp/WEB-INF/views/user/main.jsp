@@ -5,7 +5,18 @@
 
 <section id="content">
 	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="pull-right">공지 쓰기 <i class="ion-android-create"></i></p>
+			</div>
+		</div>
 		<div id="more-features" class="row">
+			<div class="col-lg-12">
+				<div class="box" data-url="#">
+					<p class="title"><span class="notice">공지</span>Welcome! Itda</p>
+					<p class="description">관리자 / 2018.05.29 19:12</p>
+				</div>
+			</div>
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
 					<p class="title">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임</p>

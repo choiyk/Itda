@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
+<div class="margin"></div>
+
 <section>
 	<div class="container text-center">
 		<img id="main_logo_img" src="${R}img/favicon.png">
