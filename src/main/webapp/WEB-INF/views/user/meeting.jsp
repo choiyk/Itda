@@ -15,8 +15,8 @@
 						</select>
 					</div>
 					<div id="category-btn" class="form-group">
-						<button class="btn pull-right" data-url="#">모임관리</button>
-						<button class="btn pull-right" data-url="#">글쓰기</button>
+						<p class="pull-right">모임 관리 <i class="ion-android-settings"></i></p>
+						<p class="pull-right">글쓰기 <i class="ion-android-create"></i></p>
 					</div>
 				</div>
 			</form>
