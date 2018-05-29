@@ -22,7 +22,12 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
-						<input type="password" class="form-control" placeholder="비밀번호">
+						<input name="password" type="password" class="form-control" placeholder="비밀번호">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group center col-lg-8">
+						<input name="password2" type="password" class="form-control" placeholder="비밀번호 확인">
 					</div>
 				</div>
 				<div class="form-row">

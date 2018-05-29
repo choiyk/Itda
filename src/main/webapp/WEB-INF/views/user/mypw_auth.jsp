@@ -16,8 +16,13 @@
 						<input type="password" class="form-control" placeholder="비밀번호">
 					</div>
 				</div>
+				<div class="form-row">
+					<div class="form-group center col-lg-8">
+						<input name="password2" type="password" class="form-control" placeholder="비밀번호 확인">
+					</div>
+				</div>
 				<div class="text-center">
-					<button class="btn" type="submit" title="login">확인</button>
+					<button class="btn" type="submit">확인</button>
 				</div>
 			</form>
 		</div>
