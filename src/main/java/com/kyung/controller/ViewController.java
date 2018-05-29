@@ -61,4 +61,19 @@ public class ViewController {
 		return "user/mypw_setting";
 	}
 
+	@RequestMapping("my_meeting")
+	public String myMeeting(){
+		return "user/my_meeting";
+	}
+
+	@RequestMapping("my_article")
+	public String myArtilce(){
+		return "user/my_article";
+	}
+
+	@RequestMapping("my_comment")
+	public String myComment(){
+		return "user/my_comment";
+	}
+
 }
