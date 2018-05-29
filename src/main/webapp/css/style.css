@@ -852,6 +852,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #92999b;
 }
 
+#more-features .bigbutton{
+	font-weight: bold;
+    text-align: center;
+    margin: 0px;
+    padding: 30px 0px;
+    cursor: pointer;
+}
+
 @media (max-width: 767px) {
 	#more-features{
 		font-size: 0.7rem;
@@ -862,7 +870,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding:10px;
   }
   #more-features p {
-  	font-size:0.6em;
+  	font-size:0.6rem;
   }
   #more-features .icon {
     float: right;
@@ -872,6 +880,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
   #more-features h4, #more-features p {
     margin-right:50px;
+  }
+  
+  #more-features .bigbutton{
+  	font-size: 0.7rem;
   }
 }
 
