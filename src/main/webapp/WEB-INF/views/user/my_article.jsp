@@ -11,27 +11,17 @@
 					<div id="category" class="form-group">
 						<select class="form-control" name="category">
 							<option value="1">전체</option>
-							<option value="2">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임</option>
+							<option value="2">경스데이</option>
 						</select>
 					</div>
-					<!-- <div id="category-btn" class="form-group">
-						<p class="pull-right">모임 관리 <i class="ion-android-settings"></i></p>
-						<p class="pull-right">글쓰기 <i class="ion-android-create"></i></p>
-					</div> -->
 				</div>
 			</form>
 		</div>
 		<div id="more-features" class="row">
-			<!-- <div class="col-lg-12">
-				<div class="box" data-url="#">
-					<p class="title"><span class="notice">공지</span>성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 공지사항</p>
-					<p class="description">최윤경 / 2018.05.23 10:30</p>
-				</div>
-			</div> -->
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
 					<p class="title">[일정] 성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 일정 안내</p>
-					<p class="description">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 / 2018.05.23 10:30</p>
+					<p class="description">경스데이 / 2018.05.23 10:30</p>
 				</div>
 			</div>
 		</div>
