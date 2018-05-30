@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="col-6">
-				<div class="box" data-url="#">
+				<div id="withdraw" class="box">
 					<p class="bigbutton">탈퇴</p>
 				</div>
 			</div>
