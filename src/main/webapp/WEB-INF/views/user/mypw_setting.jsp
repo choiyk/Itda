@@ -3,12 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
-<div class="margin"></div>
-<div class="margin"></div>
-
-<section id="content">
+<section>
 	<div class="container">
-		<p class="text-center">비밀번호 변경</p>
 		<div class="form">
 			<form>
 				<div class="form-row">

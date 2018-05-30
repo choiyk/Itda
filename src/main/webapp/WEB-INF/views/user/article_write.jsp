@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
-<section id="content">
+<section>
 	<div class="container">
 		<div class="form">
 			<form>

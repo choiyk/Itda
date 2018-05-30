@@ -14,6 +14,10 @@
 		padding-top: 30px;
 		height:100%;
 	}
+	
+	p{
+		font-size: 0.7rem;
+	}
 }
 
 #main_logo_img{
@@ -153,6 +157,10 @@
 }
 
 @media (max-width: 768px) {
+	#category-btn p{
+		font-size: 0.6rem;
+	}
+	
 	#category-btn p:last-child{
 		margin-right:10px;
 	}

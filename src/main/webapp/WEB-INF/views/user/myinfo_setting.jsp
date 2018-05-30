@@ -3,12 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
-<div class="margin"></div>
-<div class="margin"></div>
-
-<section id="content">
+<section>
 	<div class="container">
-		<p class="text-center">내 정보 수정</p>
+		<!-- <p class="text-center">내 정보 수정</p> -->
 		<div class="form">
 			<form>
 				<div class="form-row">
