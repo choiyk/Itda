@@ -196,6 +196,10 @@
     padding-bottom: 10px;
 }
 
+.my{
+	background-color: #fff8f8;
+}
+
 .comment i:nth-child(2){
 	margin-right: 10px;
 }
