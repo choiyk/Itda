@@ -11,6 +11,10 @@
 	
 	<!-- definition 은 단지 뷰의 이름을 뿐, 꼭 어떤 파일의 경로명과 일치할 필요는 없다.
 		컨트롤러의 액션 메소드에서 이 이름을 리턴해야 한다. -->
+		
+	<definition name="embed/*" template="/WEB-INF/include/blank_layout.jsp">
+		<put-attribute name="body" value="/WEB-INF/views/embed/{1}.jsp" />
+	</definition>
 	
 	<definition name="*/*" extends="layout_user">
 		<put-attribute name="menu" value="/WEB-INF/include/menu.jsp" />

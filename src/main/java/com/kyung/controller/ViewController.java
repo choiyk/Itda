@@ -36,11 +36,6 @@ public class ViewController {
 		return "user/article_write";
 	}
 
-	@RequestMapping("meetung_setting")
-	public String meetingSetting(){
-		return "user/meetung_setting";
-	}
-
 	@RequestMapping("mypage")
 	public String mypage(){
 		return "user/mypage";
@@ -74,6 +69,16 @@ public class ViewController {
 	@RequestMapping("my_comment")
 	public String myComment(){
 		return "user/my_comment";
+	}
+
+	@RequestMapping("meeting_setting")
+	public String meetingSetting(){
+		return "user/meeting_setting";
+	}
+
+	@RequestMapping("user_list_search")
+	public String userListSearch(){
+		return "embed/user_list_search";
 	}
 
 }

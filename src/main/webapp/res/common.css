@@ -6,6 +6,14 @@
 	height:100%;
 }
 
+#embed_body{
+	max-width:1500px;
+	margin: 0 auto;
+	background-color: white;
+	height:100%;
+	padding-bottom:102px;
+}
+
 @media (max-width: 768px) {
 	 #body{
 		max-width:1500px;
@@ -15,7 +23,15 @@
 		height:100%;
 	}
 	
+	#embed_body{
+		padding-bottom:163px;
+	}
+		
 	p{
+		font-size: 0.7rem;
+	}
+	
+	div{
 		font-size: 0.7rem;
 	}
 }
@@ -41,6 +57,10 @@
 		margin-top: 50px;
 		font-size: 0.7rem;
 	}
+}
+
+#embed{
+	margin: 0 20px;
 }
 
 .container{
@@ -132,6 +152,7 @@
 	border-radius:50px;
 	text-align:center;
 	font-weight:bold;
+	font-size: 1rem;
 }
 
 .add-icon{
@@ -206,4 +227,8 @@
 
 .comment i:first-child{
 	margin-right:0px;
+}
+
+.subtitle{
+	margin-bottom: 20px;
 }
