@@ -17,6 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	@Override
 	public void configure(WebSecurity web) throws Exception 
 	{
+		web.ignoring().antMatchers("/index.jsp");
 		web.ignoring().antMatchers("/res/**");
 		web.ignoring().antMatchers("/lib/**");
 		web.ignoring().antMatchers("/js/**");
