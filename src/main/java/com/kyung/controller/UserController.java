@@ -21,6 +21,12 @@ public class UserController {
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
 	@Autowired DepartmentService departmentService;
+/*	
+	@RequestMapping("user/main")
+	public String main()
+	{
+		return "main";
+	}
 	
 	@RequestMapping("userList")
 	public String allUserList(Model model) 
@@ -29,7 +35,7 @@ public class UserController {
 		model.addAttribute("users",users);
 		return "admin/userList";
 	}
-	
+*/	
 	@RequestMapping(value="create", method=RequestMethod.GET)
 	public String create(Model model) 
 	{

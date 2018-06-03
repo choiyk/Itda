@@ -13,21 +13,24 @@
 	<div class="container">
 		<p class="text-center">로그인</p>
 		<div class="form">
-			<form>
+			<form method="post" action="login_processing">
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
-						<input type="text" class="form-control" placeholder="학번">
+						<input type="text" name="loginId" class="form-control" placeholder="학번">
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
-						<input type="password" class="form-control" placeholder="비밀번호">
+						<input type="password" name="passwd" class="form-control" placeholder="비밀번호">
 					</div>
 				</div>
 				<div class="text-center">
 					<button class="btn" type="submit" title="login">로그인</button>
 				</div>
 			</form>
+			<c:if test="${ param.error != null }">
+				<div class="mt5">로그인 실패</div>
+			</c:if>
 		</div>
 	</div>
 </section>

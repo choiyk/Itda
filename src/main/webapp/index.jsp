@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -55,7 +56,9 @@
 	
 	<section>
 		<div class="container">
-			<p class="text-center">로그인</p>
+			<sec:authorize access="not authenticated">
+			<a class="btn btn-default" href="${R}guest/login">로그인</a>
+			<p class="text-center" >로그인</p>
 			<div class="form">
 				<form>
 					<div class="form-row">
@@ -73,6 +76,7 @@
 					</div>
 				</form>
 			</div>
+			</sec:authorize>
 		</div>
 	</section>
 	
@@ -82,7 +86,9 @@
 	
 	<section>
 		<hr/>
+		<sec:authorize access="not authenticated">
 		<p class="text-center"><span class="bar_text" data-url="#">회원가입</span></p>
+		</sec:authorize>
 	</section>
 	
 </div>
