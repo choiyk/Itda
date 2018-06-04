@@ -232,3 +232,24 @@
 .subtitle{
 	margin-bottom: 20px;
 }
+
+#alarm{
+	position: fixed;
+	top:10px;
+	width: 100%;
+	z-index:9999;
+	display: none;
+}
+
+#alarm .container{
+	background-color: white;
+	border:1px solid #c8c8c8;
+	border-radius:10px;
+	padding: 15px;
+	width: 700px;
+}
+
+#alarm .title{
+	border-bottom: 1px solid #e8e7e7;
+}
+
