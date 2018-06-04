@@ -15,10 +15,18 @@ public class UserService {
 	
 	public User login(String loginId, String password) {
 		User user = userMapper.findByStudentNumber(loginId);
-		if(user == null) return null;
+		if(user == null) 
+			return null;
 		String pw = Encryption.encrypt(password, Encryption.SHA256);
-		if(user.getPassword().equals(pw) == false) return null;
+		if(user.getPassword().equals(pw) == false) 
+			return null;
 		return user;
+	}
+	
+	public void join(User user) {
+		String password = Encryption.encrypt(user.getPassword(), Encryption.SHA256);
+		user.setPassword(password);
+		userMapper.insert(user);
 	}
 	
 	public List<User> findAll()

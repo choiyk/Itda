@@ -1,16 +1,44 @@
 package com.kyung.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class User {
 	int id;
+	
+	@NotEmpty
+	@Size(min=9, max=10)
 	String studentNumber;
+	
+	@NotEmpty
+	@Size(min=2)
 	String name;
+	
 	String nickname;
+	
+	@NotEmpty
+	@Size(min=8)
 	String password;
+	
 	int departmentId; // f.k
 	String question;
 	String answer;
-	int type;
 	
+	@NotEmpty
+	int type; // 1: admin, 2:user
+	
+	@NotEmpty
+	int gender; 
+	
+	
+	public int getGender() 
+	{
+		return gender;
+	}
+	public void setGender(int gender) 
+	{
+		this.gender = gender;
+	}
 	public int getId() 
 	{
 		return id;

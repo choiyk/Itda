@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		web.ignoring().antMatchers("/img/**");
 		web.ignoring().antMatchers("/css/**");
 		web.ignoring().antMatchers("/contactform/**");
+		web.ignoring().antMatchers("/WEB-INF/include/**");
 	}
 	
 	@Override
