@@ -105,7 +105,7 @@
 
 @media (max-width: 768px) {
 	.btn{
-		padding: 3px 15px;
+		padding: 3px 10px;
 		height:100%;
 		font-size:0.7rem;
 	}	
@@ -153,6 +153,7 @@
 	text-align:center;
 	font-weight:bold;
 	font-size: 1rem;
+	line-height:32px;
 }
 
 .add-icon{
@@ -253,3 +254,13 @@
 	border-bottom: 1px solid #e8e7e7;
 }
 
+@media (max-width: 768px) {
+	#alarm .container{
+		width: 300px;
+		padding: 10px;
+	}
+	
+	#alarm p{
+		margin-bottom: 10px;
+	}
+}

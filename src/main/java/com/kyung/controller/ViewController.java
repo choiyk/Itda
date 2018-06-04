@@ -81,4 +81,14 @@ public class ViewController {
 		return "embed/user_list_search";
 	}
 
+	@RequestMapping("admin_mypage")
+	public String adminMypage(){
+		return "admin/admin_mypage";
+	}
+
+	@RequestMapping("admin_user")
+	public String adminUser(){
+		return "admin/admin_user";
+	}
+
 }

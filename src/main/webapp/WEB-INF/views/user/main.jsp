@@ -46,7 +46,7 @@
 
 <section id="alarm">
 	<div class="container">
-		<p class="title">경스데이 알림!<i class="ion-close-round pull-right" data-url="#"></i></p>
+		<p class="title">경스데이 알림!<i id="alarm_close" class="ion-close-round pull-right" data-url="#"></i></p>
 		<p class="content">"성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 일정 안내"<br/>새글이 올라왔습니다.</p>
 	</div>
 </section>

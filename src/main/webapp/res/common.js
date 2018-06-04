@@ -49,5 +49,8 @@ $(function() {
 	});
 	
 	$("#alarm").slideDown();
+	$("#alarm_close").click(function(){
+		$("#alarm").slideUp();
+	})
 
 })
