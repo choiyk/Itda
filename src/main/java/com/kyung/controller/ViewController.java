@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewController {
 
+	/*
 	@RequestMapping("guest/join")
 	public String join(){
 		return "guest/join";
 	}
+	*/
 
 	@RequestMapping("guest/login")
 	public String login(){
