@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding');
+@import url('https://fonts.googleapis.com/css?family=Poor+Story|Sunflower:300');
+
 #body{
-	max-width:1500px;
+	max-width:1300px;
 	margin: 0 auto;
 	background-color:white;
 	padding-top: 50px;
 	height:100%;
+	/* font-family: "SeoulNamsan"; */
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+
+#embed_body{
+	max-width:1500px;
+	margin: 0 auto;
+	background-color: white;
+	height:100%;
+	padding-bottom:102px;
+	/* font-family: "SeoulNamsan"; */
+	font-family: 'Nanum Gothic Coding', monospace;
 }
 
 @media (max-width: 768px) {
@@ -14,6 +29,82 @@
 		padding-top: 30px;
 		height:100%;
 	}
+	
+	#embed_body{
+		padding-bottom:163px;
+	}
+		
+	p{
+		font-size: 0.7rem;
+		/* font-family: "SeoulNamsan"; */
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+	
+	div{
+		font-size: 0.7rem;
+		/* font-family: "SeoulNamsan"; */
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+}
+
+#index .title{
+	font-family: "Montserrat", sans-serif;
+	font-size: 4rem;
+	text-align: center;
+    margin-bottom: 30px;
+}
+
+#index .sub{
+	text-align: center;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    margin-top:30px;
+    font-family: 'Sunflower', sans-serif;
+    /* font-family: 'Poor Story', cursive; */
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+}
+
+#index img{
+	display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+#index .character{
+	width: 300px;
+}
+
+#index .logo{
+	width:150px;
+}
+
+#index .button{
+	text-align: center;
+	margin-top:50px;
+}
+
+@media (max-width: 768px) {
+	
+	#index .sub{
+	    font-size: 0.8rem;
+	    line-height: 1.5rem;
+	    width: 85%;
+	    margin: 0 auto;
+	}
+	
+	#index .character{
+		width: 190px;
+	}
+	
+	#index .logo{
+		width:100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.form-inline .form-group{
+		margin-bottom:0px;	
+	}	
 }
 
 #main_logo_img{
@@ -37,6 +128,10 @@
 		margin-top: 50px;
 		font-size: 0.7rem;
 	}
+}
+
+#embed{
+	margin: 0 20px;
 }
 
 .container{
@@ -81,7 +176,7 @@
 
 @media (max-width: 768px) {
 	.btn{
-		padding: 3px 15px;
+		padding: 3px 10px;
 		height:100%;
 		font-size:0.7rem;
 	}	
@@ -128,6 +223,7 @@
 	border-radius:50px;
 	text-align:center;
 	font-weight:bold;
+	font-size: 1rem;
 }
 
 .add-icon{
@@ -153,6 +249,10 @@
 }
 
 @media (max-width: 768px) {
+	#category-btn p{
+		font-size: 0.6rem;
+	}
+	
 	#category-btn p:last-child{
 		margin-right:10px;
 	}
@@ -188,10 +288,50 @@
     padding-bottom: 10px;
 }
 
+.my{
+	background-color: #fff8f8;
+}
+
 .comment i:nth-child(2){
 	margin-right: 10px;
 }
 
 .comment i:first-child{
 	margin-right:0px;
+}
+
+.subtitle{
+	margin-bottom: 20px;
+}
+
+#alarm{
+	position: fixed;
+	top:10px;
+	left:0;
+	width: 100%;
+	z-index:9999;
+	display: none;
+}
+
+#alarm .container{
+	background-color: white;
+	border:1px solid #c8c8c8;
+	border-radius:10px;
+	padding: 15px;
+	width: 700px;
+}
+
+#alarm .title{
+	border-bottom: 1px solid #e8e7e7;
+}
+
+@media (max-width: 768px) {
+	#alarm .container{
+		width: 300px;
+		padding: 10px;
+	}
+	
+	#alarm p{
+		margin-bottom: 10px;
+	}
 }

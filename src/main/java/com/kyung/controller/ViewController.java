@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ViewController {
-/*
+
 	@RequestMapping("guest/join")
 	public String join(){
 		return "guest/join";
 	}
-*/
+
 	@RequestMapping("guest/login")
 	public String login(){
 		return "guest/login";
@@ -36,9 +36,9 @@ public class ViewController {
 		return "user/article_write";
 	}
 
-	@RequestMapping("meetung_setting")
+	@RequestMapping("meeting_setting")
 	public String meetingSetting(){
-		return "user/meetung_setting";
+		return "user/meeting_setting";
 	}
 
 	@RequestMapping("mypage")

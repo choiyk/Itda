@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -13,7 +12,7 @@
 <meta content="" name="description">
 
 <!-- Favicons -->
-<link href="${R}img/favicon.png" rel="icon">
+<link href="${R}img/logo1-1.png" rel="icon">
 <link href="${R}img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
@@ -46,50 +45,22 @@
 
 <div id="body">
 
-	<div class="margin"></div>
-	
-	<section>
-		<div class="container text-center">
-			<img id="main_logo_img" src="${R}img/favicon.png">
-		</div>
-	</section>
-	
-	<section>
-		<div class="container">
-			<sec:authorize access="not authenticated">
-			<a class="btn btn-default" href="${R}guest/login">로그인</a>
-			<p class="text-center" >로그인</p>
-			<div class="form">
-				<form>
-					<div class="form-row">
-						<div class="form-group center col-lg-8">
-							<input type="text" class="form-control" placeholder="학번">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group center col-lg-8">
-							<input type="password" class="form-control" placeholder="비밀번호">
-						</div>
-					</div>
-					<div class="text-center">
-						<button class="btn" type="submit" title="login">로그인</button>
-					</div>
-				</form>
+	<div class="container">
+		<div class="margin"></div>
+		<div id="index">
+			<img src="${R}img/logo1-1.png" class="logo">
+			<img src="${R}img/character.png" class="character">
+			<hr/>
+			<div class="sub">
+				다양한 주제로 구성된 모임이 여러분을 기다리고 있습니다.<br/>
+				모임에 참여하여 정보를 얻고 참가자들과 함께 교류하면서 삶의 가치를 높여보세요.<br/>
+				성공회대학교의 다양한 모임을 경험해 보세요!
 			</div>
-			</sec:authorize>
+			<div class="button">
+				<button class="btn" data-url="#">들어가기 <i class="ion-arrow-right-c"></i></button>
+			</div>
 		</div>
-	</section>
-	
-	<div class="margin"></div>
-	<div class="margin"></div>
-	<div class="margin"></div>
-	
-	<section>
-		<hr/>
-		<sec:authorize access="not authenticated">
-		<p class="text-center"><span class="bar_text" data-url="#">회원가입</span></p>
-		</sec:authorize>
-	</section>
+	</div>
 	
 </div>
 

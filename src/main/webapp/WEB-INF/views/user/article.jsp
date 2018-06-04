@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
-<section id="content">
+<section>
 	<div class="container">
 		<p class="article-inf">최윤경 / 2018.05.23 10:30</p>
 		<p class="article-category">일정</p>
@@ -44,6 +44,12 @@
 						<p class="description">최윤경 / 2018.05.23 14:30</p>
 						<div>모임 일정 확인했습니다! 다음 모임 때 뵙겠습니다.</div>
 					</div>	
+					<div class="my comment">
+						<i class="ion-close-round pull-right" data-url="#"></i>
+						<i class="ion-android-create pull-right" data-url="#"></i>
+						<p class="description">최윤경 / 2018.05.23 14:30</p>
+						<div>모임 일정 확인했습니다! 다음 모임 때 뵙겠습니다.</div>
+					</div>
 					
 					<div class="form">
 						<form>

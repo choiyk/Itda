@@ -39,5 +39,18 @@ $(function() {
 	$("[data-confirm-delete]").click(function() {
 		return confirm("삭제하시겠습니까?");
 	})
+	
+	$("#withdraw").click(function(){
+		if(confirm(
+				"모든 자료가 삭제되며 복구할 수 없습니다.\n" +
+				"정말 탈퇴하시겠습니까?")){
+			alert("탈퇴되었습니다.");
+		}
+	});
+	
+	$("#alarm").slideDown();
+	$("#alarm_close").click(function(){
+		$("#alarm").slideUp();
+	})
 
 })
