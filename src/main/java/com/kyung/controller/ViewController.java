@@ -13,6 +13,7 @@ public class ViewController {
 	}
 	*/
 
+
 	@RequestMapping("guest/login")
 	public String login(){
 		return "guest/login";
