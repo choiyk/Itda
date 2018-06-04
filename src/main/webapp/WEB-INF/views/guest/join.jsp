@@ -6,7 +6,7 @@
 
 <section>
 	<div class="container text-center">
-		<img id="main_logo_img" src="${R}img/favicon.png">
+		<img id="main_logo_img" src="${R}img/logo2-1.png">
 	</div>
 </section>
 
@@ -38,6 +38,21 @@
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
 						<input type="text" name="nickname" class="form-control" placeholder="닉네임">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-inline form-group form-control center col-lg-8">
+						<div class="form-group col-4">
+							<label>성별</label>
+						</div>
+						<div class="form-group col-4">
+							<input type="radio" name="gender" id="female" value="1">
+							<label for="female">여성</label>
+						</div>
+						<div class="form-group col-4">
+							<input type="radio" name="gender" id="male" value="2">
+							<label for="male">남성</label>
+						</div>
 					</div>
 				</div>
 				<div class="form-row">

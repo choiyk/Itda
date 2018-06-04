@@ -13,7 +13,7 @@
 <meta content="" name="description">
 
 <!-- Favicons -->
-<link href="${R}img/favicon.png" rel="icon">
+<link href="${R}img/logo1-1.png" rel="icon">
 <link href="${R}img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
