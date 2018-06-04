@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kyung.dto.User;
 import com.kyung.model.UserRegistrationModel;
-import com.kyung.mapper.DepartmentMapper;
-import com.kyung.mapper.UserMapper;
+import com.kyung.service.DepartmentService;
+import com.kyung.service.UserService;
 
 @Controller
 public class GuestController 
 {
-	@Autowired DepartmentMapper departmentMapper;
-	@Autowired UserMapper userMapper;
+	@Autowired DepartmentService departmentService;
+	@Autowired UserService userService;
 	
 	/*
 	@RequestMapping({"/","guest/index"})
@@ -33,8 +33,8 @@ public class GuestController
 	*/
 	
 	@RequestMapping(value="guest/join", method=RequestMethod.GET)
-	public String join(UserRegistrationModel user, Model model) {
-		model.addAttribute("departments", departmentMapper.findAll());
+	public String join(UserRegistrationModel userModel, Model model) {
+		model.addAttribute("departments", departmentService.findAll());
 		return "guest/join";
 	}
 	
@@ -42,20 +42,24 @@ public class GuestController
 	public String join(@Valid UserRegistrationModel userModel, Model model, BindingResult bindingResult) {
 		if(bindingResult.hasErrors())
 		{
-			model.addAttribute("departments", departmentMapper.findAll());
+			model.addAttribute("departments", departmentService.findAll());
 			return "guest/join";
 		}
 		User user = userModel.toUser();
 		user.setType(2); // 2: user
-		userMapper.insert(user);
-		return "redirect:success";
+		userService.join(user);
+		//return "redirect:success";
+		return "guest/login";
 	}
 	
+	//로그인 성공 시 alert창 추가 예
+	/*
 	@RequestMapping("success")
 	public String success()
 	{
 		System.out.println("success");
 		return "guest/login";
 	}
+	*/
 	
 }

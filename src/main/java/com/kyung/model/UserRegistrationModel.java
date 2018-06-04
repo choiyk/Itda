@@ -30,7 +30,6 @@ public class UserRegistrationModel {
 	//@NotEmpty
 	String answer;
 	
-	@NotEmpty
 	int gender;
 	
 	public int getGender() {
@@ -44,6 +43,14 @@ public class UserRegistrationModel {
 	public User toUser() 
 	{ //UserRegistrationModel to User Object
 		User user = new User();
+		user.setStudentNumber(this.studentNumber);
+		user.setPassword(this.password1);
+		user.setName(this.name);
+		user.setNickname(this.nickname);
+		user.setGender(this.gender);
+		user.setDepartmentId(this.departmentId);
+		user.setQuestion(this.question);
+		user.setAnswer(this.answer);
 		return user;
 	}
 
