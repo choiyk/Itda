@@ -5,7 +5,8 @@ import javax.validation.constraints.Size;
 
 import com.kyung.dto.User;
 
-public class UserRegistrationModel {
+public class UserRegistrationModel 
+{
 	@NotEmpty
 	@Size(min=9, max=10)
 	String studentNumber;
@@ -32,11 +33,13 @@ public class UserRegistrationModel {
 	
 	int gender;
 	
-	public int getGender() {
+	public int getGender() 
+	{
 		return gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(int gender) 
+	{
 		this.gender = gender;
 	}
 

@@ -13,13 +13,21 @@ import com.kyung.dto.User;
 public class UserService {
 	@Autowired UserMapper userMapper;
 	
+	@SuppressWarnings("unused")
 	public User login(String loginId, String password) {
 		User user = userMapper.findByStudentNumber(loginId);
-		if(user == null) 
+		System.out.println(user.getStudentNumber());
+		
+		if(user == null) {
 			return null;
+		}
 		String pw = Encryption.encrypt(password, Encryption.SHA256);
 		if(user.getPassword().equals(pw) == false) 
+		{
+			System.out.println("불일치");
 			return null;
+		}
+		System.out.println("일치");
 		return user;
 	}
 	

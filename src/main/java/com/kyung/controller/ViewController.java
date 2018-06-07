@@ -10,19 +10,19 @@ public class ViewController {
 	@RequestMapping("guest/join")
 	public String join(){
 		return "guest/join";
-	}
-	*/
 
 
 	@RequestMapping("guest/login")
 	public String login(){
 		return "guest/login";
 	}
-
+*/	
+	/*
 	@RequestMapping("main")
 	public String main(){
 		return "user/main";
 	}
+	*/
 
 	@RequestMapping("meeting")
 	public String meeting(){

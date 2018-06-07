@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kyung.dto.User;
 import com.kyung.dto.Department;
-import com.kyung.mapper.UserMapper;
 import com.kyung.service.UserService;
 import com.kyung.service.DepartmentService;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 	@Autowired UserService userService;
-	@Autowired UserMapper userMapper;
 	@Autowired DepartmentService departmentService;
-/*	
+
+	
 	@RequestMapping("user/main")
 	public String main()
 	{
-		return "main";
+		System.out.println("login success");
+		return "user/main";
 	}
 	
+/*
 	@RequestMapping("userList")
 	public String allUserList(Model model) 
 	{
