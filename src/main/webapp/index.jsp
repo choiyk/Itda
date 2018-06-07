@@ -57,7 +57,7 @@
 				성공회대학교의 다양한 모임을 경험해 보세요!
 			</div>
 			<div class="button">
-				<button class="btn" data-url="#">들어가기 <i class="ion-arrow-right-c"></i></button>
+				<button class="btn" data-url="guest/login">들어가기 <i class="ion-arrow-right-c"></i></button>
 			</div>
 		</div>
 	</div>

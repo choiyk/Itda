@@ -66,7 +66,7 @@
 <section>
 	<hr/>
 	<sec:authorize access="not authenticated">
-	<p class="text-center"><span class="bar_text" data-url="#">회원가입</span></p>
+	<p class="text-center"><span class="bar_text" data-url="join">회원가입</span></p>
 	</sec:authorize>
 </section>
 <%-- <section>

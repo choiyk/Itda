@@ -24,12 +24,15 @@ public class UserAuthenticationProvider implements AuthenticationProvider
 	{
 		String loginId = authentication.getName();
 		String passwd = authentication.getCredentials().toString();
+		System.out.println(loginId+" "+passwd);
 		return authenticate(loginId, passwd);
 	}
 	
-	public Authentication authenticate(String loginId, String password) throws AuthenticationException 
+	//@SuppressWarnings("unused")
+	public Authentication authenticate(String loginId, String passwd) throws AuthenticationException 
 	{
-		User user = userService.login(loginId, password);
+		User user = userService.login(loginId, passwd);
+		//System.out.println("authenticate:"+user.getStudentNumber());
 		if(user == null) return null;
 		
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
@@ -42,8 +45,9 @@ public class UserAuthenticationProvider implements AuthenticationProvider
 			role = "ROLE_USER";
 			break;
 		}
+		System.out.println(loginId+" "+" "+passwd+" "+role);
 		grantedAuthorities.add(new SimpleGrantedAuthority(role));
-		return new UserAuthentication(loginId, password, grantedAuthorities, user);
+		return new UserAuthentication(loginId, passwd, grantedAuthorities, user);
 	}
 	
 	@Override
@@ -57,7 +61,8 @@ public class UserAuthenticationProvider implements AuthenticationProvider
 		private static final long serialVersionUID = 1L;
 		User user;
 		
-		public UserAuthentication(String loginId, String passwd, List<GrantedAuthority> grantedAuthorities, User user) {
+		public UserAuthentication(String loginId, String passwd, 
+				List<GrantedAuthority> grantedAuthorities, User user) {
 			super(loginId, passwd, grantedAuthorities);
 			this.user = user;
 		}
