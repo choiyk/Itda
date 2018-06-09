@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import com.kyung.mapper.UserMapper;
+import com.kyung.model.UserRegistrationModel;
 import com.kyung.utils.Encryption;
 import com.kyung.dto.User;
 
@@ -13,10 +15,29 @@ import com.kyung.dto.User;
 public class UserService {
 	@Autowired UserMapper userMapper;
 	
-	@SuppressWarnings("unused")
+	public boolean hasErrors(UserRegistrationModel userModel, BindingResult bindingResult) 
+	{
+		if(bindingResult.hasErrors())
+		{
+			return true;
+		}
+		if(userModel.getPassword1().equals(userModel.getPassword2())==false)
+		{
+			bindingResult.rejectValue("password2", null, "비밀번호가 일치하지 않습니다.");
+			return true;
+		}
+		User user = userMapper.findByStudentNumber(userModel.getStudentNumber());
+		if(user != null)
+		{
+			bindingResult.rejectValue("studentNumber", null, "학번이 중복됩니다.");
+			return true;
+		}
+		return false;
+	}
+	
 	public User login(String loginId, String password) {
 		User user = userMapper.findByStudentNumber(loginId);
-		System.out.println(user.getStudentNumber());
+		//System.out.println(user.getStudentNumber());
 		
 		if(user == null) {
 			return null;
@@ -30,10 +51,22 @@ public class UserService {
 		System.out.println("일치");
 		return user;
 	}
-	
+	/*
 	public void join(User user) {
 		String password = Encryption.encrypt(user.getPassword(), Encryption.SHA256);
 		user.setPassword(password);
+		userMapper.insert(user);
+	}*/
+	
+	public void join(UserRegistrationModel userModel) {
+		User user = userModel.toUser();
+		String password = Encryption.encrypt(user.getPassword(), Encryption.SHA256);
+		
+		user.setPassword(password);
+		user.setType(2); // 2: user
+		if(user.getNickname() == "")
+			user.setNickname(user.getName());
+		
 		userMapper.insert(user);
 	}
 	
@@ -45,6 +78,12 @@ public class UserService {
 	
 	public User findOne(int id) {
 		User user = userMapper.findOne(id);
+		return user;
+	}
+	
+	public User findByStudentNumber(String studentNumber)
+	{
+		User user = userMapper.findByStudentNumber(studentNumber);
 		return user;
 	}
 	
