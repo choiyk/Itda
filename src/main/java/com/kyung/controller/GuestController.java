@@ -20,26 +20,28 @@ public class GuestController
 	@Autowired DepartmentService departmentService;
 	@Autowired UserService userService;
 	
-	/*
 	@RequestMapping({"/","guest/index"})
 	public String index() {
 		return "index";
 	}
 	
+	
 	@RequestMapping("guest/login")
 	public String login() {
 		return "guest/login";
 	}
-	*/
+	
 	
 	@RequestMapping(value="guest/join", method=RequestMethod.GET)
-	public String join(UserRegistrationModel userModel, Model model) {
+	public String join(UserRegistrationModel userModel, Model model) 
+	{
 		model.addAttribute("departments", departmentService.findAll());
 		return "guest/join";
 	}
 	
 	@RequestMapping(value="guest/join", method=RequestMethod.POST)
-	public String join(@Valid UserRegistrationModel userModel, Model model, BindingResult bindingResult) {
+	public String join(@Valid UserRegistrationModel userModel, Model model, BindingResult bindingResult) 
+	{
 		if(bindingResult.hasErrors())
 		{
 			model.addAttribute("departments", departmentService.findAll());
@@ -52,7 +54,7 @@ public class GuestController
 		return "guest/login";
 	}
 	
-	//로그인 성공 시 alert창 추가 예
+	//로그인 성공 시 alert창 추가 예정 
 	/*
 	@RequestMapping("success")
 	public String success()

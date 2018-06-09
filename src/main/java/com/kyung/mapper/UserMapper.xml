@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="findByStudentNumber" resultType="User">
-		SELECT * FROM User WHERE id = #{studentNumber}
+		SELECT * FROM User WHERE studentNumber = #{studentNumber}
 	</select>
 	
 	<select id="findByDepartmentId" resultType="User">
