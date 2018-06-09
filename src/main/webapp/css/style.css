@@ -838,7 +838,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #more-features p {
-  font-size: 14px;
+  font-size: 1rem;
   margin-bottom: 0;
   margin-right:150px;
   line-height: 24px;
@@ -870,7 +870,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding:10px;
   }
   #more-features p {
-  	font-size:0.6rem;
+  	font-size:0.7rem;
+  	text-overflow: unset;
+    overflow: visible;
+    white-space: normal;
   }
   #more-features .icon {
     float: right;

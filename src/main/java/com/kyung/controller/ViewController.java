@@ -16,7 +16,7 @@ public class ViewController {
 	public String login(){
 		return "guest/login";
 	}
-*/	
+*/
 	/*
 	@RequestMapping("main")
 	public String main(){
@@ -77,6 +77,16 @@ public class ViewController {
 	@RequestMapping("my_comment")
 	public String myComment(){
 		return "user/my_comment";
+	}
+
+	@RequestMapping("admin_mypage")
+	public String adminMypage(){
+		return "admin/admin_mypage";
+	}
+
+	@RequestMapping("admin_user")
+	public String adminUser(){
+		return "admin/admin_user";
 	}
 
 }
