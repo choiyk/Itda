@@ -46,6 +46,12 @@ $(function() {
 				"정말 탈퇴하시겠습니까?")){
 			alert("탈퇴되었습니다.");
 		}
+		console.log("test delete")
+	});
+	
+	$("#save").click(function(){
+		alert("저장되었습니다.");
+		console.log("test")
 	});
 	
 	$("#alarm").slideDown();

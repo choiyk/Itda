@@ -3,6 +3,8 @@ package com.kyung.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
@@ -15,23 +17,41 @@ import com.kyung.dto.User;
 public class UserService {
 	@Autowired UserMapper userMapper;
 	
+	public User getCurrentUser() 
+	{
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication instanceof UserAuthenticationProvider.UserAuthentication)
+			return ((UserAuthenticationProvider.UserAuthentication)authentication).getUser();
+		return null;
+	}
+	
+	public static void setCurrentUser(User user) 
+	{
+		((UserAuthenticationProvider.UserAuthentication)SecurityContextHolder.getContext()
+				.getAuthentication()).setUser(user);
+	}
+	
 	public boolean hasErrors(UserRegistrationModel userModel, BindingResult bindingResult) 
 	{
 		if(bindingResult.hasErrors())
 		{
 			return true;
 		}
+		
 		if(userModel.getPassword1().equals(userModel.getPassword2())==false)
 		{
 			bindingResult.rejectValue("password2", null, "비밀번호가 일치하지 않습니다.");
 			return true;
 		}
+		
 		User user = userMapper.findByStudentNumber(userModel.getStudentNumber());
+		
 		if(user != null)
 		{
 			bindingResult.rejectValue("studentNumber", null, "학번이 중복됩니다.");
 			return true;
 		}
+		
 		return false;
 	}
 	
@@ -99,6 +119,10 @@ public class UserService {
 	
 	public void update(User user) {
 		userMapper.update(user);
+	}
+	
+	public void edit(User user) {
+		userMapper.edit(user);
 	}
 	
 }

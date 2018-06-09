@@ -39,40 +39,6 @@ public class GuestController
 		return "guest/join";
 	}
 	
-	/*
-	private boolean isValid(UserRegistrationModel userModel, BindingResult bindingResult) 
-	{
-		if(userModel.getPassword1().equals(userModel.getPassword2())==false)
-		{
-			bindingResult.rejectValue("password2", null, "비밀번호가 일치하지 않습니다.");
-			return false;
-		}
-		User user = userService.findByStudentNumber(userModel.getStudentNumber());
-		if(user != null)
-		{
-			bindingResult.rejectValue("studentNumber", null, "학번이 중복됩니다.");
-			return false;
-		}
-		return true;
-	}
-	
-	@RequestMapping(value="guest/join", method=RequestMethod.POST)
-	public String join(@Valid UserRegistrationModel userModel, BindingResult bindingResult, Model model) 
-	{
-		if(bindingResult.hasErrors() || isValid(userModel, bindingResult)==false)
-		{
-			model.addAttribute("departments", departmentService.findAll());
-			return "guest/join";
-		}
-		User user = userModel.toUser();
-		user.setType(2); // 2: user
-		if(user.getNickname() == "")
-			user.setNickname(user.getName());
-		userService.join(user);
-		//return "redirect:success";
-		return "guest/login";
-	}*/
-	
 	@RequestMapping(value="guest/join", method=RequestMethod.POST)
 	public String join(@Valid UserRegistrationModel userModel, BindingResult bindingResult, Model model) 
 	{

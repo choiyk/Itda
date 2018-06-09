@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.antMatchers("/guest/**").permitAll()
 			.antMatchers("/").permitAll()
 			.antMatchers("/**").authenticated();
-		
+			//.antMatchers("/**").hasAnyRole("IS_AUTHENTICATED_ANONYMOUSLY","USER");
 		
 		http.csrf().disable();
 		
@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.loginPage("/guest/login")
 			.loginProcessingUrl("/guest/login_processing")
 			.failureUrl("/guest/login?error")
-			.defaultSuccessUrl("/user/main", true)
+			.defaultSuccessUrl("/main", true)
 			.usernameParameter("loginId")
 			.passwordParameter("passwd");
 		

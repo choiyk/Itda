@@ -43,7 +43,7 @@ public class ViewController {
 	public String meetingSetting(){
 		return "user/meeting_setting";
 	}
-
+/*
 	@RequestMapping("mypage")
 	public String mypage(){
 		return "user/mypage";
@@ -78,6 +78,7 @@ public class ViewController {
 	public String myComment(){
 		return "user/my_comment";
 	}
+	*/
 
 	@RequestMapping("admin_mypage")
 	public String adminMypage(){

@@ -35,7 +35,7 @@
 	
 	<update id="update">
 		UPDATE User SET
-			studentNumber = #{StudentNumber},
+			studentNumber = #{studentNumber},
 			name = #{name},
 			nickname = #{nickname},
 			password = #{password},
@@ -49,5 +49,15 @@
 	<delete id="delete">
 		DELETE FROM User WHERE id = #{id}
 	</delete>
+	
+	<update id="edit">
+		UPDATE User SET
+			name = #{name},
+			nickname = #{nickname},
+			departmentId = #{departmentId},
+			question = #{question},
+			answer = #{answer},
+			gender = #{gender}
+	</update>
 
 </mapper>
