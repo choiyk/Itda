@@ -5,33 +5,6 @@
 
 <section>
 	<div class="container">
-		<div class="form">
-			<form>
-				<div class="form-row">
-					<div class="form-group center col-lg-12">
-						<input type="text" name="meetingName" class="form-control" placeholder="모임명"/>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group center col-lg-12">
-						<textarea name="answer" class="form-control" rows="5">모임 설명</textarea>
-					</div>
-				</div>
-				<div>
-					<!-- <button class="btn pull-right" data-url="#">모임 폐쇄</button> -->
-					<button class="btn pull-right" data-url="#">저장</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</section>
-
-<div class="margin"></div>
-<div class="margin"></div>
-
-<section>
-	<div class="container">
-		<p class="text-center">회원 목록</p>
 		<div id="more-features" class="row">
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
@@ -41,7 +14,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="form">
+		<%-- <div class="form">
 			<form>
 				<div class="form-row">
 					<div class="form-group col-10">
@@ -63,11 +36,10 @@
 					<div class="comment">
 						<p class="title">201432036 (최윤경)</p>
 						<p class="description">소프트웨어공학과 / 여성  / 가입일: 2018.06.10</p>
-						<button class="icon" data-url="#">추가</button>
 					</div>	
 				</div>
 			</div>
-		</div>
+		</div> --%>
 	</div>
 </section>
 	
