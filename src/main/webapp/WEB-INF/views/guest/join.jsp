@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:url var="R" value="/" />
+<style> .error {color:red;} </style>
 
 <div class="margin"></div>
 
@@ -64,7 +65,7 @@
 							</div>
 							<div class="col-4 form-group">
 								<input type="radio" name="gender" id="male" value="2"/>
-								<label for="male">남</label>
+								<label for="male">남성</label>
 							</div>
 						</div>
 					</div>

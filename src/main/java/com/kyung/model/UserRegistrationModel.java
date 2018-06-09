@@ -1,5 +1,6 @@
 package com.kyung.model;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -7,20 +8,22 @@ import com.kyung.dto.User;
 
 public class UserRegistrationModel 
 {
-	@NotEmpty
-	@Size(min=9, max=10)
+	@NotEmpty(message="학번을 입력하세요")
+	@Size(min=9, max=10, message="9~10자리만 가능합니다")
+	@Min(value=1, message="양의 정수를 입력하세요")
 	String studentNumber;
 
-	@NotEmpty
-	@Size(min=8, max=15)
+	@NotEmpty(message="비밀번호를 입력하세요")
+	@Size(min=8, max=15, message="8~15자리만 가능합니다")
 	String password1;
 	String password2;
 	
-	@NotEmpty
+	@NotEmpty(message="이름을 입력하세요")
 	@Size(min=2, max=20)
 	String name;
 	
-	@Size(min=2, max=20)
+	// @Size(min=2, max=20)
+	// 입력할 때만 출력되어야 함 
 	String nickname;
 	
 	int gender;

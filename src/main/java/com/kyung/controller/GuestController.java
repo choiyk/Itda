@@ -40,7 +40,7 @@ public class GuestController
 	}
 	
 	@RequestMapping(value="guest/join", method=RequestMethod.POST)
-	public String join(@Valid UserRegistrationModel userModel, Model model, BindingResult bindingResult) 
+	public String join(@Valid UserRegistrationModel userModel, BindingResult bindingResult, Model model) 
 	{
 		if(bindingResult.hasErrors())
 		{
