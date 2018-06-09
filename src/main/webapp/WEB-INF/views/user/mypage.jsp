@@ -7,27 +7,27 @@
 	<div class="container">
 		<div id="more-features" class="row">
 			<div class="col-6">
-				<div class="box" data-url="#">
+				<div class="box" data-url="myinfo_setting">
 					<p class="bigbutton">회원 정보 수정</p>
 				</div>
 			</div>
 			<div class="col-6">
-				<div class="box" data-url="#">
+				<div class="box" data-url="my_article">
 					<p class="bigbutton">내가 쓴 글</p>
 				</div>
 			</div>
 			<div class="col-6">
-				<div class="box" data-url="#">
+				<div class="box" data-url="mypw_auth">
 					<p class="bigbutton">비밀번호 변경</p>
 				</div>
 			</div>
 			<div class="col-6">
-				<div class="box" data-url="#">
+				<div class="box" data-url="my_comment">
 					<p class="bigbutton">내가 쓴 댓글</p>
 				</div>
 			</div>
 			<div class="col-6">
-				<div class="box" data-url="#">
+				<div class="box" data-url="my_meeting">
 					<p class="bigbutton">내 모임</p>
 				</div>
 			</div>

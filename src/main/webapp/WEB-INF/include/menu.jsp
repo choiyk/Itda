@@ -9,8 +9,8 @@
 			<h1 data-url="main">Itda</h1>
 		</div>
 		<div id="myInf" >
-			<div class="myInf_icon" data-url="#"><sec:authentication property="user.firstChar"/></div>
-			<p class="myInf_text" data-url="#"><sec:authentication property="user.name"/></p>
+			<div class="myInf_icon" data-url="mypage"><sec:authentication property="user.firstChar"/></div>
+			<p class="myInf_text" data-url="mypage"><sec:authentication property="user.name"/></p>
 		</div>
 	</div>
 </header>
