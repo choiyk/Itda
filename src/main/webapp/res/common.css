@@ -120,12 +120,12 @@
 }
 
 #content{
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 @media (max-width: 768px) {
 	#content{
-		margin-top: 50px;
+		margin-top: 20px;
 		font-size: 0.7rem;
 	}
 }
@@ -144,6 +144,23 @@
 	.form-control{
 		font-size:0.7rem;
 	}	
+	
+	#category select.form-control:not([size]):not([multiple]) {
+	    height: 20px;
+	}
+	
+	#category{
+		height:100%;
+	}
+	
+	#category-btn{
+		height:100%;
+	}
+	
+	#category-btn p{
+		margin-bottom:0px;
+	}
+
 	#category .form-control{
 		padding: 1px;
 	}

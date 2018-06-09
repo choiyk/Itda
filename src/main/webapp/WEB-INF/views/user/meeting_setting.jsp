@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:url var="R" value="/" />
 
-<section>
+<section id="content">
 	<div class="container">
 		<div class="form">
 			<form>
@@ -26,7 +26,6 @@
 	</div>
 </section>
 
-<div class="margin"></div>
 <div class="margin"></div>
 
 <section>

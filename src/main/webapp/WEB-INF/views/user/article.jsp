@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 
-<section>
+<section id="content">
 	<div class="container">
 		<p class="article-inf">최윤경 / 2018.05.23 10:30</p>
 		<p class="article-category">일정</p>
