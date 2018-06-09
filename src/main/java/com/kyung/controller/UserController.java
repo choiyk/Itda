@@ -20,7 +20,7 @@ public class UserController {
 	@Autowired DepartmentService departmentService;
 
 	
-	@RequestMapping("user/main")
+	@RequestMapping({"main","user/main"})
 	public String main()
 	{
 		System.out.println("login success");

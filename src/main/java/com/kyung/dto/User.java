@@ -14,6 +14,8 @@ public class User {
 	//@Size(min=2)
 	String name;
 	
+	char firstChar;
+	
 	String nickname;
 	
 	//@NotEmpty
@@ -87,22 +89,38 @@ public class User {
 	{
 		this.departmentId = departmentId;
 	}
-	public String getQuestion() {
+	public String getQuestion() 
+	{
 		return question;
 	}
-	public void setQuestion(String question) {
+	public void setQuestion(String question) 
+	{
 		this.question = question;
 	}
-	public String getAnswer() {
+	public String getAnswer() 
+	{
 		return answer;
 	}
-	public void setAnswer(String answer) {
+	public void setAnswer(String answer) 
+	{
 		this.answer = answer;
 	}
-	public int getType() {
+	public int getType() 
+	{
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(int type) 
+	{
 		this.type = type;
 	}	
+	
+	public char getFirstChar() 
+	{
+		this.firstChar = this.name.charAt(0);
+		return firstChar;
+	}
+	public void setFirstChar(char firstChar) 
+	{
+		this.firstChar = firstChar;
+	}
 }

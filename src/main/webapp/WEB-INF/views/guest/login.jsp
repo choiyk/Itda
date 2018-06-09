@@ -13,7 +13,6 @@
 
 <section>
 	<div class="container">
-		<sec:authorize access="not authenticated">
 			<p class="text-center">로그인</p>
 			<div class="form">
 				<form method="post" action="login_processing">
@@ -35,7 +34,6 @@
 					<div class="mt5">로그인 실패</div>
 				</c:if>
 			</div>
-		</sec:authorize>
 		
 		<!-- <p class="text-center">로그인</p>
 			<div class="form">
