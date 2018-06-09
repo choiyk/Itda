@@ -2,23 +2,27 @@ package com.kyung.model;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.kyung.dto.User;
 
 public class UserRegistrationModel 
 {
-	@NotEmpty(message="학번을 입력하세요")
-	@Size(min=9, max=10, message="9~10자리만 가능합니다")
-	@Min(value=1, message="양의 정수를 입력하세요")
+	@NotEmpty(message="학번을 입력하세요.")
+	@Size(min=9, max=10, message="9~10자리만 가능합니다.")
+	@Pattern(regexp="20[0-9]{7,8}", message="올바른 학번을 입력하세요.")
 	String studentNumber;
 
-	@NotEmpty(message="비밀번호를 입력하세요")
-	@Size(min=8, max=15, message="8~15자리만 가능합니다")
+	@NotEmpty(message="비밀번호를 입력하세요.")
+	@Size(min=8, max=15)
+	@Pattern(regexp="^(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,}$",
+				message="하나 이상의 특수문자를 포함해야합니다.")
 	String password1;
 	String password2;
 	
-	@NotEmpty(message="이름을 입력하세요")
+	@NotEmpty(message="이름을 입력하세요.")
+	@Pattern(regexp="^[가-힇]*$", message="한글만 입력 가능합니다.")
 	@Size(min=2, max=20)
 	String name;
 	
