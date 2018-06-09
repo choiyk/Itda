@@ -7,7 +7,7 @@
 
 <section>
 	<div class="container text-center">
-		<img id="main_logo_img" src="${R}img/logo2-1.png">
+		<img id="main_logo_img" src="${R}img/logo2-1.png" data-url="/itda/">
 	</div>
 </section>
 
@@ -59,12 +59,12 @@
 								<label>성별</label>
 							</div>
 							<div class="col-4 form-group">
-								<input type="radio" name="gender" id="female" value="1"/>
+								<input type="radio" name="gender" id="female" value="1" checked="checked"/>
 								<label for="female">여성</label>
 							</div>
 							<div class="col-4 form-group">
 								<input type="radio" name="gender" id="male" value="2"/>
-								<label for="male">여성</label>
+								<label for="male">남</label>
 							</div>
 						</div>
 					</div>

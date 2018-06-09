@@ -17,21 +17,21 @@ public class UserRegistrationModel
 	String password2;
 	
 	@NotEmpty
-	@Size(min=2, max=30)
+	@Size(min=2, max=20)
 	String name;
 	
-	@Size(min=2, max=30)
+	@Size(min=2, max=20)
 	String nickname;
+	
+	int gender;
 	
 	Integer departmentId;
 	
 	//@NotEmpty
 	String question;
 	
-	//@NotEmpty
+	@NotEmpty
 	String answer;
-	
-	int gender;
 	
 	public int getGender() 
 	{
@@ -43,8 +43,8 @@ public class UserRegistrationModel
 		this.gender = gender;
 	}
 
-	public User toUser() 
-	{ //UserRegistrationModel to User Object
+	public User toUser() //UserRegistrationModel to User Object 
+	{ 
 		User user = new User();
 		user.setStudentNumber(this.studentNumber);
 		user.setPassword(this.password1);

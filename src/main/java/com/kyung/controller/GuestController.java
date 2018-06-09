@@ -20,7 +20,7 @@ public class GuestController
 	@Autowired DepartmentService departmentService;
 	@Autowired UserService userService;
 	
-	@RequestMapping({"/","guest/index"})
+	@RequestMapping({"/","/index"})
 	public String index() {
 		return "index";
 	}
