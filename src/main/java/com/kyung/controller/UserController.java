@@ -44,7 +44,8 @@ public class UserController {
 	public String myinfoSetting(UserModificationModel userModel, Model model)
 	{
 		System.out.println("info get");
-		User user = userService.getCurrentUser();
+		User user = userService.getCurrentUser(); //
+		user = userService.findOne(user.getId());
 		model.addAttribute("user",user);
 		//model.addAttribute("department", user.getDepartmentId());
 		model.addAttribute("departments", departmentService.findAll());
