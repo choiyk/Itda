@@ -113,6 +113,12 @@
 	display: inline-block;
 }
 
+.myInf_text2{
+	font-family: "Montserrat", sans-serif;
+	display:inline-block;
+	float:right;
+}
+
 @media (max-width: 768px) {
 	 .myInf_text{
 		display:none;
