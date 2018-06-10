@@ -194,9 +194,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("delete")
-	public String delete(Model model, @RequestParam("id")int id)
+	public String delete()
 	{
-		userService.delete(id);
-		return "main";
+		User user = userService.getCurrentUser();
+		userService.delete(user.getId());
+		return "redirect:/";
 	}
 }
