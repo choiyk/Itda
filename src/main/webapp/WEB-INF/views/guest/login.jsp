@@ -18,7 +18,12 @@
 				<form method="post" action="login_processing">
 					<div class="form-row">
 						<div class="form-group center col-lg-8">
+						<c:if test="${ param.error == null }">
 							<input type="text" name="loginId" class="form-control" placeholder="학번">
+						</c:if>
+						<c:if test="${ param.error != null }">
+							<input type="text" name="loginId" class="form-control" value="${loginId}">
+						</c:if>
 						</div>
 					</div>
 					<div class="form-row">
@@ -30,10 +35,10 @@
 						<button class="btn" type="submit" title="login">로그인</button>
 					</div>
 				</form>
-				<c:if test="${ param.error != null }">
-					<div class="mt5">로그인 실패</div>
-				</c:if>
 			</div>
+			<script>
+				if(${param.error!=null}){alert("아이디 혹은 비밀번호를 확인하세요.");};
+			</script>
 		
 		<!-- <p class="text-center">로그인</p>
 			<div class="form">

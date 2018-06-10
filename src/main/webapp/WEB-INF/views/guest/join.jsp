@@ -8,7 +8,7 @@
 
 <section>
 	<div class="container text-center">
-		<img id="main_logo_img" src="${R}img/logo2-1.png" data-url="/itda/">
+		<img id="main_logo_img" src="${R}img/logo2-1.png" data-url="${R}guest/login">
 	</div>
 </section>
 

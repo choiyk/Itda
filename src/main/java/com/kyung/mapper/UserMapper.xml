@@ -58,6 +58,7 @@
 			question = #{question},
 			answer = #{answer},
 			gender = #{gender}
+		WHERE studentNumber = #{studentNumber}
 	</update>
 
 	<update id="pwUpdate">
