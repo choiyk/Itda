@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kyung.dto.User;
 import com.kyung.model.UserModificationModel;
+import com.kyung.model.UserPasswdModificationModel;
+import com.kyung.model.UserPasswordCheckModel;
 import com.kyung.model.UserRegistrationModel;
 import com.kyung.dto.Department;
 import com.kyung.service.UserService;
+import com.kyung.utils.Encryption;
 import com.kyung.service.DepartmentService;
 
 @Controller
@@ -68,36 +71,63 @@ public class UserController {
 		System.out.println("정보변경 진행중2");
 		userService.edit(user);
 		System.out.println("정보변경 성공");
-		return "user/mypage";
+		return "redirect:mypage";
 	}
 	
-	/*
-	@RequestMapping(value="myinfo_setting", method=RequestMethod.POST)
-	public String myinfoSetting(@Valid UserModificationModel userModel, BindingResult bindingResult, Model model)
-	{
-		System.out.println("정보 변경");
-		if(userService.hasErrors(userModel, bindingResult))
-		{
-			System.out.println("정보 변경 에러");
-			User user = userService.getCurrentUser();
-			model.addAttribute("user", user);
-			model.addAttribute("departments", departmentService.findAll());
-			return "user/myinfo_setting";
-		}
-		User user = userModel.toUser();
-		userService.update(user);
-		return "user/mypage";
-	}*/
 
-	@RequestMapping("mypw_auth")
-	public String mypw_auth()
+	@RequestMapping(value="mypw_auth", method=RequestMethod.GET)
+	public String mypw_auth(UserPasswordCheckModel userModel, Model model)
 	{
+		System.out.println("mypw_auth get");
 		return "user/mypw_auth";
 	}
 
-	@RequestMapping("mypw_setting")
-	public String mypwSetting()
+	@RequestMapping(value="mypw_auth", method=RequestMethod.POST)
+	public String mypw_auth(@Valid UserPasswordCheckModel userModel, BindingResult bindingResult, Model model)
 	{
+		System.out.println("mypw_auth post");
+		User user = userService.getCurrentUser();
+		user = userService.findOne(user.getId());
+		String password = userModel.getPassword();
+		password = Encryption.encrypt(password, Encryption.SHA256);
+		
+		if(userService.passwordComparison(user.getPassword(), password, bindingResult)) // equal == true
+		{	
+			System.out.println("pw 일치");
+			return "redirect:mypw_setting";
+		}
+		else
+		{
+			System.out.println("pw 불일치");
+			return "user/mypw_auth";
+		}
+	}
+	
+	@RequestMapping(value="mypw_setting", method=RequestMethod.GET)
+	public String mypwSetting(UserPasswdModificationModel userModel, Model model)
+	//public String mypwSetting()
+	{
+		System.out.println("pw setting get");
+		return "user/mypw_setting";
+	}
+	
+	@RequestMapping(value="mypw_setting", method=RequestMethod.POST)
+	public String mypwSetting(@Valid UserPasswdModificationModel userModel, BindingResult bindingResult, Model model)
+	{
+		System.out.println("pw setting post");
+		if(bindingResult.hasErrors()) 
+		{
+			System.out.println("pw1,2 형식 에러");
+			return "user/mypw_setting";
+		}
+		if(userService.passwordComparisonEdit(userModel.getPassword1(), userModel.getPassword2(), bindingResult)) 
+		{
+			System.out.println("pw1,2 같음");
+			User user = userService.getCurrentUser();
+			System.out.println(userModel.getPassword1());
+			userService.pwUpdate(user, userModel.getPassword1());
+			return "redirect:mypage";
+		}
 		return "user/mypw_setting";
 	}
 

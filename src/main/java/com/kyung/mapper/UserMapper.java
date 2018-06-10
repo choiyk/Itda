@@ -3,6 +3,7 @@ package com.kyung.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.kyung.dto.User;
 
@@ -18,4 +19,5 @@ public interface UserMapper {
 	void update(User user);
 	void delete(int id);
 	void edit(User user);
+	void pwUpdate(@Param("password") String password, @Param("studentNumber") String studentNumber);
 }

@@ -17,6 +17,28 @@ import com.kyung.dto.User;
 public class UserService {
 	@Autowired UserMapper userMapper;
 	
+	public boolean passwordComparisonEdit(String pw1, String pw2, BindingResult bindingResult)
+	{	
+		if(pw1.equals(pw2) == false)
+		{
+			bindingResult.rejectValue("password2", null, "비밀번호가 일치하지 않습니다.");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public boolean passwordComparison(String pw1, String pw2, BindingResult bindingResult)
+	{	
+		if(pw1.equals(pw2) == false)
+		{
+			bindingResult.rejectValue("password", null, "비밀번호가 일치하지 않습니다.");
+			return false;
+		}
+		
+		return true;
+	}
+	
 	public User getCurrentUser() 
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -117,12 +139,23 @@ public class UserService {
 		userMapper.delete(id);
 	}
 	
-	public void update(User user) {
+	public void update(User user) 
+	{
 		userMapper.update(user);
 	}
 	
-	public void edit(User user) {
+	public void edit(User user) 
+	{
 		userMapper.edit(user);
+	}
+	
+	public void pwUpdate(User user,String password)
+	{
+		System.out.println("pwUpdate:"+password);
+		password = Encryption.encrypt(password, Encryption.SHA256);
+		String studentNumber = user.getStudentNumber();
+		System.out.println("pwUpdate:"+password+" "+studentNumber);
+		userMapper.pwUpdate(password, studentNumber);
 	}
 	
 }

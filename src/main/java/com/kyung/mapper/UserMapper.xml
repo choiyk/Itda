@@ -60,4 +60,10 @@
 			gender = #{gender}
 	</update>
 
+	<update id="pwUpdate">
+		UPDATE User SET
+			password = #{password}
+		WHERE 
+			studentNumber = #{studentNumber}
+	</update>
 </mapper>
