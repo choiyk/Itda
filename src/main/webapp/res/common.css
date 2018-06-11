@@ -58,9 +58,9 @@
 	text-align: center;
     line-height: 2.5rem;
     margin-top:30px;
-    font-family: 'Sunflower', sans-serif;
+    /* font-family: 'Sunflower', sans-serif; */
     /* font-family: 'Poor Story', cursive; */
-    /* font-family: 'Nanum Gothic Coding', monospace; */
+    font-family: 'Nanum Gothic Coding', monospace;
 }
 
 #index img{

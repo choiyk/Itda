@@ -24,6 +24,11 @@ public class ViewController {
 	}
 	*/
 
+	@RequestMapping("redirect")
+	public String redirect(){
+		return "redirect";
+	}
+
 	@RequestMapping("meeting")
 	public String meeting(){
 		return "user/meeting";
