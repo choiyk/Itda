@@ -11,9 +11,7 @@
 		<div id="myInf" >
 			<div class="myInf_icon" data-url="${R}mypage"><sec:authentication property="user.firstChar"/></div>
 			<p class="myInf_text" data-url="${R}mypage"><sec:authentication property="user.name"/></p>
-		</div>
-		<div id="myInf" >
-			<p class="myInf_text" data-url="${R}user/logout_processing">로그아웃</p>
+			<p class="myInf_text pull-right" data-url="${R}user/logout_processing">로그아웃</p>
 		</div>
 	</div>
 </header>
