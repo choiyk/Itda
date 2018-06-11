@@ -17,12 +17,14 @@
 		<put-attribute name="body" value="/WEB-INF/views/user/{1}.jsp" />
 	</definition>
 	
-	<definition name="guest/login" extends="layout_user">
-		<put-attribute name="body" value="/WEB-INF/views/guest/login.jsp"/>
+	<definition name="admin/*" extends="layout_user">
+		<put-attribute name="menu" value="/WEB-INF/include/menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp" />
 	</definition>
 	
-	<definition name="guest/join" extends="layout_user">
-		<put-attribute name="body" value="/WEB-INF/views/guest/join.jsp"/>
+	<definition name="guest/*" extends="layout_user">
+		<put-attribute name="body" value="/WEB-INF/views/guest/{1}.jsp"/>
 	</definition>
+	
 	
 </tiles-definitions>
