@@ -56,7 +56,6 @@
 
 #index .sub{
 	text-align: center;
-    font-size: 1.2rem;
     line-height: 2.5rem;
     margin-top:30px;
     font-family: 'Sunflower', sans-serif;
@@ -86,7 +85,6 @@
 @media (max-width: 768px) {
 	
 	#index .sub{
-	    font-size: 0.8rem;
 	    line-height: 1.5rem;
 	    width: 85%;
 	    margin: 0 auto;
