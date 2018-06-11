@@ -44,9 +44,14 @@ public class UserController {
 	public String myinfoSetting(UserModificationModel userModel, Model model)
 	{
 		System.out.println("info get");
-		User user = userService.getCurrentUser(); //
+		User user = userService.getCurrentUser(); 
 		user = userService.findOne(user.getId());
-		model.addAttribute("user",user);
+		
+		//System.out.println("userModel nickname:"+userModel.getNickname());
+		userModel = userModel.inputUser(user);
+		
+		//System.out.println(userModel.getGender());
+		model.addAttribute("userModificationModel",userModel);
 		//model.addAttribute("department", user.getDepartmentId());
 		model.addAttribute("departments", departmentService.findAll());
 		return "user/myinfo_setting";
@@ -57,18 +62,20 @@ public class UserController {
 	{
 		System.out.println("정보 변경");
 		User currentUser = userService.getCurrentUser();
-		UserRegistrationModel userRegModel = userModel.toRegistrationUser(currentUser);
-
-		/*if(bindingResult.hasErrors())
+		currentUser = userService.findOne(currentUser.getId());
+	
+		if(bindingResult.hasErrors())
 		{
 			System.out.println("정보 변경 에러");
 			User user = userService.getCurrentUser();
 			model.addAttribute("user", user);
 			model.addAttribute("departments", departmentService.findAll());
 			return "user/myinfo_setting";
-		}*/
+		}
 		System.out.println("정보변경 진행중");
-		User user = userRegModel.toUser();
+		
+		User user = userModel.toUser(currentUser); // add pw
+
 		System.out.println("정보변경 진행중2");
 		userService.edit(user);
 		System.out.println("정보변경 성공");

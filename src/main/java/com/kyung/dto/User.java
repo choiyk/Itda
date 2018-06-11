@@ -1,5 +1,7 @@
 package com.kyung.dto;
 
+import com.kyung.model.UserModificationModel;
+
 public class User {
 	int id;
 
@@ -29,6 +31,17 @@ public class User {
 	//@NotEmpty
 	int gender;
 
+	public UserModificationModel toModificationUser(User user) 
+	{
+		UserModificationModel userModel = new UserModificationModel();
+		
+		userModel.setNickname(this.nickname);
+		userModel.setDepartmentId(this.departmentId);
+		userModel.setQuestion(this.question);
+		userModel.setAnswer(this.answer);
+		
+		return userModel;
+	}
 
 	public int getGender()
 	{
