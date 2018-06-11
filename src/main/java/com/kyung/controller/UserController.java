@@ -63,7 +63,7 @@ public class UserController {
 		System.out.println("정보 변경");
 		User currentUser = userService.getCurrentUser();
 		currentUser = userService.findOne(currentUser.getId());
-		
+
 		if(bindingResult.hasErrors())
 		{
 			System.out.println("정보 변경 에러");
@@ -73,7 +73,7 @@ public class UserController {
 			return "user/myinfo_setting";
 		}
 		System.out.println("정보변경 진행중");
-		User user = userModel.toUser(currentUser);
+		User user = userModel.toUser(currentUser); // add pw
 		System.out.println("정보변경 진행중2");
 		userService.edit(user);
 		System.out.println("정보변경 성공");
