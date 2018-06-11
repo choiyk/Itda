@@ -7,10 +7,14 @@
 	<div class="container">
 		<div id="more-features" class="row">
 			<div class="col-lg-12">
-				<div class="box" data-url="#">
-					<p class="title">201432036 (최윤경)</p>
-					<p class="description">소프트웨어공학과 / 여성  / 가입일: 2018.06.10</p>
-					<button class="icon" data-url="#">삭제</button>
+				<div class="box">
+					<!-- <div class="comment">
+						<div>가입한 회원이 없습니다.</div>
+					</div> -->
+					<div class="comment">
+						<div>201432036 (최윤경) <span class="description">소프트웨어공학과 / 여성  / 가입일: 2018.06.10</span></div>
+						<!-- <p class="description">소프트웨어공학과 / 여성  / 가입일: 2018.06.10</p> -->
+					</div>	
 				</div>
 			</div>
 		</div>
