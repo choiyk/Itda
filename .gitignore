@@ -9,9 +9,8 @@
 .settings
 .springBeans
 .sts4-cache
-*.properties
+.properties
 .metadata
-application.properties
 
 ### IntelliJ IDEA ###
 .idea
