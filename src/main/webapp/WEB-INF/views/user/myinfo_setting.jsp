@@ -15,33 +15,36 @@
 			<form:form method="post" modelAttribute="userModificationModel">
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
+					
 						<label for="studentNumber">학번</label>
-						<input type="text" name="studentNumber" class="form-control" placeholder="학번" value="${user.studentNumber}" readonly>						
+						<form:input path="studentNumber" type="text" name="studentNumber" class="form-control" readonly="true"/>						
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
 						<label for="name">이름</label>
-						<input type="text" name="name" class="form-control" placeholder="이름" value="${user.name}" readonly>
+						<form:input path="name" type="text" name="name" class="form-control" readonly="true"/>
 					</div>
 				</div>
+				
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
 						<label for="nickname">닉네임</label>
-						<form:input path="nickname" type="text" name="nickname" class="form-control" placeholder="닉네임" value="${user.nickname}"/>
+						<form:input path="nickname" type="text" name="nickname" class="form-control" placeholder="닉네임" />
 						<form:errors path="nickname" class="error"/>
 					</div>
 				</div>
 				
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
-						<label for="gender">성별</label>
-						<c:if test="${user.gender == 1 }">
-							<input type="text" name="gender" class="form-control" placeholder="성별" value="여" readonly>
-						</c:if>
-						<c:if test="${user.gender == 2 }">
-							<input type="text" name="gender" class="form-control" placeholder="성별" value="남" readonly>
-						</c:if>
+							<label for="gender">성별</label>
+							
+								<c:if test="${ userModificationModel.gender == 1 }">
+									<input name="gender" type="text" class="form-control" id="female" placeholder="여성" readonly="true">
+								</c:if>
+								<c:if test="${userModificationModel.gender == 2 }">
+									<input name="gender" type="text" class="form-control" id="male" placeholder="남성" readonly="true">
+								</c:if>
 					</div>
 				</div>
 				
@@ -63,7 +66,7 @@
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
 						<label for="answer">비밀번호 답변</label>
-						<form:input path="answer" type="text" name="answer" class="form-control" placeholder="답변" value="${user.answer}"/>
+						<form:input path="answer" type="text" name="answer" class="form-control" placeholder="답변"/>
 						<form:errors path="answer" class="error"/>
 					</div>
 				</div>
