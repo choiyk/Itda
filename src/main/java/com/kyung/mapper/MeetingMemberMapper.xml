@@ -23,6 +23,11 @@
 			member = #{member}
 	</update>
 	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT MeetingMember (meetingId, memberId)
+		VALUES (#{meetingId}, #{memberId})
+	</insert>
+	
 	<delete id="delete">
 		DELETE FROM MeetingMember 
 		WHERE meetingId = #{meetingId} 

@@ -31,7 +31,7 @@
 	</update>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT Meeting(name, explain, leader)
+		INSERT Meeting (name, meeting.explain, leader)
 		VALUES (#{name}, #{explain}, #{leader})
 	</insert>
 	

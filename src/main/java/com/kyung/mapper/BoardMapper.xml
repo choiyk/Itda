@@ -11,7 +11,7 @@
 	</select>
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT Board(meetingId, name)
-		VALUES (#{meetindId}, #{name})
+		VALUES (#{meetingId}, #{name})
 	</insert>
 	<delete id="delete">
 		delete FROM Board WHERE id = #{id}

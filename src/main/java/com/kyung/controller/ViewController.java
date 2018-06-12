@@ -28,12 +28,12 @@ public class ViewController {
 	public String redirect(){
 		return "redirect";
 	}
-
+/*
 	@RequestMapping("meeting")
 	public String meeting(){
 		return "user/meeting";
 	}
-
+*/
 	@RequestMapping("article")
 	public String article(){
 		return "user/article";
@@ -43,12 +43,12 @@ public class ViewController {
 	public String articleWrite(){
 		return "user/article_write";
 	}
-
+/*
 	@RequestMapping("meeting_setting")
 	public String meetingSetting(){
 		return "user/meeting_setting";
 	}
-/*
+
 	@RequestMapping("mypage")
 	public String mypage(){
 		return "user/mypage";
