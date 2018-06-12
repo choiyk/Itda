@@ -35,8 +35,10 @@ public class UserController {
 	}
 
 	@RequestMapping("mypage")
-	public String mypage()
+	public String mypage(Model model)
 	{
+		User user = userService.getCurrentUser();
+		model.addAttribute("user",user);
 		return "user/mypage";
 	}
 

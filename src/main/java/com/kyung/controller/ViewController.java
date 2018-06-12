@@ -89,11 +89,11 @@ public class ViewController {
 	public String adminMypage(){
 		return "admin/admin_mypage";
 	}
-
+/*
 	@RequestMapping("admin_user")
 	public String adminUser(){
 		return "admin/admin_user";
 	}
-
+*/
 }
 

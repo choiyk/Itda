@@ -31,11 +31,20 @@
 					<p class="bigbutton">내 모임</p>
 				</div>
 			</div>
+			<c:if test="${user.type == 1 }">
+			<div class="col-6">
+				<div id="withdraw" class="box" data-url="admin_user">
+					<p class="bigbutton">회원 관리</p>
+				</div>
+			</div>
+			</c:if>
+			<c:if test="${user.type == 2 }">
 			<div class="col-6">
 				<div id="withdraw" class="box" data-url="delete">
 					<p class="bigbutton">탈퇴</p>
 				</div>
 			</div>
+			</c:if>
 		</div>
 	</div>
 </section>
