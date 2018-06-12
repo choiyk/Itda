@@ -128,6 +128,12 @@ public class UserService {
 		User user = userMapper.findByStudentNumber(studentNumber);
 		return user;
 	}
+	
+	public User findByName(String name)
+	{
+		User user = userMapper.findByName(name);
+		return user;
+	}
 
 	public void create(User user)
 	{

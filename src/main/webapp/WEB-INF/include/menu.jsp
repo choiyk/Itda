@@ -33,5 +33,5 @@
 <div class="margin"></div>
 
 <section id="content">
-	<div class="text-center">메뉴 이름</div>
+	<div class="text-center">${ menu }</div>
 </section>

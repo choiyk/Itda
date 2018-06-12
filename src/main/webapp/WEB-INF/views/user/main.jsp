@@ -41,7 +41,7 @@
 <section>
 	<div class="container">
 		<div class="add-icon">
-			<i class="ion-ios-plus-outline" data-url="#"></i>
+			<i class="ion-ios-plus-outline" data-url="meeting_create"></i>
 		</div>
 	</div>
 </section>
