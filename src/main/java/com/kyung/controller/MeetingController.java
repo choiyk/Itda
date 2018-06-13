@@ -24,10 +24,10 @@ public class MeetingController {
 	@Autowired UserService userService;
 	@Autowired MeetingService meetingService;
 	
-	@RequestMapping("meeting")
+	@RequestMapping(value="meeting", method=RequestMethod.GET)
 	public String meeting(Model model)
 	{
-		System.out.println("meeting");
+		System.out.println("meeting"); //menu 출력 
 		return "user/meeting";
 	}
 	
@@ -55,7 +55,7 @@ public class MeetingController {
 		System.out.println("requestparam : "+ request.getParameter("explain"));
 		meetingService.create(meetingModel, user);
 		
-		return "forward:meeting";
+		return "redirect:meeting";
 	}
 
 	@RequestMapping(value="usersave", method=RequestMethod.GET)

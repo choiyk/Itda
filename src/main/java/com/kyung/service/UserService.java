@@ -1,5 +1,6 @@
 package com.kyung.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.mapper.UserMapper;
 import com.kyung.model.UserRegistrationModel;
@@ -16,6 +18,14 @@ import com.kyung.utils.Encryption;
 @Service
 public class UserService {
 	@Autowired UserMapper userMapper;
+	
+	public List<Meeting> userJoinMeetings(int userId)
+	{
+		List<Meeting> list=userMapper.userJoinMeetings(userId);
+		//test
+		//for(Meeting m : list) System.out.println(m.getName());
+		return list;
+	}
 
 	public boolean passwordComparisonEdit(String pw1, String pw2, BindingResult bindingResult)
 	{

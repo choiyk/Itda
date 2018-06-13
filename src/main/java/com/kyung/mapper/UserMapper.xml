@@ -4,6 +4,12 @@
 
 <mapper namespace="com.kyung.mapper.UserMapper">
 
+	<select id="userJoinMeetings" resultType="Meeting">
+		SELECT * FROM Meeting LEFT JOIN MeetingMember
+		ON Meeting.id = MeetingMember.meetingId
+		WHERE MeetingMember.memberId = #{id}
+	</select>
+	
 	<select id="findOne" resultType="User">
 		SELECT * FROM User WHERE id = #{id}
 	</select>

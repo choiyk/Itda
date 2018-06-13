@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kyung.dto.Department;
+import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.model.UserModificationModel;
 import com.kyung.model.UserPasswdModificationModel;
@@ -28,9 +29,15 @@ public class UserController {
 	@Autowired DepartmentService departmentService;
 
 	@RequestMapping("main")
-	public String main()
+	public String main(Model model)
 	{
 		System.out.println("login success");
+		User user = userService.getCurrentUser();
+		List<Meeting> list = userService.userJoinMeetings(user.getId());
+		if(list.size()>0) System.out.println(list.get(0));
+		else System.out.println("null");
+		model.addAttribute("meetings",list);
+		//model.addAttribute("id",user.getId());
 		return "user/main";
 	}
 
