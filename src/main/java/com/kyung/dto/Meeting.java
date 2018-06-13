@@ -4,7 +4,7 @@ public class Meeting {
 	int id;
 	String name;
 	String explain;
-	int leader; // f.k
+	//int leader; // f.k
 	
 	public int getId() 
 	{
@@ -29,14 +29,6 @@ public class Meeting {
 	public void setExplain(String explain) 
 	{
 		this.explain = explain;
-	}
-	public int getLeader() 
-	{
-		return leader;
-	}
-	public void setLeader(int leader) 
-	{
-		this.leader = leader;
 	}
 	
 }

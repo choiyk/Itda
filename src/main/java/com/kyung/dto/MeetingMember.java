@@ -4,12 +4,22 @@ public class MeetingMember {
 	int id;
 	int meetingId; // f.k
 	int memberId; // f.k
+	int type; // 2:user , 3:meeting manager
 	String userName;
 	String userStudentNumber;
 	String userNickname;
 	int userDepartmentId;
 	int userGender;
 	
+	public int getType() 
+	{
+		return type;
+	}
+	
+	public void setType(int type) 
+	{
+		this.type = type;
+	}
 	public int getId() 
 	{
 		return id;

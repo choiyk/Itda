@@ -20,7 +20,7 @@ public class MeetingService {
 		// add meeting
 		Meeting meeting = meetingModel.toMeeting();
 		System.out.println("toMeeting 완");
-		meeting.setLeader(user.getId());
+		//meeting.setLeader(user.getId());
 		meetingMapper.insert(meeting);//
 		System.out.println("meetingMapper insert 완");
 		
@@ -28,7 +28,7 @@ public class MeetingService {
 		System.out.println("meeting id : "+meeting.getId());
 		System.out.println("meeting name : "+meeting.getName());
 		System.out.println("meeting explain : "+meeting.getExplain());
-		System.out.println("meeting leader : "+meeting.getLeader());
+		//System.out.println("meeting leader : "+meeting.getLeader());
 		
 		// add meetingMember
 		meetingMemberService.addInMeeting(meeting, user);

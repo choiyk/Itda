@@ -11,7 +11,7 @@ public interface MeetingMapper {
 	List<Meeting> findAll(); 
 	Meeting findOne(int id);
 	Meeting findByName(String name);
-	Meeting findByLeader(int leader);
+	//Meeting findByLeader(int leader);
 	void delete(int id);
 	void insert(Meeting meeting);
 	void update(Meeting meeting);

@@ -24,8 +24,8 @@
 	</update>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT MeetingMember (meetingId, memberId)
-		VALUES (#{meetingId}, #{memberId})
+		INSERT MeetingMember (meetingId, memberId, type)
+		VALUES (#{meetingId}, #{memberId}, #{type})
 	</insert>
 	
 	<delete id="delete">
