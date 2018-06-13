@@ -24,18 +24,23 @@
 			<c:forEach var="meeting" items="${ meetings }">
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
-					<p class="title">${ meeting.name }</p>
-					<p class="description">모임 관리자: 최윤경 / 개설일: ${meeting.date }</p>
+					<p class="title">${ meeting.meetingName } </p>
+					<c:if test="${ meeting.meetingExplain != null }">
+						<p class="description">${ meeting.meetingExplain }</p>
+					</c:if>
+					
+					<c:if test="${ meeting.mmType == 3 }">
+					<p class="description">모임 관리자: ${meeting.userName} / 개설일: ${ meeting.meetingDate }</p>
 					<button class="icon" data-url="#">관리</button>
+					</c:if>
+					
+					<c:if test="${ meeting.mmType == 2 }">
+					<p class="description">"${meeting.userName}" / 가입일: ${ meeting.memberDate }</p>
+					</c:if>
 				</div>
 			</div>
 			</c:forEach>
-			<div class="col-lg-12">
-				<div class="box">
-					<p class="title">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임</p>
-					<p class="description">최윤경</p>
-				</div>
-			</div>
+			
 			</c:if>
 			<c:if test="${empty meetings }">
 			<div class="col-lg-12">

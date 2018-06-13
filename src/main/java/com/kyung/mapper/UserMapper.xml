@@ -3,11 +3,14 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kyung.mapper.UserMapper">
-
-	<select id="userJoinMeetings" resultType="Meeting">
-		SELECT * FROM Meeting LEFT JOIN MeetingMember
-		ON Meeting.id = MeetingMember.meetingId
-		WHERE MeetingMember.memberId = #{id}
+	
+	<select id="userJoinMeetings" resultType="UserJoinedMeetings">
+		select m.id meetingId, m.name meetingName, m.explain meetingExplain, m.date meetingDate, 
+				u.name userName, mm.type mmType, mm.date memberDate
+		from meeting m left join meetingMember mm
+		on m.id = mm.meetingId 
+		join user u on mm.memberId = u.id
+		where mm.memberId = #{id};
 	</select>
 	
 	<select id="findOne" resultType="User">

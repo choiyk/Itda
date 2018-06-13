@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 
 import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
+import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.mapper.UserMapper;
 import com.kyung.model.UserRegistrationModel;
 import com.kyung.utils.Encryption;
@@ -19,11 +20,11 @@ import com.kyung.utils.Encryption;
 public class UserService {
 	@Autowired UserMapper userMapper;
 	
-	public List<Meeting> userJoinMeetings(int userId)
+	public List<UserJoinedMeetings> userJoinMeetings(int userId)
 	{
-		List<Meeting> list=userMapper.userJoinMeetings(userId);
+		List<UserJoinedMeetings> list=userMapper.userJoinMeetings(userId);
 		//test
-		//for(Meeting m : list) System.out.println(m.getName());
+		//for(Meeting m : list) System.out.println(m.);
 		return list;
 	}
 
