@@ -35,7 +35,7 @@
 					</c:if>
 					
 					<c:if test="${ meeting.mmType == 2 }">
-					<p class="description">"${meeting.userName}" / 가입일: ${ meeting.memberDate }</p>
+					<p class="description">${meeting.userName} / 가입일: ${ meeting.mmDate }</p>
 					</c:if>
 				</div>
 			</div>
