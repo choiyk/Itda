@@ -7,11 +7,13 @@
 
 <section id="content">
 	<div class="container">
+		<c:if test="${type == 1 }">
 		<div class="row">
 			<div class="col-lg-12">
 				<p class="pull-right" data-url="#">공지 쓰기 <i class="ion-android-create"></i></p>
 			</div>
 		</div>
+		</c:if>
 		<div id="more-features" class="row">
 			<div class="col-lg-12">
 				<div class="box" data-url="#">

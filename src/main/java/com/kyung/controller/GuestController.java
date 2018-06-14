@@ -1,5 +1,7 @@
 package com.kyung.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kyung.dto.User;
+import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.model.UserRegistrationModel;
 import com.kyung.service.DepartmentService;
 import com.kyung.service.UserService;
@@ -22,21 +25,49 @@ public class GuestController
 	
 	@RequestMapping({"/","/index"})
 	public String index() {
+		
 		return "index";
 	}
-	
+
 	
 	@RequestMapping("guest/login")
-	public String login() {
-		return "guest/login";
+	public String login(Model model) 
+	{
+		User user = userService.getCurrentUser();
+		
+		if(user != null) // login
+		{
+			List<UserJoinedMeetings> list = userService.userJoinMeetings(user.getId());
+			model.addAttribute("meetings",list);
+			model.addAttribute("type",user.getType());
+			
+			return "user/main";
+		}
+		else
+		{
+			return "guest/login";
+		}
 	}
 	
 	
 	@RequestMapping(value="guest/join", method=RequestMethod.GET)
 	public String join(UserRegistrationModel userModel, Model model) 
 	{
-		model.addAttribute("departments", departmentService.findAll());
-		return "guest/join";
+		User user = userService.getCurrentUser();
+		
+		if(user != null) // login
+		{
+			List<UserJoinedMeetings> list = userService.userJoinMeetings(user.getId());
+			model.addAttribute("meetings",list);
+			model.addAttribute("type",user.getType());
+			
+			return "user/main";
+		}
+		else
+		{
+			model.addAttribute("departments", departmentService.findAll());
+			return "guest/join";
+		}
 	}
 	
 	@RequestMapping(value="guest/join", method=RequestMethod.POST)

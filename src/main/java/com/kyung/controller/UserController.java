@@ -40,7 +40,7 @@ public class UserController {
 		else System.out.println("null");
 		
 		model.addAttribute("meetings",list);
-		//model.addAttribute("id",user.getId());
+		model.addAttribute("type",user.getType());
 		return "user/main";
 	}
 
