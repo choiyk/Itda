@@ -17,9 +17,20 @@ public class UserJoinedMeetings
 	int mmMeetingId; // meetingmember
 	int mmMemberId; // meetingmember
 	int mmType; // meetingmember
+	Date mmDate; //meetingmember
 	
 	
 	
+	public String getMmDate() 
+	{
+		return sim.format(mmDate);
+	}
+
+	public void setMmDate(Date mmDate) 
+	{
+		this.mmDate = mmDate;
+	}
+
 	public int getMeetingId() 
 	{
 		return meetingId;

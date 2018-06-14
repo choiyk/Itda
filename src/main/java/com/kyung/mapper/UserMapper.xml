@@ -6,7 +6,7 @@
 	
 	<select id="userJoinMeetings" resultType="UserJoinedMeetings">
 		select m.id meetingId, m.name meetingName, m.explain meetingExplain, m.date meetingDate, 
-				u.name userName, mm.type mmType, mm.date memberDate
+				u.name userName, mm.type mmType, mm.date mmDate
 		from meeting m left join meetingMember mm
 		on m.id = mm.meetingId 
 		join user u on mm.memberId = u.id

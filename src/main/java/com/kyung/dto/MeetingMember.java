@@ -1,16 +1,31 @@
 package com.kyung.dto;
 
+import java.util.Date;
+
 public class MeetingMember {
 	int id;
 	int meetingId; // f.k
 	int memberId; // f.k
 	int type; // 2:user , 3:meeting manager
+	Date date;
+	
 	String userName;
 	String userStudentNumber;
 	String userNickname;
 	int userDepartmentId;
 	int userGender;
 	
+	
+	public Date getDate() 
+	{
+		return date;
+	}
+
+	public void setDate(Date date) 
+	{
+		this.date = date;
+	}
+
 	public int getType() 
 	{
 		return type;
