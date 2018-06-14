@@ -165,7 +165,7 @@
 }
 
 .menu{
-	height:70px;
+	/* height:70px; */
 }
 
 .center{
@@ -220,6 +220,7 @@
 
 #myInf{
 	position: relative;
+	line-height:70px;
 }
 /* #myInf{
 	position: relative;
@@ -228,26 +229,58 @@
  */
 
 .myInf_text{
-	font-family: "Montserrat", sans-serif;
+	/* font-family: "Montserrat", sans-serif; */
 	display: inline-block;
 }
 
-@media (max-width: 768px) {
-	 .myInf_text{
-		display:none;
-	}
+.myInf_name {
+	position: relative;
+	left: -20px;
+}
+
+.myInf_first {
+	display: inline-block;
+	color:#17a2b8;
+	position: relative;
+	left: -32px;
 }
 
 .myInf_icon{
 	width:32px;
 	height:32px;
 	border: 2px solid #17a2b8;
-	color:#17a2b8;
 	display: inline-block;
 	border-radius:50px;
 	text-align:center;
 	font-weight:bold;
 	font-size: 1rem;
+	position: relative;
+	top:11px;
+}
+
+@media (max-width: 768px) {
+	#myInf{
+		line-height:30px;
+	}
+
+	 .myInf_name{
+		display:none;
+	}
+	
+	.myInf_first{
+		left: -29px;
+		font-size: 0.9rem;
+		top: -5px;
+	}
+	
+	.myInf_text{
+		margin-bottom: 0px;
+		line-height: 40px;
+	}
+	
+	.myInf-icon {
+		top: 6px;
+	}
 }
 
 .add-icon{

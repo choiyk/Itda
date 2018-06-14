@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <title>Itda</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -38,6 +38,12 @@
   License: https://bootstrapmade.com/license/
 ======================================================= -->
 
+<%-- <!-- websocket -->
+<script src="${R}webjars/sockjs-client/sockjs.min.js"></script>
+<script src="${R}webjars/stomp-websocket/stomp.min.js"></script> --%>
+
+<%-- <script src="${R}webjars/jquery/jquery.min.js"></script> --%>
+
 <script src="${R}res/common.js"></script>
 <link rel="stylesheet" href="${R}res/common.css">
 
@@ -57,20 +63,20 @@
 </div>
 
 <!-- JavaScript Libraries -->
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/jquery/jquery-migrate.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/superfish/hoverIntent.js"></script>
-<script src="lib/superfish/superfish.min.js"></script>
-<script src="lib/magnific-popup/magnific-popup.min.js"></script>
+<script src="${R}lib/jquery/jquery.min.js"></script>
+<script src="${R}lib/jquery/jquery-migrate.min.js"></script>
+<script src="${R}lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${R}lib/easing/easing.min.js"></script>
+<script src="${R}lib/wow/wow.min.js"></script>
+<script src="${R}lib/superfish/hoverIntent.js"></script>
+<script src="${R}lib/superfish/superfish.min.js"></script>
+<script src="${R}lib/magnific-popup/magnific-popup.min.js"></script>
 
 <!-- Contact Form JavaScript File -->
-<script src="contactform/contactform.js"></script>
+<script src="${R}contactform/contactform.js"></script>
 
 <!-- Template Main Javascript File -->
-<script src="js/main.js"></script>
+<script src="${R}js/main.js"></script>
 
 </body>
 </html>

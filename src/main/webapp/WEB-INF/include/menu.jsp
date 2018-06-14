@@ -19,11 +19,14 @@
 	<div class="container menu">
 		<div id="myInf" class="row">
 			<div class="col-4">
-				<div class="myInf_icon" data-url="${R}mypage"><sec:authentication property="user.firstChar"/></div>
-				<p class="myInf_text" data-url="${R}mypage"><sec:authentication property="user.name"/></p>
+				<%-- <div class="myInf_icon" data-url="${R}mypage"><sec:authentication property="user.firstChar"/></div> --%>
+				<div class="myInf_icon"></div>
+				<div class="myInf_first"><sec:authentication property="user.firstChar"/></div>
+				<p class="myInf_text myInf_name"><sec:authentication property="user.name"/></p>
 			</div>
 			<div id="logo" class="col-4">
-				<h1 data-url="${R}main">Itda</h1>
+				<%-- <h1 data-url="${R}main">Itda</h1> --%>
+				<img src="${R}img/logo2-1.png" data-url="${R}main"/>
 			</div>
 			<p class="myInf_text pull-right col-4 text-right" data-url="${R}user/logout_processing">로그아웃</p>
 		</div>

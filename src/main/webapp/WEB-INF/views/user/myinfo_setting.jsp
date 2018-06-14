@@ -5,8 +5,8 @@
 <style> .error {color:red;} </style>
 <c:url var="R" value="/" />
 
-<div class="margin"></div>
-<div class="margin"></div>
+<!-- <div class="margin"></div>
+<div class="margin"></div> -->
 
 <section id="content">
 	<div class="container">
