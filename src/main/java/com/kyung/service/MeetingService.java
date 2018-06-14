@@ -22,7 +22,7 @@ public class MeetingService {
 		return meeting;
 	}
 	
-	public void create(MeetingRegistrationModel meetingModel, User user) 
+	public int create(MeetingRegistrationModel meetingModel, User user) 
 	{
 		// add meeting
 		Meeting meeting = meetingModel.toMeeting();
@@ -43,5 +43,6 @@ public class MeetingService {
 		// add board
 		boardService.addInMeeting(meeting);
 		
+		return meeting.getId();
 	}
 }
