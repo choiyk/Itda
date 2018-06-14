@@ -8,7 +8,7 @@
 <section id="content">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-12" data-url="#">
 				<p class="pull-right">공지 쓰기 <i class="ion-android-create"></i></p>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 			<c:if test="${!empty meetings }">
 			<c:forEach var="meeting" items="${ meetings }">
 			<div class="col-lg-12">
-				<div class="box" data-url="#">
+				<div class="box" data-url="meeting?id=${meeting.meetingId }">
 					<p class="title">${ meeting.meetingName } </p>
 					<c:if test="${ meeting.meetingExplain != null }">
 						<p class="description">${ meeting.meetingExplain }</p>
@@ -62,10 +62,11 @@
 		</div>
 	</div>
 </section>
-
+<!-- 
 <section id="alarm">
 	<div class="container">
 		<p class="title">경스데이 알림!<i id="alarm_close" class="ion-close-round pull-right" data-url="#"></i></p>
 		<p class="content">"성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 일정 안내"<br/>새글이 올라왔습니다.</p>
 	</div>
 </section>
+ -->

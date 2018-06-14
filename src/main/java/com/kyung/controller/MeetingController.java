@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.model.MeetingRegistrationModel;
 import com.kyung.service.MeetingService;
@@ -25,9 +26,17 @@ public class MeetingController {
 	@Autowired MeetingService meetingService;
 	
 	@RequestMapping(value="meeting", method=RequestMethod.GET)
-	public String meeting(Model model)
+	public String meeting(@RequestParam(value="id") int id, Model model)
 	{
-		System.out.println("meeting"); //menu 출력 
+		String menu="";
+		Meeting meeting = new Meeting();
+		meeting = meetingService.findOne(id);
+		menu = meeting.getName();
+		
+		model.addAttribute("meeting", meeting);
+		model.addAttribute("menu",menu);
+	
+		System.out.println("meeting "+menu);
 		return "user/meeting";
 	}
 	

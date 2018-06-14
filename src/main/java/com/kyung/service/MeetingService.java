@@ -15,6 +15,13 @@ public class MeetingService {
 	@Autowired MeetingMemberService meetingMemberService;
 	@Autowired BoardService boardService;
 
+	public Meeting findOne(int id)
+	{
+		Meeting meeting = new Meeting();;
+		meeting = meetingMapper.findOne(id);
+		return meeting;
+	}
+	
 	public void create(MeetingRegistrationModel meetingModel, User user) 
 	{
 		// add meeting

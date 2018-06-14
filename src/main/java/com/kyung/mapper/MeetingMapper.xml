@@ -8,19 +8,23 @@
 	</select>
 	
 	<select id="findOne" resultType="Meeting">
-		SELECT * FROM id = #{id}
+		SELECT * FROM Meeting
+		WHERE id = #{id}
 	</select>
 	
 	<select id="findByName" resultType="Meeting">
-		SELECT * FROM name = #{name}
+		SELECT * FROM Meeting
+		WHERE name = #{name}
 	</select>
 	
 	<select id="findByLeader" resultType="Meeting">
-		SELECT * FROM leader = #{leader}
+		SELECT * FROM Meeting
+		WHERE leader = #{leader}
 	</select>
 	
 	<delete id="delete">
-		DELETE FROM Meeting WHERE id = #{id}
+		DELETE FROM Meeting 
+		WHERE id = #{id}
 	</delete>
 	
 	<update id="update">
