@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
@@ -57,7 +58,12 @@
 				성공회대학교의 다양한 모임을 경험해 보세요!
 			</div>
 			<div class="button">
-				<button class="btn" data-url="guest/login">들어가기 <i class="ion-arrow-right-c"></i></button>
+				<sec:authorize access="not authenticated">
+					<button class="btn" data-url="guest/login">들어가기 <i class="ion-arrow-right-c"></i></button>
+				</sec:authorize>
+				<sec:authorize access="authenticated">
+					<button class="btn" data-url="${R}main">들어가기 <i class="ion-arrow-right-c"></i></button>
+				</sec:authorize>
 			</div>
 		</div>
 	</div>

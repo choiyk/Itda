@@ -20,15 +20,23 @@
 		<div id="myInf" class="row">
 			<div class="col-4">
 				<%-- <div class="myInf_icon" data-url="${R}mypage"><sec:authentication property="user.firstChar"/></div> --%>
-				<div class="myInf_icon"></div>
-				<div class="myInf_first"><sec:authentication property="user.firstChar"/></div>
-				<p class="myInf_text myInf_name"><sec:authentication property="user.name"/></p>
+				<div class="inline_box" data-url="${R}mypage">
+					<div class="myInf_icon"></div>
+					<div class="myInf_first"><sec:authentication property="user.firstChar"/></div>
+					<p class="myInf_text myInf_name"><sec:authentication property="user.name"/></p>
+				</div>
 			</div>
 			<div id="logo" class="col-4">
 				<%-- <h1 data-url="${R}main">Itda</h1> --%>
 				<img src="${R}img/logo2-1.png" data-url="${R}main"/>
 			</div>
-			<p class="myInf_text pull-right col-4 text-right" data-url="${R}user/logout_processing">로그아웃</p>
+			<sec:authorize access="authenticated">
+				<div class="col-4  pull-right text-right">
+					<div class="inline_box" data-url="${R}user/logout_processing">
+						<p class="myInf_text">로그아웃</p>
+					</div>
+				</div>
+			</sec:authorize>
 		</div>
 	</div>
 </header>

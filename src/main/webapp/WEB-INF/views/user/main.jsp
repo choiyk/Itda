@@ -8,8 +8,8 @@
 <section id="content">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12" data-url="#">
-				<p class="pull-right">공지 쓰기 <i class="ion-android-create"></i></p>
+			<div class="col-lg-12">
+				<p class="pull-right" data-url="#">공지 쓰기 <i class="ion-android-create"></i></p>
 			</div>
 		</div>
 		<div id="more-features" class="row">
@@ -44,7 +44,7 @@
 			</c:if>
 			<c:if test="${empty meetings }">
 			<div class="col-lg-12">
-				<div class="box" data-url="#">
+				<div class="box">
 					<p class="title">가입한 모임이 없습니다.</p>
 				</div>
 			</div>

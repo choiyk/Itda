@@ -77,6 +77,10 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
 }
 
+#header .container{
+	padding-bottom: 0px;
+}
+
 @media (max-width: 768px) {
 	#header {
 	  padding: 10px 0;
@@ -800,6 +804,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
   background: #fff;
   transition: 0.4s;
+}
+
+#more-features .box[data-url]:hover{
+	/* box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15); */
+	box-shadow: 0px 0px 30px rgba(29, 200, 205, 0.4);
 }
 
 #more-features .icon {

@@ -21,6 +21,26 @@
 	font-family: 'Nanum Gothic Coding', monospace;
 }
 
+[data-url] {
+	cursor: pointer;
+	/* transition: color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+[data-url]:not(.box):hover {
+	/* box-shadow: 0px 0px 20px #9ec6ed; */
+	color: #1dc8cd;
+}
+
+button:hover {
+	color: #1dc8cd;
+	border-color: #1dc8cd;
+}
+
+.btn:hover{
+	color: #1dc8cd;
+	border-color: #1dc8cd;
+}
+
 @media (max-width: 768px) {
 	 #body{
 		max-width:1500px;
@@ -45,6 +65,10 @@
 		/* font-family: "SeoulNamsan"; */
 		font-family: 'Nanum Gothic Coding', monospace;
 	}
+}
+
+.inline_box{
+	display: inline-block;
 }
 
 #index .title{
