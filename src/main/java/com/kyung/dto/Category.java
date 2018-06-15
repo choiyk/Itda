@@ -21,6 +21,7 @@ public class Category {
 	{
 		this.name = name;
 	}
+	
 	public int getBoardId() 
 	{
 		return boardId;

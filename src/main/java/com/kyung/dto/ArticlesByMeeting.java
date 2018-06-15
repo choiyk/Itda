@@ -15,6 +15,12 @@ public class ArticlesByMeeting
 	
 	Date articleDate; // a
 
+	public String toString()
+	{
+		return "board:"+boardName+" category:"+cateName+"\n"+
+				"article:"+articleTitle+" user"+userName+" date:"+articleDate;
+	}
+	
 	public String getBoardName() 
 	{
 		return boardName;

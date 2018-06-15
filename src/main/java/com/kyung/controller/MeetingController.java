@@ -44,25 +44,19 @@ public class MeetingController {
 		
 		User user = userService.getCurrentUser();
 		UserByMeeting userByMeeting = meetingService.findUserByMeeting(meeting.getId(), user.getId());
-		model.addAttribute("userByMeeting",userByMeeting);
+		model.addAttribute("user",userByMeeting);
 		
-		Category category = boardService.boardCategory(meeting.getId());
+		List<Category> category = boardService.boardCategory(meeting.getId());
 		model.addAttribute("category", category);
 		
-		List<ArticlesByMeeting> list = boardService.articlesByMeeting(meeting.getId());
+		System.out.println(meeting.getId());
+		List<ArticlesByMeeting> list = boardService.boardArticles(meeting.getId());
 		model.addAttribute("articles",list);
-		
+		/*
+		if(list.get(0) == null) System.out.println("null");
+		else list.get(0).toString();
+		*/
 		System.out.println("meeting "+menu);
-		return "user/meeting";
-	}
-	
-	@RequestMapping(value="meetingComplete", method=RequestMethod.GET)
-	public String meetingComplete(HttpServletRequest request, Model model)
-	{
-		System.out.println("meeting get create");
-		String menu=request.getParameter("meetingName");
-		model.addAttribute("menu",menu);
-		// meeting or meetingregistrationmodel 넘겨야 할 듯 
 		return "user/meeting";
 	}
 	

@@ -15,6 +15,6 @@ public interface BoardMapper
 	List<Board> findAll();
 	void insert(Board board);
 	void delete(int id);
-	Category boardCategory(int meetingId);
-	List<ArticlesByMeeting> articlesByMeeting(int meetingId);
+	List<Category> boardCategory(int meetingId);
+	List<ArticlesByMeeting> boardArticles(int meetingId);
 }

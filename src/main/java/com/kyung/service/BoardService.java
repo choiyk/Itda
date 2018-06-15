@@ -1,5 +1,6 @@
 package com.kyung.service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,20 @@ import com.kyung.mapper.BoardMapper;
 public class BoardService {
 	@Autowired BoardMapper boardMapper;
 	
-	public List<ArticlesByMeeting> articlesByMeeting(int meetingId)
+	public List<ArticlesByMeeting> boardArticles(int meetingId)
 	{
-		List<ArticlesByMeeting> articles = boardMapper.articlesByMeeting(meetingId);
+		List<ArticlesByMeeting> articles = boardMapper.boardArticles(meetingId);
+/*
+		for(ArticlesByMeeting article : articles)
+		{
+			System.out.println(article.getArticleTitle());
+		}*/
 		return articles;
 	}
 	
-	public Category boardCategory(int meetingId)
+	public List<Category> boardCategory(int meetingId)
 	{
-		Category category = new Category();
-		category = boardMapper.boardCategory(meetingId);
+		List<Category> category = boardMapper.boardCategory(meetingId);
 		return category;
 	}
 	
