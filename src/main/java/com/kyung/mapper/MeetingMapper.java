@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.kyung.dto.Board;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.UserByMeeting;
 
@@ -18,4 +19,5 @@ public interface MeetingMapper {
 	void insert(Meeting meeting);
 	void update(Meeting meeting);
 	UserByMeeting findUserByMeeting(@Param("meetingId")int meetingId, @Param("userId")int userId );
+	Board findBoardByMeeting(int meetingId);
 }

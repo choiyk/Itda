@@ -3,6 +3,7 @@ package com.kyung.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kyung.dto.Board;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.dto.UserByMeeting;
@@ -16,6 +17,13 @@ public class MeetingService {
 	@Autowired MeetingMemberService meetingMemberService;
 	@Autowired BoardService boardService;
 
+	public Board findBoardByMeeting(int meetingId)
+	{
+		Board board = new Board();
+		board = meetingMapper.findBoardByMeeting(meetingId);
+		return board;
+	}
+	
 	public UserByMeeting findUserByMeeting(int meetingId, int userId)
 	{
 		UserByMeeting userByMeeting = new UserByMeeting();

@@ -3,9 +3,15 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.BoardMapper">
+	<select id="findMeetingByBoard" resultType="Meeting">
+		SELECT *
+		FROM meeting m JOIN board b
+		ON m.id = b.meetingId
+		WHERE b.id = #{boardId}
+	</select>
 
 	<select id="boardArticles" resultType="ArticlesByMeeting">
-		SELECT b.name, c.name, a.title, u.name, u.nickname, a.date
+		SELECT b.id, b.name, c.name, a.title, u.name, u.nickname, a.date
 		FROM article a JOIN board b
 		ON a.board = b.id
 		JOIN user u
@@ -13,6 +19,13 @@
 		JOIN category c
 		ON a.category = c.id 
 		WHERE b.meetingId = #{meetingId}
+	</select>
+	
+	<select id="boardCategoryByBoardId" resultType="Category">
+		select c.id, c.name
+		from category c join board b
+		on c.boardId = b.id
+		where b.id = #{boardId}
 	</select>
 
 	<select id="boardCategory" resultType="Category">

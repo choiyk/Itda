@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ArticlesByMeeting 
 {
+	int boardId; // b
 	String boardName; // b
 	
 	String cateName; // c
@@ -14,6 +15,17 @@ public class ArticlesByMeeting
 	String userNickName; // u
 	
 	Date articleDate; // a
+
+	
+	public int getBoardId() 
+	{
+		return boardId;
+	}
+
+	public void setBoardId(int boardId) 
+	{
+		this.boardId = boardId;
+	}
 
 	public String toString()
 	{

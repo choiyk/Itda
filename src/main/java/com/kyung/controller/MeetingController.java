@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kyung.dto.ArticlesByMeeting;
+import com.kyung.dto.Board;
 import com.kyung.dto.Category;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
@@ -49,9 +50,12 @@ public class MeetingController {
 		List<Category> category = boardService.boardCategory(meeting.getId());
 		model.addAttribute("category", category);
 		
-		System.out.println(meeting.getId());
 		List<ArticlesByMeeting> list = boardService.boardArticles(meeting.getId());
 		model.addAttribute("articles",list);
+		
+		Board board = meetingService.findBoardByMeeting(meeting.getId());
+		model.addAttribute("board",board);
+		
 		/*
 		if(list.get(0) == null) System.out.println("null");
 		else list.get(0).toString();

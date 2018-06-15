@@ -11,10 +11,18 @@ import com.kyung.dto.Board;
 import com.kyung.dto.Category;
 import com.kyung.dto.Meeting;
 import com.kyung.mapper.BoardMapper;
+import com.kyung.model.ArticleRegistrationModel;
 
 @Service
 public class BoardService {
 	@Autowired BoardMapper boardMapper;
+	
+	public int findMeetingByBoard(int boardId)
+	{
+		Meeting meeting = boardMapper.findMeetingByBoard(boardId);
+		int meetingId = meeting.getId();
+		return meetingId;
+	}
 	
 	public List<ArticlesByMeeting> boardArticles(int meetingId)
 	{
@@ -25,6 +33,12 @@ public class BoardService {
 			System.out.println(article.getArticleTitle());
 		}*/
 		return articles;
+	}
+	
+	public List<Category> boardCategoryByBoardId(int boardId)
+	{
+		List<Category> category = boardMapper.boardCategoryByBoardId(boardId);
+		return category;
 	}
 	
 	public List<Category> boardCategory(int meetingId)

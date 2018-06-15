@@ -3,6 +3,14 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.MeetingMapper">
+
+	<select id="findBoardByMeeting" resultType="Board">
+		select b.id, b.name
+		from board b join meeting m
+		on b.meetingId = m.id
+		where m.id = #{meetingId};
+	</select>
+
 	<select id="findUserByMeeting" resultType="userByMeeting">
 		select mm.meetingId, u.studentNumber, u.name, u.nickname, mm.type
 		from user u right join meetingMember mm 

@@ -36,7 +36,7 @@ public class UserController {
 		User user = userService.getCurrentUser();
 		List<UserJoinedMeetings> list = userService.userJoinMeetings(user.getId());
 		
-		if(list.size()>0) System.out.println(list.get(0));
+		if(list.size()>0) System.out.println(list.get(0).getMeetingName());
 		else System.out.println("null");
 		
 		model.addAttribute("meetings",list);
