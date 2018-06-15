@@ -15,7 +15,12 @@ import com.kyung.model.ArticleRegistrationModel;
 
 @Service
 public class BoardService {
-	@Autowired BoardMapper boardMapper;
+
+	public BoardService(BoardMapper boardMapper) {
+		this.boardMapper = boardMapper;
+	}
+
+	BoardMapper boardMapper;
 	
 	public int findMeetingByBoard(int boardId)
 	{

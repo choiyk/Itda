@@ -11,7 +11,7 @@ import com.kyung.dto.UserByMeeting;
 
 @Mapper
 public interface MeetingMapper {
-	List<Meeting> findAll();
+	public List<Meeting> findAll();
 	Meeting findOne(int id);
 	Meeting findByName(String name);
 	//Meeting findByLeader(int leader);

@@ -3,16 +3,68 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.BoardMapper">
+
+	<select id="findMeetingByBoard" resultType="Meeting">
+		SELECT *
+		FROM meeting m JOIN board b
+		ON m.id = b.meetingId
+		WHERE b.id = #{boardId}
+	</select>
+
+	<!-- <select id="boardArticles" resultType="ArticlesByMeeting">
+		SELECT b.id, b.name, c.name, a.title, u.name, u.nickname, a.date
+		FROM article a JOIN board b
+		ON a.board = b.id
+		JOIN user u
+		ON a.writer = u.id
+		JOIN category c
+		ON a.category = c.id 
+		WHERE b.meetingId = #{meetingId}
+	</select> -->
+	<select id="boardArticles" resultType="ArticlesByMeeting">
+		SELECT b.id 'boardId', b.name 'boardName', c.id 'cateId', c.name 'cateName', a.id 'articleId', 
+				a.title 'articleTitle', u.name 'userName', u.nickname 'userNickName', a.date 'articleDate'
+		FROM article a JOIN board b
+		ON a.board = b.id
+		JOIN user u
+		ON a.writer = u.id
+		JOIN category c
+		ON a.category = c.id 
+		WHERE b.meetingId = #{meetingId}
+	</select>
+	
+	<select id="boardCategoryByBoardId" resultType="Category">
+		select c.id, c.name
+		from category c join board b
+		on c.boardId = b.id
+		where b.id = #{boardId}
+	</select>
+
+	<select id="boardCategory" resultType="Category">
+		select c.id, c.name
+		from category c left join board b
+		on c.boardId = b.id
+		where b.meetingId = #{meetingId}
+	</select>
+
 	<select id="findOne" resultType="Board">
 		SELECT * FROM Board WHERE id = #{id}
 	</select>
+	
 	<select id="findAll" resultType="Board">
 		SELECT * FROM Board
 	</select>
+	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT Board(meetingId, name)
 		VALUES (#{meetingId}, #{name})
 	</insert>
+	
+	<insert id="defaultCategory" useGeneratedKeys="true" keyProperty="id">
+		insert Category(name, boardId)
+		values(#{name}, #{boardId});
+	</insert>
+	
 	<delete id="delete">
 		delete FROM Board WHERE id = #{id}
 	</delete>

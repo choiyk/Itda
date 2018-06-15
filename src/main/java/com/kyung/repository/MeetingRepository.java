@@ -18,10 +18,8 @@ import com.kyung.mapper.MeetingMapper;
 public class MeetingRepository {
 
 	MeetingMapper meetingMapper;
-
 	private final Map<Integer, Meeting> meetingMap;
 
-	@Autowired
 	public MeetingRepository(MeetingMapper meetingMapper){
 		this.meetingMapper = meetingMapper;
 

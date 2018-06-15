@@ -1,9 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding');
+@import url('https://fonts.googleapis.com/css?family=Poor+Story|Sunflower:300');
+
 #body{
-	max-width:1500px;
+	max-width:1300px;
 	margin: 0 auto;
 	background-color:white;
 	padding-top: 50px;
 	height:100%;
+	/* font-family: "SeoulNamsan"; */
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+
+#embed_body{
+	max-width:1500px;
+	margin: 0 auto;
+	background-color: white;
+	height:100%;
+	padding-bottom:102px;
+	/* font-family: "SeoulNamsan"; */
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+
+[data-url] {
+	cursor: pointer;
+	/* transition: color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+[data-url]:not(.box):hover {
+	/* box-shadow: 0px 0px 20px #9ec6ed; */
+	color: #1dc8cd;
+}
+
+button:hover {
+	color: #1dc8cd;
+	border-color: #1dc8cd;
+}
+
+.btn:hover{
+	color: #1dc8cd;
+	border-color: #1dc8cd;
 }
 
 @media (max-width: 768px) {
@@ -14,6 +49,84 @@
 		padding-top: 30px;
 		height:100%;
 	}
+	
+	#embed_body{
+		padding-bottom:163px;
+	}
+		
+	p{
+		font-size: 0.7rem;
+		/* font-family: "SeoulNamsan"; */
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+	
+	div{
+		font-size: 0.7rem;
+		/* font-family: "SeoulNamsan"; */
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+}
+
+.inline_box{
+	display: inline-block;
+}
+
+#index .title{
+	font-family: "Montserrat", sans-serif;
+	font-size: 4rem;
+	text-align: center;
+    margin-bottom: 30px;
+}
+
+#index .sub{
+	text-align: center;
+    line-height: 2.5rem;
+    margin-top:30px;
+    /* font-family: 'Sunflower', sans-serif; */
+    /* font-family: 'Poor Story', cursive; */
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+#index img{
+	display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+#index .character{
+	width: 300px;
+}
+
+#index .logo{
+	width:150px;
+}
+
+#index .button{
+	text-align: center;
+	margin-top:50px;
+}
+
+@media (max-width: 768px) {
+	
+	#index .sub{
+	    line-height: 1.5rem;
+	    width: 85%;
+	    margin: 0 auto;
+	}
+	
+	#index .character{
+		width: 190px;
+	}
+	
+	#index .logo{
+		width:100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.form-inline .form-group{
+		margin-bottom:0px;	
+	}	
 }
 
 #main_logo_img{
@@ -29,14 +142,26 @@
 }
 
 #content{
-	margin-top: 50px;
+	margin-top: 30px;
+}
+
+#content[name="content"]{
+	margin:0px;
 }
 
 @media (max-width: 768px) {
 	#content{
-		margin-top: 50px;
-		font-size: 0.6em;
+		margin-top: 20px;
+		font-size: 0.7rem;
 	}
+	
+	#content[name="content"]{
+		margin:0px;
+	}
+}
+
+#embed{
+	margin: 0 20px;
 }
 
 .container{
@@ -47,15 +172,32 @@
 
 @media (max-width: 768px) {
 	.form-control{
-		font-size:0.6rem;
+		font-size:0.7rem;
 	}	
+	
+	#category select.form-control:not([size]):not([multiple]) {
+	    height: 20px;
+	}
+	
+	#category{
+		height:100%;
+	}
+	
+	#category-btn{
+		height:100%;
+	}
+	
+	#category-btn p{
+		margin-bottom:0px;
+	}
+
 	#category .form-control{
 		padding: 1px;
 	}
 }
 
 .menu{
-	height:70px;
+	/* height:70px; */
 }
 
 .center{
@@ -73,17 +215,22 @@
 	padding: 6px 30px;
 	border-radius:20px;
 	color: #515e61;
-	font-size: 1em;
+	font-size: 1rem;
 	font-family: "Montserrat", sans-serif;
 	transition:none;
 	background-color:transparent;
 }
 
 @media (max-width: 768px) {
+	.margin{
+		margin-top:15px;
+		padding-top:15px;
+	}
+	
 	.btn{
-		padding: 3px 15px;
+		padding: 3px 10px;
 		height:100%;
-		font-size:0.6rem;
+		font-size:0.7rem;
 	}	
 }
 
@@ -105,29 +252,67 @@
 
 #myInf{
 	position: relative;
+	line-height:70px;
+}
+/* #myInf{
+	position: relative;
 	top:-32px;
 }
+ */
 
 .myInf_text{
-	font-family: "Montserrat", sans-serif;
+	/* font-family: "Montserrat", sans-serif; */
 	display: inline-block;
 }
 
-@media (max-width: 768px) {
-	 .myInf_text{
-		display:none;
-	}
+.myInf_name {
+	position: relative;
+	left: -20px;
+}
+
+.myInf_first {
+	display: inline-block;
+	color:#17a2b8;
+	position: relative;
+	left: -32px;
 }
 
 .myInf_icon{
 	width:32px;
 	height:32px;
 	border: 2px solid #17a2b8;
-	color:#17a2b8;
 	display: inline-block;
 	border-radius:50px;
 	text-align:center;
 	font-weight:bold;
+	font-size: 1rem;
+	position: relative;
+	top:11px;
+}
+
+@media (max-width: 768px) {
+	#myInf{
+		line-height:30px;
+	}
+
+	 .myInf_name{
+		display:none;
+	}
+	
+	.myInf_first{
+		left: -29px;
+		font-size: 0.9rem;
+		top: -5px;
+	}
+	
+	.myInf_text{
+		margin-bottom: 0px;
+		line-height: 40px;
+	}
+	
+	.myInf-icon {
+		top: 6px;
+	}
 }
 
 .add-icon{
@@ -144,10 +329,125 @@
 	}
 }
 
+#category-btn p:last-child{
+	margin-right:20px;
+}
+
+#category-btn p:first-chid{
+	margin-right:0px;
+}
+
+@media (max-width: 768px) {
+	#category-btn p{
+		font-size: 0.6rem;
+	}
+	
+	#category-btn p:last-child{
+		margin-right:10px;
+	}
+}
+
 .notice{
 	background-color: #f17070;
     color: white;
     border-radius: 5px;
     padding: 3px;
     margin-right: 3px;
+}
+
+.category{
+	background-color: #8d8d8d;
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 3px;
+}
+
+.warn{
+	color: #f17070;
+}
+
+.form-group .sub{
+	color: #fabcbc;
+    font-size: 90%;
+    margin-bottom: 0px;
+}
+
+.article-inf{
+	float: right;
+    font-size: 0.8rem;
+    color: #b3b3b3;
+}
+
+@media (max-width: 768px) {
+	.article-inf{
+	    font-size: 0.5rem;
+	}
+}
+
+.article-content{
+	min-height:300px;
+}
+
+.comment{
+	border-bottom: 1px solid #eae7e7;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.my{
+	background-color: #fff8f8;
+}
+
+.comment i:nth-child(2){
+	margin-right: 10px;
+}
+
+.comment i:first-child{
+	margin-right:0px;
+}
+
+.subtitle{
+	margin-bottom: 20px;
+}
+
+#alarm{
+	position: fixed;
+	top:10px;
+	left:0;
+	width: 100%;
+	z-index:9999;
+	display: none;
+}
+
+#alarm .container{
+	background-color: white;
+	border:1px solid #c8c8c8;
+	border-radius:10px;
+	padding: 15px;
+	width: 700px;
+}
+
+#alarm .title{
+	border-bottom: 1px solid #e8e7e7;
+}
+
+@media (max-width: 768px) {
+	#alarm .container{
+		width: 300px;
+		padding: 10px;
+	}
+	
+	#alarm p{
+		margin-bottom: 10px;
+	}
+}
+
+.comment_rewrite{
+	display:none;
+}
+
+.comment_rewrite .form-group{
+	margin-bottom:3px;
+	margin-top: 10px;
 }
