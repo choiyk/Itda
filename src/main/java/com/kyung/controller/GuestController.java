@@ -61,7 +61,7 @@ public class GuestController
 			model.addAttribute("meetings",list);
 			model.addAttribute("type",user.getType());
 			
-			return "user/main";
+			return "redirect:main";
 		}
 		else
 		{
@@ -82,7 +82,7 @@ public class GuestController
 		userService.join(userModel);
 		
 		//return "redirect:success";
-		return "guest/login";
+		return "redirect:login";
 	}
 	
 	//로그인 성공 시 alert창 추가 예정 

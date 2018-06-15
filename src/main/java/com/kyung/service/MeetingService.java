@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
+import com.kyung.dto.UserByMeeting;
 import com.kyung.mapper.MeetingMapper;
 import com.kyung.mapper.MeetingMemberMapper;
 import com.kyung.model.MeetingRegistrationModel;
@@ -15,6 +16,13 @@ public class MeetingService {
 	@Autowired MeetingMemberService meetingMemberService;
 	@Autowired BoardService boardService;
 
+	public UserByMeeting findUserByMeeting(int meetingId, int userId)
+	{
+		UserByMeeting userByMeeting = new UserByMeeting();
+		userByMeeting = meetingMapper.findUserByMeeting(meetingId, userId);
+		return userByMeeting;
+	}
+	
 	public Meeting findOne(int id)
 	{
 		Meeting meeting = new Meeting();;

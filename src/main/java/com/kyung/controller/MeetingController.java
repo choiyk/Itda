@@ -14,30 +14,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kyung.dto.ArticlesByMeeting;
+import com.kyung.dto.Category;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
+import com.kyung.dto.UserByMeeting;
+import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.model.MeetingRegistrationModel;
 import com.kyung.service.MeetingService;
 import com.kyung.service.UserService;
+import com.kyung.service.BoardService;
 
 @Controller
 public class MeetingController {
 	@Autowired UserService userService;
 	@Autowired MeetingService meetingService;
+	@Autowired BoardService boardService;
 	
-	// main 
 	@RequestMapping(value="meeting", method=RequestMethod.GET)
 	public String meeting(@RequestParam(value="id") int id, Model model)
 	{
 		System.out.println("meeting get main");
 		String menu="";
 		Meeting meeting = new Meeting();
+		
 		meeting = meetingService.findOne(id);
 		menu = meeting.getName();
-		
-		model.addAttribute("meeting", meeting);
 		model.addAttribute("menu",menu);
-	
+		
+		User user = userService.getCurrentUser();
+		UserByMeeting userByMeeting = meetingService.findUserByMeeting(meeting.getId(), user.getId());
+		model.addAttribute("userByMeeting",userByMeeting);
+		
+		Category category = boardService.boardCategory(meeting.getId());
+		model.addAttribute("category", category);
+		
+		List<ArticlesByMeeting> list = boardService.articlesByMeeting(meeting.getId());
+		model.addAttribute("articles",list);
+		
 		System.out.println("meeting "+menu);
 		return "user/meeting";
 	}
@@ -51,10 +65,6 @@ public class MeetingController {
 		// meeting or meetingregistrationmodel 넘겨야 할 듯 
 		return "user/meeting";
 	}
-	
-	// 메인 출력 부분이랑 모임 생성 부분이 공존할 수 있는 컨트롤러..
-	// url 설정은 다 되긴했는데 로그인 후 뒤로가기했을 때 로그인창으로 가는 것..
-	// 뒤로 갔다가 메인으로 강제로 온 상태에서 url이 꼬여서(/guest붙음) 링크가 제대로 먹히지 않음 
 	
 	@RequestMapping(value="meeting", method=RequestMethod.POST)
 	public String meeting()

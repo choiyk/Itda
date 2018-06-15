@@ -3,6 +3,24 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.BoardMapper">
+	<select id="articlesByMeeting" resultType="articlesByMeeting">
+		select b.name, c.name, a.title, u.name, u.nickname, a.date
+		from article a left join board b
+		on a.board = b.id
+		join user u
+		on a.writer = u.id
+		join category c
+		on a.category = c.id 
+		where b.meetingId = #{meetingId};
+	</select>
+
+	<select id="boardCategory" resultType="category">
+		select c.id, c.name
+		from category c left join board b
+		on c.boardId = b.id
+		where b.meetingId = #{meetingId};
+	</select>
+
 	<select id="findOne" resultType="Board">
 		SELECT * FROM Board WHERE id = #{id}
 	</select>
