@@ -2,6 +2,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
 <c:url var="R" value="/" />
 
@@ -37,10 +38,37 @@
 			</div>
 			 -->
 			<c:if test="${! empty articles }">
+				<form:form method="get" modelAttribute="pagination" class="form-inline mb5">
+					<form:hidden path="pg" value="1" />
+					<form:hidden path="bd" />
+					<span>순서:</span>
+					<form:select path="ob" class="form-control autosubmit"
+								 itemValue="value" itemLabel="label" items="${orderBy}" />
+					<form:select path="sb" class="form-control ml30"
+								 itemValue="value" itemLabel="label" items="${searchBy}"/>
+					<form:input path="st" class="form-control" placeholder="검색문자열" />
+					<button type="submit" class="btn btn-default">
+						<i class="glyphicon glyphicon-search"></i>검색
+					</button>
+					<c:if test="${pagination.sb > 0 || pagination.ob > 0}">
+						<a class="btn btn-default" href="list?bd=${board.id}&pg=1">
+							<i class="glyphicon glyphicon-ban-circle"></i>검색취소
+						</a>
+					</c:if>
+					<span class="ml30">페이지 크기</span>
+					<form:select path="sz" class="form-control autosubmit">
+						<form:option value="10"/><form:option value="15"/><form:option value="30"/>
+					</form:select>
+					<div class="pull-right">
+						<a class="btn btn-primary" href="create?${pagination.queryString}">
+							<i class="glyphicon glyphicon-plus"></i>새글 작성
+						</a>
+					</div>
+				</form:form>
 			
 			<c:forEach var="article" items="${ articles }">
 			<div class="col-lg-12">
-				<div class="box" data-url="article?bd=${board.id }&at=${article.articleId }">
+				<div class="box" data-url="article?bd=${board.id }&at=${article.articleId }&{pagination.queryString">
 				<!--  <div class="box" data-url="#">-->
 					<c:if test="${article.cateName eq '공지' }">
 					<p class="title"><span class="notice">${article.cateName}</span> ${article.articleTitle }</p>
@@ -57,6 +85,7 @@
 					<p class="description">${article.userNickName } / ${article.articleDate }</p>
 					</c:if>
 				</div>
+				<my:pagination pageSize="${pagination.sz}" recordCount="pagination.recordCount"></my:pagination>
 			</div>
 			</c:forEach>
 			
