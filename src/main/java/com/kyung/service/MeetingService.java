@@ -1,5 +1,7 @@
 package com.kyung.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,10 +28,18 @@ public class MeetingService {
 	
 	public UserByMeeting findUserByMeeting(int meetingId, int userId)
 	{
+		UserByMeeting userByMeeting = meetingMapper.findUserByMeeting(meetingId, userId);
+		Optional<UserByMeeting> result = Optional.ofNullable(userByMeeting);
+		return result.orElse(new UserByMeeting());
+	}
+	
+	/*
+	public UserByMeeting findUserByMeeting(int meetingId, int userId)
+	{
 		UserByMeeting userByMeeting = new UserByMeeting();
 		userByMeeting = meetingMapper.findUserByMeeting(meetingId, userId);
 		return userByMeeting;
-	}
+	}*/
 	
 	public Meeting findOne(int id)
 	{

@@ -2,6 +2,7 @@ package com.kyung.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -33,19 +34,33 @@ public class MeetingController {
 	@Autowired BoardService boardService;
 	
 	@RequestMapping(value="meeting", method=RequestMethod.GET)
-	public String meeting(@RequestParam(value="id") int id, Model model)
+	public String meeting(@RequestParam(value="id") int meetingId, Model model)
 	{
 		System.out.println("meeting get main");
+		
 		String menu="";
 		Meeting meeting = new Meeting();
 		
-		meeting = meetingService.findOne(id);
+		meeting = meetingService.findOne(meetingId);
 		menu = meeting.getName();
 		model.addAttribute("menu",menu);
 		
 		User user = userService.getCurrentUser();
-		UserByMeeting userByMeeting = meetingService.findUserByMeeting(meeting.getId(), user.getId());
-		model.addAttribute("user",userByMeeting);
+		
+		UserByMeeting result = meetingService.findUserByMeeting(meeting.getId(), user.getId());
+		
+		if(result.getMeetingId() == -1)
+		{
+			return "redirect:main";
+		}
+		
+		/* error
+		if(userByMeeting.getMeetingId() == -1)
+		{
+			return "redirect:main";
+		}*/
+		
+		model.addAttribute("user",result);
 		
 		List<Category> category = boardService.boardCategory(meeting.getId());
 		model.addAttribute("category", category);

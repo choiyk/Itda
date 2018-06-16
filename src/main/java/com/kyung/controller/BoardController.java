@@ -52,7 +52,6 @@ public class BoardController
 		List<Category> category = boardService.boardCategoryByBoardId(boardId);
 		model.addAttribute("category", category);
 		
-		//return "redirect:article_write?bd="+boardId;
 		return "user/article_write";
 	}
 	
@@ -74,8 +73,6 @@ public class BoardController
 		 
 		User user = userService.getCurrentUser();
 		articleModel.setContents(request.getParameter("contents")); // form validation 적용 후 삭제
-		//int category = Integer.parseInt(request.getParameter("category"));
-		//model.addAttribute("category",category);
 		
 		articleService.create(boardId, user.getId(), articleModel);
 		
