@@ -29,6 +29,39 @@
 </section>
 
 <div class="margin"></div>
+<div class="margin"></div>
+
+<section>
+	<div class="container">
+		<p class="text-center">카테고리 관리</p>
+		<div id="more-features" class="row">
+			<div class="col-lg-12">
+				<div class="box">
+					<div class="comment">
+						<i class="ion-close-round pull-right" data-url="#"></i>
+						<i class="ion-android-create pull-right" data-url="#"></i>
+						<div>전체</div>
+					</div>	
+					<div class="form">
+						<form>
+							<div class="form-row">
+								<div class="form-group col-10">
+									<input type="text" class="form-control" placeholder="카테고리를 추가하세요.">
+								</div>
+								<div class="form-group col-2">
+									<button type="submit" class="btn pull-right">추가</button>
+								</div>
+							</div>
+						</form>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="margin"></div>
 
 <section>
 	<div class="container">
