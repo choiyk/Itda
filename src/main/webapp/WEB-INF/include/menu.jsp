@@ -28,7 +28,7 @@
 			</div>
 			<div id="logo" class="col-4">
 				<%-- <h1 data-url="${R}main">Itda</h1> --%>
-				<img src="${R}img/logo2-1.png" data-url="${R}main"/>
+				<img src="${R}img/logo1-1.png" data-url="${R}main"/>
 			</div>
 			<sec:authorize access="authenticated">
 				<div class="col-4  pull-right text-right">
