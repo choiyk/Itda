@@ -7,6 +7,7 @@ public class ArticlesByMeeting
 	int boardId; // b
 	String boardName; // b
 	
+	int cateId;
 	String cateName; // c
 	
 	String articleTitle; // a
@@ -17,6 +18,17 @@ public class ArticlesByMeeting
 	Date articleDate; // a
 
 	
+	
+	public int getCateId() 
+	{
+		return cateId;
+	}
+
+	public void setCateId(int cateId) 
+	{
+		this.cateId = cateId;
+	}
+
 	public int getBoardId() 
 	{
 		return boardId;

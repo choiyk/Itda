@@ -13,7 +13,7 @@
 				
 					<div id="category" class="form-group">
 						<form:select class="form-control" path="category">
-							<!--  <option value="">전체</option>-->
+							<option value="">전체</option>
 							<form:options items="${category}" itemLabel="name" itemValue="id"/>
 						</form:select>
 					</div>
@@ -28,19 +28,25 @@
 			</form>
 		</div>
 		<div id="more-features" class="row">
+		<!-- 
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
 					<p class="title"><span class="notice">공지</span>성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 공지사항</p>
 					<p class="description">최윤경 / 2018.05.23 10:30</p>
 				</div>
 			</div>
-			
+			 -->
 			<c:if test="${! empty articles }">
 			
 			<c:forEach var="article" items="${ articles }">
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
+					<c:if test="${article.cateName eq '공지' }">
+					<p class="title"><span class="notice">${article.cateName}</span> ${article.articleTitle }</p>
+					</c:if>
+					<c:if test="${article.cateName ne '공지' }">
 					<p class="title"><span class="category">${article.cateName}</span> ${article.articleTitle }</p>
+					</c:if>
 					
 					<c:if test="${article.userNickName == null }">
 					<p class="description">${article.userName } / ${article.articleDate }</p>

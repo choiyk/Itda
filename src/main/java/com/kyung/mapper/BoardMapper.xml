@@ -21,7 +21,7 @@
 		WHERE b.meetingId = #{meetingId}
 	</select> -->
 	<select id="boardArticles" resultType="ArticlesByMeeting">
-		SELECT b.id 'boardId', b.name 'boardName', c.name 'cateName', a.title 'articleTitle', u.name 'userName', u.nickname 'userNickName', a.date 'articleDate'
+		SELECT b.id 'boardId', b.name 'boardName', c.id 'cateId', c.name 'cateName', a.title 'articleTitle', u.name 'userName', u.nickname 'userNickName', a.date 'articleDate'
 		FROM article a JOIN board b
 		ON a.board = b.id
 		JOIN user u
