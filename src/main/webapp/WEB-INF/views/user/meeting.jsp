@@ -40,7 +40,7 @@
 			<c:forEach var="article" items="${ articles }">
 			<div class="col-lg-12">
 				<div class="box" data-url="#">
-					<p class="title">[${article.cateName}] ${article.articleTitle }</p>
+					<p class="title"><span class="category">${article.cateName}</span> ${article.articleTitle }</p>
 					
 					<c:if test="${article.userNickName == null }">
 					<p class="description">${article.userName } / ${article.articleDate }</p>

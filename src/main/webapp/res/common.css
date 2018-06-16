@@ -347,6 +347,14 @@ button:hover {
     margin-right: 3px;
 }
 
+.category{
+	background-color: #8d8d8d;
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 3px;
+}
+
 .warn{
 	color: #f17070;
 }
