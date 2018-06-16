@@ -10,8 +10,18 @@
 		WHERE b.id = #{boardId}
 	</select>
 
-	<select id="boardArticles" resultType="ArticlesByMeeting">
+	<!-- <select id="boardArticles" resultType="ArticlesByMeeting">
 		SELECT b.id, b.name, c.name, a.title, u.name, u.nickname, a.date
+		FROM article a JOIN board b
+		ON a.board = b.id
+		JOIN user u
+		ON a.writer = u.id
+		JOIN category c
+		ON a.category = c.id 
+		WHERE b.meetingId = #{meetingId}
+	</select> -->
+	<select id="boardArticles" resultType="ArticlesByMeeting">
+		SELECT b.id 'boardId', b.name 'boardName', c.name 'cateName', a.title 'articleTitle', u.name 'userName', u.nickname 'userNickName', a.date 'articleDate'
 		FROM article a JOIN board b
 		ON a.board = b.id
 		JOIN user u
