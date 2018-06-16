@@ -1,9 +1,12 @@
 package com.kyung.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ArticlesByMeeting 
 {
+	SimpleDateFormat sim = new SimpleDateFormat("yyyy.MM.dd.  a hh:mm");
+	
 	int boardId; // b
 	String boardName; // b
 	
@@ -95,9 +98,9 @@ public class ArticlesByMeeting
 		this.userNickName = userNickName;
 	}
 
-	public Date getArticleDate() 
+	public String getArticleDate() 
 	{
-		return articleDate;
+		return sim.format(articleDate);
 	}
 
 	public void setArticleDate(Date articleDate) 

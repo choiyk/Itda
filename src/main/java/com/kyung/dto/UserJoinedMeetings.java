@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class UserJoinedMeetings 
 {
-	SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat sim = new SimpleDateFormat("yyyy.MM.dd");
 	
 	int meetingId; // meeting
 	String meetingName; // meeting
