@@ -18,9 +18,11 @@
 		<div class="form">
 			<form:form method="post" modelAttribute="userRegistrationModel">
 				<div class="form-row">
-					<div class="form-group center col-lg-8">
-						<form:input path="studentNumber" type="text" name="studentNumber" class="form-control" placeholder="학번"/>
-						<form:errors path="studentNumber" class="error"/>
+					<div class="col-8 center">
+						<div class="form-group">
+							<form:input path="studentNumber" type="text" name="studentNumber" class="form-control" placeholder="학번"/>
+							<form:errors path="studentNumber" class="error"/>
+						</div>
 					</div>
 				</div>
 				<div class="form-row">
@@ -44,6 +46,7 @@
 				<div class="form-row">
 					<div class="form-group center col-lg-8">
 						<form:input path="nickname" type="text" name="nickname" class="form-control" placeholder="닉네임"/>
+						<p class="sub">*실명 사용을 원하지 않을 경우 닉네임을 입력해주세요.</p>
 						<form:errors path="nickname" class="error"/>
 					</div>
 				</div>

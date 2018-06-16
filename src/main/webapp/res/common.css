@@ -347,6 +347,16 @@ button:hover {
     margin-right: 3px;
 }
 
+.warn{
+	color: #f17070;
+}
+
+.form-group .sub{
+	color: #fabcbc;
+    font-size: 90%;
+    margin-bottom: 0px;
+}
+
 .article-inf{
 	float: right;
     font-size: 0.8rem;
