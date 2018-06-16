@@ -12,7 +12,7 @@
 	</select>
 
 	<select id="findUserByMeeting" resultType="userByMeeting">
-		select mm.meetingId, u.studentNumber, u.name, u.nickname, mm.type
+		select mm.meetingId 'meetingId', u.studentNumber 'studentNumber', u.name 'userName', u.nickname 'userNickName', mm.type 'type'
 		from user u right join meetingMember mm 
 		on u.id=mm.memberId
 		where mm.meetingId = #{meetingId}

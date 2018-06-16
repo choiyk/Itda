@@ -9,6 +9,11 @@ public class UserByMeeting
 	String userNickName; //u
 	
 	int type; // mm
+	
+	public UserByMeeting()
+	{
+		meetingId = -1;
+	}
 
 	public int getMeetingId() 
 	{
