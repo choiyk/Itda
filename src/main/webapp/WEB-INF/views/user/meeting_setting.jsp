@@ -27,7 +27,7 @@
 		</div>
 	</div>
 </section>
-
+<%-- 
 <div class="margin"></div>
 <div class="margin"></div>
 
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --%>
 
 <div class="margin"></div>
 
