@@ -811,6 +811,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 	box-shadow: 0px 0px 30px rgba(29, 200, 205, 0.4);
 }
 
+#more-features .box button:hover{
+	/* box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15); */
+	color: #1dc8cd;
+	border-color: #1dc8cd;
+}
+
 #more-features .icon {
   position: relative;
   float:right;
