@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kyung.dto.Article;
 import com.kyung.dto.Category;
+import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.model.ArticleRegistrationModel;
 import com.kyung.service.BoardService;
@@ -28,18 +30,27 @@ public class BoardController
 	@Autowired ArticleService articleService;
 	
 	@RequestMapping(value="article", method=RequestMethod.GET)
-	public String article(Model model)
+	public String article(@RequestParam(value="bd")int boardId, @RequestParam(value="at") int articleId, Model model)
 	{
-		System.out.println("article get");
+		System.out.println("article get bd:"+boardId+" at:"+articleId);
+		Article article = new Article();
+		article = articleService.findOne(boardId, articleId);
+		model.addAttribute("article",article);
+		
+		int meetingId = boardService.findMeetingByBoard(boardId);
+		model.addAttribute("id", meetingId);
+		//return "redirect:article?bd="+boardId+"&at="+articleId;
 		return "user/article";
 	}
-	/*
+	
 	@RequestMapping(value="article", method=RequestMethod.POST)
 	public String article(Model model)
 	{
+		// comment
 		System.out.println("article post");
+		return "user/article";
 	}
-*/
+
 	
 	@RequestMapping(value="article_write", method=RequestMethod.GET)
 	public String articleWrite(@RequestParam(value="bd") int boardId, ArticleRegistrationModel articleModel, Model model)

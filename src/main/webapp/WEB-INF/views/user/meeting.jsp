@@ -40,7 +40,8 @@
 			
 			<c:forEach var="article" items="${ articles }">
 			<div class="col-lg-12">
-				<div class="box" data-url="#">
+				<div class="box" data-url="article?bd=${board.id }&at=${article.articleId }">
+				<!--  <div class="box" data-url="#">-->
 					<c:if test="${article.cateName eq '공지' }">
 					<p class="title"><span class="notice">${article.cateName}</span> ${article.articleTitle }</p>
 					</c:if>

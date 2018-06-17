@@ -5,24 +5,22 @@
 
 <section id="content">
 	<div class="container">
-		<p class="article-inf">최윤경 / 2018.05.23 10:30</p>
-		<p class="article-category">일정</p>
+		<p class="article-inf">${article.userName } / ${article.date }</p>
+		<p class="article-category">${article.cateName }</p>
 		<div class="form">
 			<div class="form-row">
 				<div class="form-group col-lg-12">
-					<div class="form-control">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 일정 안내</div>
+					<div class="form-control">${article.title }</div>
 				</div>
 				<div class="form-group col-lg-12">
 					<div class="form-control article-content">
-						성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임 일정 안내입니다.<br/>
-						5월 첫째주: 기능 정리<br/>
-						5월 둘째주: DB 구현 및 UI 구상<br/>
-						5월 셋째주: 개발 1주차<br/>
+						${article.content }
 					</div>
 				</div>
 			</div>
 		</div>
 		<div>
+			<button class="btn pull-left" data-url="meeting?id=${id}">목록으로</button>
 			<button class="btn pull-right" data-url="#">삭제</button>
 			<button class="btn pull-right" data-url="#">수정</button>
 		</div>

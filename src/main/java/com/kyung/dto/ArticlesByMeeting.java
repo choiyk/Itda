@@ -13,6 +13,7 @@ public class ArticlesByMeeting
 	int cateId;
 	String cateName; // c
 	
+	int articleId;// a
 	String articleTitle; // a
 	
 	String userName; // u
@@ -22,6 +23,16 @@ public class ArticlesByMeeting
 
 	
 	
+	public int getArticleId() 
+	{
+		return articleId;
+	}
+
+	public void setArticleId(int articleId) 
+	{
+		this.articleId = articleId;
+	}
+
 	public int getCateId() 
 	{
 		return cateId;

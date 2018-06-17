@@ -1,8 +1,11 @@
 package com.kyung.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Article {
+	SimpleDateFormat sim = new SimpleDateFormat("yyyy.MM.dd.  a hh:mm");
+	
 	int id;
 	int boardId; // f.k
 	int writer; // f.k
@@ -12,6 +15,28 @@ public class Article {
 	int notice;
 	int category; // f.k
 	
+	String userName; // u
+	
+	String cateName; // c
+	
+	public String getCateName() 
+	{
+		return cateName;
+	}
+	
+	public void setCateName(String cateName) 
+	{
+		this.cateName = cateName;
+	}
+	
+	public String getUserName() 
+	{
+		return userName;
+	}
+	public void setUserName(String userName) 
+	{
+		this.userName = userName;
+	}
 	public int getId() 
 	{
 		return id;
@@ -52,9 +77,9 @@ public class Article {
 	{
 		this.content = content;
 	}
-	public Date getDate() 
+	public String getDate() 
 	{
-		return date;
+		return sim.format(date);
 	}
 	public void setDate(Date date) 
 	{

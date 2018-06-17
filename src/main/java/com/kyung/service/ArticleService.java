@@ -3,6 +3,7 @@ package com.kyung.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kyung.dto.Article;
 import com.kyung.mapper.ArticleMapper;
 import com.kyung.model.ArticleRegistrationModel;
 
@@ -16,5 +17,12 @@ public class ArticleService {
 		String contents = articleModel.getContents();
 		int category = articleModel.getCategory();
 		articleMapper.insert(boardId, userId, title, contents, category);
+	}
+	
+	public Article findOne(int boardId, int articleId)
+	{	
+		Article article = new Article();
+		article = articleMapper.findOne(boardId, articleId);
+		return article;
 	}
 }
