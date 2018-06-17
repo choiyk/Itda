@@ -67,7 +67,11 @@ public class MeetingService {
 		meetingMemberService.addInMeeting(meeting, user);
 		
 		// add board
-		boardService.addInMeeting(meeting);
+		int boardId;
+		boardId = boardService.addInMeeting(meeting);
+		
+		// default category
+		boardService.defaultCategory(boardId);
 		
 		return meeting.getId();
 	}

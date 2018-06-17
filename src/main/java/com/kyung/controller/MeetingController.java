@@ -105,6 +105,7 @@ public class MeetingController {
 		{
 			return "user/meeting_create";
 		}
+		
 		User user=userService.getCurrentUser();
 		meetingModel.setExplain(request.getParameter("explain")); // form validation 적용 후 삭제 
 		System.out.println("requestparam : "+ request.getParameter("explain"));

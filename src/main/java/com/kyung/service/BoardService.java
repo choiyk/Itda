@@ -47,7 +47,7 @@ public class BoardService {
 		return category;
 	}
 	
-	public void addInMeeting(Meeting meeting)
+	public int addInMeeting(Meeting meeting)
 	{
 		Board board = new Board();
 		board.setMeetingId(meeting.getId());
@@ -58,5 +58,13 @@ public class BoardService {
 		System.out.println("board id : "+board.getId());
 		System.out.println("board meetingId : "+board.getMeetingId());
 		System.out.println("board name : "+board.getName());
+		
+		return board.getId();
+	}
+	
+	public void defaultCategory(int boardId)
+	{
+		boardMapper.defaultCategory("공지", boardId);
+		boardMapper.defaultCategory("잡담", boardId);
 	}
 }

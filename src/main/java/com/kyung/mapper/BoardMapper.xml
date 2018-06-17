@@ -3,6 +3,7 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.BoardMapper">
+
 	<select id="findMeetingByBoard" resultType="Meeting">
 		SELECT *
 		FROM meeting m JOIN board b
@@ -49,13 +50,21 @@
 	<select id="findOne" resultType="Board">
 		SELECT * FROM Board WHERE id = #{id}
 	</select>
+	
 	<select id="findAll" resultType="Board">
 		SELECT * FROM Board
 	</select>
+	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT Board(meetingId, name)
 		VALUES (#{meetingId}, #{name})
 	</insert>
+	
+	<insert id="defaultCategory" useGeneratedKeys="true" keyProperty="id">
+		insert Category(name, boardId)
+		values(#{name}, #{boardId});
+	</insert>
+	
 	<delete id="delete">
 		delete FROM Board WHERE id = #{id}
 	</delete>

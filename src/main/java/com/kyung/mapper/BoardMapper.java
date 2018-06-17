@@ -21,4 +21,5 @@ public interface BoardMapper
 	List<Category> boardCategoryByBoardId(int boardId);
 	List<ArticlesByMeeting> boardArticles(int meetingId);
 	Meeting findMeetingByBoard(int boardId);
+	void defaultCategory(@Param(value="name")String name, @Param(value="boardId")int boardId);
 }
