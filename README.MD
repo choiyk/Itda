@@ -1,5 +1,5 @@
 # Itda(잇다)
-성공회대 소프트웨어공학과 2018 캡스톤디자인 수업 프로젝트 
+성공회대 소프트웨어공학과 2018 캡스톤디자인 수업 프로젝트
 
 교내 오프라인 모임을 위한 온라인 공유 및 실시간 타겟팅 알림 플랫폼
 
@@ -8,8 +8,14 @@
 - 시스템 이름 : Itda(잇다)
 - 역할 : 교내 오프라인 모임 중 정보 공유의 편리성 증진 및 실시간 타겟팅 알림으로 정보 전달률 향상
 
+## 프로젝트 일정
+* 기획 및 요구사항 분석 (4/30 ~ 5/7) (1주)
+* UI 설계 및 DB 설계 (5/8 ~ 5/14) (1주)
+* 기능 개발 및 테스트 (5/15 ~ ) (약 4~5)
+
+
 ## 프로젝트 설명
-소모임이나 스터디 같은 교내 오프라인 모임을 위한 모임 관리 사이트입니다. 
+소모임이나 스터디 같은 교내 오프라인 모임을 위한 모임 관리 사이트입니다.
 
 모임에 가입하여 구성원들과 온라인으로 자료를 공유할 수 있습니다.
 
@@ -21,14 +27,19 @@
 - 모임 별 새 글/댓글 실시간 알림
 
 ## SOFTWARE REQUIREMENTS
-- Spring Boot
-- Mybatis
-- JAVA
-- Apache-Tomcat
-- MySQL
-- HTML5
-- CSS
-- JavaScript
+* 웹 프레임 워크 : Spring Boot
+* 웹 프론트 : Apache Tiles, HTML, CSS, Bootstrap, Jquery
+* 의존성 관리 : Maven
+* 웹 애플리케이션 서버 : Apache Tomcat
+* IDE - STS
+* ORM - MyBatis
+* DB - MySQL
+* 버전관리 : GitHub
+* 실시간 알림 : websocket
+* 테스트 : JUnit, Mokito (미정)
+* 배포 : Docker, AWS (미정)
+* [DB 테스트 데이터](http://www.generatedata.com)
+
 
 ## DEVELOPERS
 * 고다경 - 소프트웨어공학과 201432002
