@@ -33,7 +33,7 @@
 					
 					<c:if test="${ meeting.mmType == 3 }">
 					<p class="description">모임 관리자: ${meeting.userName} / 개설일: ${ meeting.meetingDate }</p>
-					<button class="icon" data-url="#">관리</button>
+					<button class="icon" data-url="meeting_setting?id=${meeting.meetingId }">관리</button>
 					</c:if>
 					
 					<c:if test="${ meeting.mmType == 2 }">

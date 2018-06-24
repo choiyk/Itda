@@ -153,8 +153,18 @@ public class MeetingController {
 		//model.addAttribute("id", id);
 		
 		Meeting meeting = meetingService.findOne(id);
+		
+		User user = userService.getCurrentUser();
+		UserByMeeting result = meetingService.findUserByMeeting(meeting.getId(), user.getId());
+		if(result.getType() != 3)
+		{
+			return "redirect:main";
+		}
+		
 		MeetingRegistrationModel meetingRegistrationModel = meeting.toRegistrationMeeting();
 		model.addAttribute("meetingRegistrationModel", meetingRegistrationModel);
+		
+		
 		return "user/meeting_setting";
 	}
 	
