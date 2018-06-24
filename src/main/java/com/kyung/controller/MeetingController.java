@@ -44,6 +44,7 @@ public class MeetingController {
 		meeting = meetingService.findOne(meetingId);
 		menu = meeting.getName();
 		model.addAttribute("menu",menu);
+		model.addAttribute("meeting",meeting);
 		
 		User user = userService.getCurrentUser();
 		
@@ -107,8 +108,8 @@ public class MeetingController {
 		}
 		
 		User user=userService.getCurrentUser();
-		meetingModel.setExplain(request.getParameter("explain")); // form validation 적용 후 삭제 
-		System.out.println("requestparam : "+ request.getParameter("explain"));
+		meetingModel.setMexplain(request.getParameter("mexplain")); // form validation 적용 후 삭제 
+		System.out.println("requestparam : "+ request.getParameter("mexplain"));
 		int id = meetingService.create(meetingModel, user);
 		
 		return "redirect:meeting?id="+id;
@@ -142,29 +143,43 @@ public class MeetingController {
 	}
 	
 	@RequestMapping(value="meeting_setting", method=RequestMethod.GET)
-	public String meeting_setting(MeetingRegistrationModel meetingModel, Model model)
+	public String meeting_setting(@RequestParam(value="id") int id, MeetingRegistrationModel meetingModel, Model model)
 	{
 		System.out.println("meeting setting_GET");
 		String menu="모임 정보 수정";
-		User user = null;
-		model.addAttribute("user", user);
+		//User user = null;
+		//model.addAttribute("user", user);
 		model.addAttribute("menu", menu);
+		//model.addAttribute("id", id);
+		
+		Meeting meeting = meetingService.findOne(id);
+		MeetingRegistrationModel meetingRegistrationModel = meeting.toRegistrationMeeting();
+		model.addAttribute("meetingRegistrationModel", meetingRegistrationModel);
 		return "user/meeting_setting";
 	}
 	
 	@RequestMapping(value="meeting_setting", method=RequestMethod.POST)
-	public String meeting_setting(@Valid MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
+	public String meeting_setting(@RequestParam(value="id") int id,HttpServletRequest request,@Valid MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
 	{
 		System.out.println("meeting setting_POST");
-		String menu="모임 정보 수정";
 		
+		String menu=request.getParameter("meetingName");
+		model.addAttribute("menu",menu);
 		if(bindingResult.hasErrors())
 		{
 			return "user/meeting_setting";
 		}
 		
-		model.addAttribute("menu", menu);
-		return "user/meeting";
+		User user=userService.getCurrentUser();
+		meetingModel.setMexplain(request.getParameter("mexplain")); // form validation 적용 후 삭제 
+		
+		System.out.println("requestparam : "+ request.getParameter("mexplain"));
+		
+		model.addAttribute("user",user);
+		meetingService.update(meetingModel,id);
+		
+		//return "user/meeting_setting";
+		return "redirect:meeting?id="+id;
 	}
 	
 	

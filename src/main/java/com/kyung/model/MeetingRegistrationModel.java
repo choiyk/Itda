@@ -14,7 +14,7 @@ public class MeetingRegistrationModel
 	
 	//@NotEmpty(message="내용을 입력하세요.")
 	//@Size(min=10, message="10자 이상 입력하세요.")
-	String explain;
+	String mexplain;
 
 
 	public String getMeetingName() 
@@ -31,20 +31,20 @@ public class MeetingRegistrationModel
 	{
 		Meeting meeting = new Meeting();
 		meeting.setName(this.meetingName);
-		meeting.setExplain(this.explain); //
+		meeting.setMexplain(this.mexplain); //
 		System.out.println("toMeeting name:"+this.meetingName);
-		System.out.println("toMeeting explain:"+this.explain);
+		System.out.println("toMeeting explain:"+this.mexplain);
 		return meeting;
 	}
 	
-	public String getExplain() 
+	public String getMexplain() 
 	{
-		return explain;
+		return mexplain;
 	}
 
-	public void setExplain(String explain) 
+	public void setMexplain(String mexplain) 
 	{
-		this.explain = explain;
+		this.mexplain = mexplain;
 	}
 
 }

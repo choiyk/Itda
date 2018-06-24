@@ -18,7 +18,7 @@ public interface MeetingMapper {
 	//Meeting findByLeader(int leader);
 	void delete(int id);
 	void insert(Meeting meeting);
-	void update(Meeting meeting);
+	void update(@Param("meeting")Meeting meeting, @Param("meetingId")int id);
 	UserByMeeting findUserByMeeting(@Param("meetingId")int meetingId, @Param("userId")int userId );
 	Board findBoardByMeeting(int meetingId);
 }

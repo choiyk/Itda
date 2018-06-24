@@ -60,7 +60,7 @@ public class MeetingService {
 		// test
 		System.out.println("meeting id : "+meeting.getId());
 		System.out.println("meeting name : "+meeting.getName());
-		System.out.println("meeting explain : "+meeting.getExplain());
+		System.out.println("meeting explain : "+meeting.getMexplain());
 		//System.out.println("meeting leader : "+meeting.getLeader());
 		
 		// add meetingMember
@@ -72,6 +72,23 @@ public class MeetingService {
 		
 		// default category
 		boardService.defaultCategory(boardId);
+		
+		return meeting.getId();
+	}
+	
+	public int update(MeetingRegistrationModel meetingModel,int id)
+	{
+		// add meeting
+		Meeting meeting = meetingModel.toMeeting();
+		System.out.println("toMeeting 완");
+		//meeting.setLeader(user.getId());
+		meetingMapper.update(meeting,id);//
+		System.out.println("meetingMapper update 완");
+				
+				// test
+		System.out.println("meeting id : "+meeting.getId());
+		System.out.println("meeting name : "+meeting.getName());
+		System.out.println("meeting explain : "+meeting.getMexplain());
 		
 		return meeting.getId();
 	}

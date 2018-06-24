@@ -3,14 +3,24 @@ package com.kyung.dto;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.kyung.model.MeetingRegistrationModel;
+
 public class Meeting {
 	SimpleDateFormat sim = new SimpleDateFormat("yyyy.MM.dd");
 	
 	int id;
 	String name;
-	String explain;
+	String mexplain;
 	Date date;
 	//int leader; // f.k
+	
+	public MeetingRegistrationModel toRegistrationMeeting()
+	{
+		MeetingRegistrationModel model = new MeetingRegistrationModel();
+		model.setMeetingName(this.getName());
+		model.setMexplain(this.getMexplain());
+		return model;
+	}
 	
 	public String getDate() 
 	{
@@ -39,13 +49,13 @@ public class Meeting {
 	{
 		this.name = name;
 	}
-	public String getExplain() 
+	public String getMexplain() 
 	{
-		return explain;
+		return mexplain;
 	}
-	public void setExplain(String explain) 
+	public void setMexplain(String mexplain) 
 	{
-		this.explain = explain;
+		this.mexplain = mexplain;
 	}
 	
 }

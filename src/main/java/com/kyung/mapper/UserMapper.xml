@@ -5,7 +5,7 @@
 <mapper namespace="com.kyung.mapper.UserMapper">
 	
 	<select id="userJoinMeetings" resultType="UserJoinedMeetings">
-		select m.id meetingId, m.name meetingName, m.explain meetingExplain, m.date meetingDate, 
+		select m.id meetingId, m.name meetingName, m.mexplain meetingExplain, m.date meetingDate, 
 				u.name userName, mm.type mmType, mm.date mmDate
 		from meeting m left join meetingMember mm
 		on m.id = mm.meetingId 

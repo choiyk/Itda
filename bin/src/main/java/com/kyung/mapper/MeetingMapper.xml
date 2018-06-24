@@ -26,13 +26,13 @@
 	<update id="update">
 		UPDATE Meeting SET
 			name = #{name},
-			explain = #{explain},
+			mexplain = #{mexplain},
 			leader = #{leader}
 	</update>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT Meeting(name, explain, leader)
-		VALUES (#{name}, #{explain}, #{leader})
+		INSERT Meeting(name, mexplain, leader)
+		VALUES (#{name}, #{mexplain}, #{leader})
 	</insert>
 	
 </mapper>
