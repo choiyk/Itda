@@ -12,15 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kyung.dto.Article;
 import com.kyung.dto.Department;
+import com.kyung.dto.MyMeetingByUser;
+/*<<<<<<< HEAD
 import com.kyung.dto.Meeting;
 import com.kyung.dto.MyMeetingByUser;
+=======
+>>>>>>> refs/heads/choiyk*/
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.model.UserModificationModel;
 import com.kyung.model.UserPasswdModificationModel;
 import com.kyung.model.UserPasswordCheckModel;
-import com.kyung.model.UserRegistrationModel;
+import com.kyung.service.ArticleService;
 import com.kyung.service.DepartmentService;
 import com.kyung.service.UserService;
 import com.kyung.utils.Encryption;
@@ -29,6 +34,7 @@ import com.kyung.utils.Encryption;
 public class UserController {
 	@Autowired UserService userService;
 	@Autowired DepartmentService departmentService;
+	@Autowired ArticleService articleService;
 
 	@RequestMapping("main")
 	public String main(Model model)
@@ -36,10 +42,13 @@ public class UserController {
 		System.out.println("login success");
 		User user = userService.getCurrentUser();
 		List<UserJoinedMeetings> list = userService.userJoinMeetings(user.getId());
-		
+
 		if(list.size()>0) System.out.println(list.get(0).getMeetingName());
 		else System.out.println("null");
-		
+
+		List<Article> notices = articleService.findNotice();
+		model.addAttribute("notices", notices);
+
 		model.addAttribute("meetings",list);
 		model.addAttribute("type",user.getType());
 		return "user/main";
@@ -57,12 +66,12 @@ public class UserController {
 	public String myinfoSetting(UserModificationModel userModel, Model model)
 	{
 		System.out.println("info get");
-		User user = userService.getCurrentUser(); 
+		User user = userService.getCurrentUser();
 		user = userService.findOne(user.getId());
-		
+
 		//System.out.println("userModel nickname:"+userModel.getNickname());
 		userModel = userModel.inputUser(user);
-		
+
 		//System.out.println(userModel.getGender());
 		model.addAttribute("userModificationModel",userModel);
 		//model.addAttribute("department", user.getDepartmentId());
@@ -161,7 +170,7 @@ public class UserController {
 		User user = userService.getCurrentUser();
 		List<MyMeetingByUser> myMeetings = userService.myMeetingByUser(user.getId());
 		model.addAttribute("myMeetings", myMeetings);
-		
+
 		return "user/my_meeting";
 	}
 
