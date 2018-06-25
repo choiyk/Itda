@@ -21,8 +21,8 @@
 		</div>
 		<div>
 			<button class="btn pull-left" data-url="meeting?id=${id}">목록으로</button>
-			<button class="btn pull-right" data-url="#">삭제</button>
-			<button class="btn pull-right" data-url="#">수정</button>
+			<button class="btn pull-right" onclick="my_confirm('${R}article_delete?bd=${article.boardId}&at=${article.id}','삭제하시겠습니까?')">삭제</button>
+			<button class="btn pull-right" data-url="${R}article_edit?bd=${article.boardId}&at=${article.id }">수정</button>
 		</div>
 	</div>
 	<div class="margin"></div>

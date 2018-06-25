@@ -31,7 +31,16 @@ $(function() {
 		}
 	});
 	
-	$("[data-url]").click(function() {
+	$(".box[data-url] p").click(function() {
+		var p = $(this).parents(".box");
+		var url = p.attr("data-url");
+		location.href = url;
+		/*alert("click");*/
+		/*var url = $(this).attr("data-url");
+		location.href = url;*/
+	})
+	
+	$("[data-url]").not(".box").click(function() {
 		var url = $(this).attr("data-url");
 		location.href = url;
 	})
@@ -60,3 +69,11 @@ $(function() {
 	})
 
 })
+
+function my_confirm(url, msg){
+	var r = confirm(msg);
+	if (r == true) {
+	    location.href=url;
+	} else {
+	}
+}

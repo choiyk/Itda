@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group col-lg-12">
-						<textarea name="contents" class="form-control" rows="10">내용을 입력하세요.</textarea>
+						<textarea name="contents" class="form-control" rows="10" placeholder="내용을 입력해주세요.">${articleRegistrationModel.contents }</textarea>
 					</div>
 				</div>
 				<div class="form-row">
