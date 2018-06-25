@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.kyung.dto.Meeting;
+import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.mapper.UserMapper;
@@ -19,6 +20,13 @@ import com.kyung.utils.Encryption;
 @Service
 public class UserService {
 	@Autowired UserMapper userMapper;
+	
+	public List<MyMeetingByUser> myMeetingByUser(int userId)
+	{
+		System.out.println("userId : "+userId);
+		List<MyMeetingByUser> myMeetings = userMapper.myMeetingByUser(userId);
+		return myMeetings;
+	}
 	
 	public List<UserJoinedMeetings> userJoinMeetings(int userId)
 	{

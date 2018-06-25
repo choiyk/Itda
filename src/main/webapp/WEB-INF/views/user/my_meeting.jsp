@@ -6,13 +6,24 @@
 <section id="content">
 	<div class="container">
 		<div id="more-features" class="row">
+			<c:if test="${!empty myMeetings }">
+			<c:forEach var="myMeeting" items="${ myMeetings }">
 			<div class="col-lg-12">
-				<div class="box" data-url="#">
-					<p class="title">성공회대학교 소프트웨어공학과 캡스톤 디자인 프로젝트 모임</p>
-					<p class="description">모임 관리자: 최윤경 / 개설일: 2018.05.23</p>
-					<button class="icon" data-url="#">관리</button>
+				<div class="box" data-url="meeting?id=${myMeeting.meetingId }">
+					<p class="title">${myMeeting.meetingName }</p>
+					<p class="description">개설일: ${myMeeting.meetingDate }</p>
+					<button class="icon" data-url="meeting_setting?id=${myMeeting.meetingId}&st=0">관리</button>
 				</div>
 			</div>
+			</c:forEach>
+			</c:if>
+			<c:if test="${empty myMeetings }">
+			<div class="col-lg-12">
+				<div class="box">
+					<p class="title">개설한 모임이 없습니다.</p>
+				</div>
+			</div>
+			</c:if>
 		</div>
 	</div>
 </section>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kyung.dto.Department;
 import com.kyung.dto.Meeting;
+import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.model.UserModificationModel;
@@ -155,8 +156,12 @@ public class UserController {
 	}
 
 	@RequestMapping("my_meeting")
-	public String myMeeting()
+	public String myMeeting(Model model)
 	{
+		User user = userService.getCurrentUser();
+		List<MyMeetingByUser> myMeetings = userService.myMeetingByUser(user.getId());
+		model.addAttribute("myMeetings", myMeetings);
+		
 		return "user/my_meeting";
 	}
 
