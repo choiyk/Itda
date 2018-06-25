@@ -24,6 +24,10 @@
 		and a.board = #{boardId}
 	
 	</select>
+	
+	<select id="findNotice" resultType="Article">
+		SELECT * FROM article WHERE board= 1 ORDER BY date desc LIMIT 3
+	</select>
 
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		insert article (board, writer, title, content, category)

@@ -10,17 +10,21 @@
 		<c:if test="${type == 1 }">
 		<div class="row">
 			<div class="col-lg-12">
-				<p class="pull-right" data-url="#">공지 쓰기 <i class="ion-android-create"></i></p>
+				<p class="pull-right" data-url="${R}article_write?bd=1">공지 쓰기 <i class="ion-android-create"></i></p>
 			</div>
 		</div>
 		</c:if>
 		<div id="more-features" class="row">
-			<div class="col-lg-12">
-				<div class="box" data-url="#">
-					<p class="title"><span class="notice">공지</span>Welcome! Itda</p>
-					<p class="description">관리자 / 2018.05.29 19:12</p>
-				</div>
-			</div>
+			<c:if test="${!empty notices }">
+				<c:forEach var="notice" items="${notices}">
+					<div class="col-lg-12">
+						<div class="box" data-url="${R}article?bd=1&at=${notice.id}">
+							<p class="title"><span class="notice">공지</span>${notice.title }</p>
+							<p class="description">관리자 / ${notice.date }</p>
+						</div>
+					</div>
+				</c:forEach>
+			</c:if>
 			
 			<c:if test="${!empty meetings }">
 			<c:forEach var="meeting" items="${ meetings }">
