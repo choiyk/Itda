@@ -37,4 +37,8 @@
 		category = #{category}
 		WHERE id = #{articleId}
 	</update>
+	
+	<delete id="delete">
+		DELETE FROM article WHERE id = #{articleId}
+	</delete>
 </mapper>

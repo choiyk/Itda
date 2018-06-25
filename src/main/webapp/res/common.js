@@ -69,3 +69,11 @@ $(function() {
 	})
 
 })
+
+function my_confirm(url, msg){
+	var r = confirm(msg);
+	if (r == true) {
+	    location.href=url;
+	} else {
+	}
+}

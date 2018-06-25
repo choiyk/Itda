@@ -32,4 +32,8 @@ public class ArticleService {
 		int category = articleModel.getCategory();
 		articleMapper.update(articleId, title, contents, category);
 	}
+
+	public void delete(int articleId){
+		articleMapper.delete(articleId);
+	}
 }

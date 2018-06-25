@@ -132,10 +132,19 @@ public class BoardController
 
 		articleService.edit(articleId, articleModel);
 
-		System.out.println("boardId "+boardId); //
+		return "redirect:article?bd="+boardId+"&at="+articleId;
+
+	}
+
+	@RequestMapping(value="article_delete")
+	public String articleDelete(Model model, @RequestParam(value="bd") int boardId, @RequestParam(value="at") int articleId){
+
+		articleService.delete(articleId);
+
 		int meetingId = boardService.findMeetingByBoard(boardId);
 
-		return "redirect:meeting?id="+meetingId;
-
+		model.addAttribute("msg", "삭제되었습니다.");
+		model.addAttribute("url", "meeting?id="+meetingId);
+		return "redirect";
 	}
 }
