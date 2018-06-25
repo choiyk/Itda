@@ -3,8 +3,19 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.ArticleMapper">
-	<select id="findOne" resultType="Article">
+	<!-- <select id="findOne" resultType="Article">
 		select u.name 'userName', a.date 'date', c.name 'cateName', a.title 'title', a.content 'content' 
+		from article a join user u
+		on a.writer = u.id
+		join category c
+		on a.category = c.id
+		where a.id = #{articleId}
+		and a.board = #{boardId}
+	
+	</select> -->
+	
+	<select id="findOne" resultType="Article">
+		select a.id, a.board 'boardId', a.writer, a.title, a.content, a.date, a.notice, a.category, u.name 'userName', c.name 'cateName' 
 		from article a join user u
 		on a.writer = u.id
 		join category c
@@ -18,4 +29,12 @@
 		insert article (board, writer, title, content, category)
 		values (#{boardId}, #{userId}, #{title},#{contents}, #{category})
 	</insert>
+	
+	<update id="update">
+		UPDATE article SET
+		title = #{title},
+		content = #{contents},
+		category = #{category}
+		WHERE id = #{articleId}
+	</update>
 </mapper>
