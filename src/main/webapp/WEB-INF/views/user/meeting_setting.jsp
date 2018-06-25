@@ -7,7 +7,7 @@
 <section id="content">
 	<div class="container">
 		<div class="form">
-			<form:form method="post" modelAttribute="meetingRegistrationModel">
+			<form:form method="post" modelAttribute="meetingRegistrationModel" action="meeting_setting?id=${id}">
 				<div class="form-row">
 					<div class="form-group center col-lg-12">
 						<form:input path="meetingName" type="text" name="meetingName" class="form-control" placeholder="모임명"/>
@@ -78,28 +78,27 @@
 				<c:if test="${!empty saveusers }">
 				<c:forEach var="saveuser" items="${ saveusers }">
 					<div class="box" data-url="#">
-						<p class="title">${ saveuser.studentNumber} (${saveuser.name})</p>
-						<c:if test="${saveuser.gender == 1 }">
-						<p class="description">${department } / 여성 </p>
+						<p class="title">${ saveuser.userStudentNumber} (${saveuser.userName})</p>
+						<c:if test="${saveuser.userGender == 1 }">
+						<p class="description">${saveuser.departmentName } / 여성 </p>
 						</c:if>
-						<c:if test="${saveuser.gender != 1 }">
-						<p class="description">${department } / 남성 </p>
+						<c:if test="${saveuser.userGender != 1 }">
+						<p class="description">${saveuser.departmentName } / 남성 </p>
 						</c:if>
-						<button class="icon" data-url="#">삭제</button>
+						<button class="icon" onclick="my_confirm('${R}meeting_user_delete?id=${id }&mid=${saveuser.id}','회원을 모임에서 삭제하시겠습니까?')">삭제</button>
 					</div>
 				</c:forEach>
 				</c:if>
 			</div>
 		</div>
 		<div class="form" >
-			<form method="post" action="userfind">
+			<form method="post" action="userfind?id=${id }">
 				<div class="form-row">
 					<div class="form-group col-10">
+						<input type="hidden" name="id" value="">
 						<input type="text" name="studentNumber" class="form-control" placeholder="학번을 검색하세요.">
 					</div>
 					<div class="form-group col-2">
-						<input type="hidden" name="id" value="${id}">
-						<input type="hidden" name="st" value="${st}">
 						<button type="submit" class="btn pull-right">검색</button>
 					</div>
 				</div>
@@ -123,11 +122,7 @@
 						<c:if test="${finduser.gender != 1 }">
 						<p class="description">${department } / 남성 </p>
 						</c:if>
-						<form method="post" action="usersave">
-						<input type="hidden" name="id" value="${id}">
-						<input type="hidden" name="st" value="${finduser.studentNumber}">
-						<button class="icon" data-url="usersave?id=${id }&st=${finduser.studentNumber }">추가</button>
-						</form>
+						<button class="icon" data-url="${R}meeting_adduser?id=${id}&uid=${finduser.id}">추가</button>
 					</div>
 				</c:if>	
 				</div>

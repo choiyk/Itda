@@ -20,7 +20,7 @@
 				 
 					<div id="category-btn" class="form-group">
 						<c:if test="${user.type == 3}">
-							<p class="pull-right" data-url="meeting_setting?id=${meeting.id }&st=0">모임 관리 <i class="ion-android-settings"></i></p>
+							<p class="pull-right" data-url="meeting_setting?id=${meeting.id }">모임 관리 <i class="ion-android-settings"></i></p>
 						</c:if>
 						<p class="pull-right" data-url="article_write?bd=${board.id }">글쓰기 <i class="ion-android-create"></i></p>
 					</div>
