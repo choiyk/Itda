@@ -119,38 +119,99 @@ public class MeetingController {
 	public String meeting_setting_usersave(@RequestParam(value="id") int id, MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
 	{
 		System.out.println("meeting_setting_save");
+		
 		List<User> saveuser = new ArrayList<>();
 		User user = userService.findOne(id);
 		saveuser.add(user);
+		
 		System.out.println(user.getName());
 		model.addAttribute("saveuser",saveuser);
 		return "user/meeting_setting";
 	}
 	
-	@RequestMapping(value="userfind", method=RequestMethod.POST)
-	public String meeting_setting_userfind(HttpServletRequest request, MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
+	@RequestMapping(value="userfind", method=RequestMethod.GET)
+	public String meeting_setting_userfind(@RequestParam(value="id") int id, @RequestParam(value="st") String st, 
+			MeetingRegistrationModel meetingModel, Model model)
 	{
-		System.out.println("meeting_setting_userfind");
-		String studentNumber = request.getParameter("studentNumber");
-		model.addAttribute("finduser", userService.findByStudentNumber(studentNumber));
-		User user = userService.findByStudentNumber(studentNumber);
-		System.out.println(studentNumber);
-		/*if(bindingResult.hasErrors())
+		System.out.println("meeting_setting_userfind [get]");
+		
+		// meeting 내용
+		Meeting meeting = meetingService.findOne(id);
+		MeetingRegistrationModel meetingRegistrationModel = meeting.toRegistrationMeeting();
+		model.addAttribute("meetingRegistrationModel", meetingRegistrationModel);
+		// 찾은 user 내용 
+		User user = userService.findByStudentNumber(st);
+		
+		Optional<User> result = Optional.ofNullable(user);
+		if(!result.isPresent())
 		{
-			return "user/meeting_setting";
-		}*/
+			System.out.println("검색 결과 없음");
+			return "redirect:meeting_setting?id="+id;
+		}
+		
+		System.out.println("검색 결과 : "+user.getName());
+		System.out.println(st);
+		model.addAttribute("finduser", user);
+		
+		//return "redirect:userfind?id="+id+"&st="+st;
 		return "user/meeting_setting";
 	}
+	
+	@RequestMapping(value="userfind", method=RequestMethod.POST)
+	public String meeting_setting_userfind(@RequestParam(value="id") int id,HttpServletRequest request, 
+			@Valid MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
+	{
+		System.out.println("meeting_setting_userfind [post]");
+		//System.out.println("id : "+id);
+		/*
+		Meeting meeting = meetingService.findOne(id);
+		MeetingRegistrationModel meetingRegistrationModel = meeting.toRegistrationMeeting();
+		model.addAttribute("meetingRegistrationModel", meetingRegistrationModel);*/
+		
+		String studentNumber = request.getParameter("studentNumber");
+		
+		return "redirect:userfind?id="+id+"&st="+studentNumber;
+		//return "user/meeting_setting?id="+id;
+	}
+	
+	/*
+	@RequestMapping(value="userfind", method=RequestMethod.POST)
+	public String meeting_setting_userfind(@RequestParam(value="id") int id,HttpServletRequest request, 
+			@Valid MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
+	{
+		System.out.println("meeting_setting_userfind [post]");
+		//System.out.println("id : "+id);
+		
+		Meeting meeting = meetingService.findOne(id);
+		MeetingRegistrationModel meetingRegistrationModel = meeting.toRegistrationMeeting();
+		model.addAttribute("meetingRegistrationModel", meetingRegistrationModel);
+		
+		String studentNumber = request.getParameter("studentNumber");
+		User user = userService.findByStudentNumber(studentNumber);
+		
+		Optional<User> result = Optional.ofNullable(user);
+		if(!result.isPresent())
+		{
+			System.out.println("검색 결과 없음");
+			return "redirect:meeting_setting?id="+id;
+		}
+		
+		System.out.println("검색 결과 : "+user.getName());
+		System.out.println(studentNumber);
+		model.addAttribute("finduser", user); //
+		
+		return "redirect:userfind?id="+id;
+		//return "user/meeting_setting?id="+id;
+	}*/
 	
 	@RequestMapping(value="meeting_setting", method=RequestMethod.GET)
 	public String meeting_setting(@RequestParam(value="id") int id, MeetingRegistrationModel meetingModel, Model model)
 	{
 		System.out.println("meeting setting_GET");
 		String menu="모임 정보 수정";
-		//User user = null;
-		//model.addAttribute("user", user);
+		
+		model.addAttribute("id",id);
 		model.addAttribute("menu", menu);
-		//model.addAttribute("id", id);
 		
 		Meeting meeting = meetingService.findOne(id);
 		
@@ -169,7 +230,8 @@ public class MeetingController {
 	}
 	
 	@RequestMapping(value="meeting_setting", method=RequestMethod.POST)
-	public String meeting_setting(@RequestParam(value="id") int id,HttpServletRequest request,@Valid MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
+	public String meeting_setting(@RequestParam(value="id") int id,HttpServletRequest request,
+			@Valid MeetingRegistrationModel meetingModel, BindingResult bindingResult, Model model)
 	{
 		System.out.println("meeting setting_POST");
 		
@@ -188,7 +250,6 @@ public class MeetingController {
 		model.addAttribute("user",user);
 		meetingService.update(meetingModel,id);
 		
-		//return "user/meeting_setting";
 		return "redirect:meeting?id="+id;
 	}
 	

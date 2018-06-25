@@ -84,13 +84,14 @@
 				</c:if>
 			</div>
 		</div>
-		<div class="form">
-			<form method="post" action="userfind" method="post">
+		<div class="form" >
+			<form method="post" action="userfind">
 				<div class="form-row">
 					<div class="form-group col-10">
 						<input type="text" name="studentNumber" class="form-control" placeholder="학번을 검색하세요.">
 					</div>
 					<div class="form-group col-2">
+						<input type="hidden" name="id" value="${id }">
 						<button type="submit" class="btn pull-right">검색</button>
 					</div>
 				</div>
