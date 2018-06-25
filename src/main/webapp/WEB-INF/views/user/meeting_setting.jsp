@@ -108,8 +108,13 @@
 				</c:if>
 				<c:if test="${ !empty finduser }">
 					<div class="comment">
-						<p class="title">201432036 (최윤경)</p>
-						<p class="description">소프트웨어공학과 / 여성  / 가입일: 2018.06.10</p>
+						<p class="title">${ finduser.studentNumber} (${finduser.name})</p>
+						<c:if test="${finduser.gender == 1 }">
+						<p class="description">${department } / 여성 </p>
+						</c:if>
+						<c:if test="${finduser.gender != 1 }">
+						<p class="description">${department } / 남성 </p>
+						</c:if>
 						<button class="icon" data-url="usersave?id=${finduser.id }">추가</button>
 					</div>
 				</c:if>	

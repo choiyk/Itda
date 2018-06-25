@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kyung.dto.ArticlesByMeeting;
 import com.kyung.dto.Board;
 import com.kyung.dto.Category;
+import com.kyung.dto.Department;
+import com.kyung.dto.DepartmentByUser;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.dto.UserByMeeting;
@@ -26,12 +28,14 @@ import com.kyung.model.MeetingRegistrationModel;
 import com.kyung.service.MeetingService;
 import com.kyung.service.UserService;
 import com.kyung.service.BoardService;
+import com.kyung.service.DepartmentService;
 
 @Controller
 public class MeetingController {
 	@Autowired UserService userService;
 	@Autowired MeetingService meetingService;
 	@Autowired BoardService boardService;
+	@Autowired DepartmentService departmentService;
 	
 	@RequestMapping(value="meeting", method=RequestMethod.GET)
 	public String meeting(@RequestParam(value="id") int meetingId, Model model)
@@ -153,6 +157,13 @@ public class MeetingController {
 		System.out.println(st);
 		model.addAttribute("finduser", user);
 		
+		System.out.println("userid:"+user.getId());
+		System.out.println("학과 찾기 시작");
+		
+		String department = departmentService.findOneByUser(user.getId());
+		System.out.println("학과 출력 : "+department);
+		model.addAttribute("department",department);
+		
 		//return "redirect:userfind?id="+id+"&st="+st;
 		return "user/meeting_setting";
 	}
@@ -169,6 +180,11 @@ public class MeetingController {
 		model.addAttribute("meetingRegistrationModel", meetingRegistrationModel);*/
 		
 		String studentNumber = request.getParameter("studentNumber");
+		// error
+		if(studentNumber =="")
+		{
+			return "redirect:meeting_setting?id="+id;
+		}
 		
 		return "redirect:userfind?id="+id+"&st="+studentNumber;
 		//return "user/meeting_setting?id="+id;

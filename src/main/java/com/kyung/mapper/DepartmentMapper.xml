@@ -6,4 +6,11 @@
 	<select id="findAll" resultType="Department">
 		SELECT * FROM Department
 	</select>
+	
+	<select id="findOneByUser" resultType="DepartmentByUser">
+		select *
+		from user u right join department d
+		on u.departmentId = d.id
+		where u.id = #{userId}
+	</select>
 </mapper>
