@@ -16,6 +16,13 @@
 		WHERE m.meetingId = #{meetingId} 
 	</select>
 	
+	<select id="findMeetingMemberByMeetingId" resultType="MeetingMember2">
+		SELECT m.id, m.meetingId, m.type , u.id 'userId', u.name 'userName', u.studentNumber 'userStudentNumber', u.nickname 'userNickname', u.departmentId 'userDepartmentId', u.gender 'userGender'  ,d.departmentName
+		FROM meetingMember m LEFT JOIN user u ON m.memberId = u.id
+		LEFT JOIN department d ON u.departmentId = d.id
+		WHERE m.meetingId = #{meetingId};
+	</select>
+	
 	<update id="update">
 		UPDATE MeetingMember SET 
 			id = #{id},
@@ -32,5 +39,10 @@
 		DELETE FROM MeetingMember 
 		WHERE meetingId = #{meetingId} 
 		AND memberId = #{memberId}
+	</delete>
+	
+	<delete id="delete2">
+		DELETE FROM MeetingMember 
+		WHERE id = #{meetingMemberId}
 	</delete>
 </mapper>
