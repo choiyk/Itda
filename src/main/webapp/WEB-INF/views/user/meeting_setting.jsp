@@ -68,19 +68,26 @@
 		<p class="text-center">회원 목록</p>
 		<div id="more-features" class="row">
 			<div class="col-lg-12">
-				<c:if test="${empty saveuser }">
+				<c:if test="${empty saveusers }">
 					<div class="box">
 						<div class="comment">
 							<div>회원이 없습니다.</div>
 						</div>
 					</div>
 				</c:if>
-				<c:if test="${!empty saveuser }">
+				<c:if test="${!empty saveusers }">
+				<c:forEach var="saveuser" items="${ saveusers }">
 					<div class="box" data-url="#">
-						<p class="title">201432036 (최윤경)</p>
-						<p class="description">소프트웨어공학과 / 여성  / 가입일: 2018.06.10</p>
+						<p class="title">${ saveuser.studentNumber} (${saveuser.name})</p>
+						<c:if test="${saveuser.gender == 1 }">
+						<p class="description">${department } / 여성 </p>
+						</c:if>
+						<c:if test="${saveuser.gender != 1 }">
+						<p class="description">${department } / 남성 </p>
+						</c:if>
 						<button class="icon" data-url="#">삭제</button>
 					</div>
+				</c:forEach>
 				</c:if>
 			</div>
 		</div>
@@ -91,7 +98,8 @@
 						<input type="text" name="studentNumber" class="form-control" placeholder="학번을 검색하세요.">
 					</div>
 					<div class="form-group col-2">
-						<input type="hidden" name="id" value="${id }">
+						<input type="hidden" name="id" value="${id}">
+						<input type="hidden" name="st" value="${st}">
 						<button type="submit" class="btn pull-right">검색</button>
 					</div>
 				</div>
@@ -115,7 +123,11 @@
 						<c:if test="${finduser.gender != 1 }">
 						<p class="description">${department } / 남성 </p>
 						</c:if>
-						<button class="icon" data-url="usersave?id=${finduser.id }">추가</button>
+						<form method="post" action="usersave">
+						<input type="hidden" name="id" value="${id}">
+						<input type="hidden" name="st" value="${finduser.studentNumber}">
+						<button class="icon" data-url="usersave?id=${id }&st=${finduser.studentNumber }">추가</button>
+						</form>
 					</div>
 				</c:if>	
 				</div>
