@@ -1,5 +1,7 @@
 package com.kyung.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -31,7 +33,7 @@ public class BoardController
 	@Autowired UserService userService;
 	@Autowired ArticleService articleService;
 	@Autowired CommentService commentService;
-
+	
 	@RequestMapping(value="comment_delete")
 	public String commentDelete(Model model, @RequestParam(value="bd") int boardId, @RequestParam(value="at") int articleId,
 			@RequestParam(value="ct")int commentId)
@@ -67,6 +69,46 @@ public class BoardController
 		
 		System.out.println("view return");
 		return "user/article";
+	}
+	
+	@RequestMapping(value="comment_edit", method=RequestMethod.POST)
+	public String commentEdit(@RequestParam(value="bd") int boardId, @RequestParam(value="at") int articleId, 
+			@RequestParam(value="cm")int cmtId,
+			@Valid CommentRegistrationModel commentModel, BindingResult bindingResult, Model model)
+	{
+		System.out.println("* comment_edit");
+		
+		Article article = new Article();
+		article = articleService.findOne(boardId, articleId);
+		model.addAttribute("article",article);
+		
+		int meetingId = boardService.findMeetingByBoard(boardId);
+		model.addAttribute("id", meetingId);
+		
+		if(bindingResult.hasErrors())
+		{
+			System.out.println("binding result");
+			
+			List<Comment> comments = commentService.findAllByArticle(articleId);
+			model.addAttribute("comments",comments);
+			
+			return "user/article";
+		}
+		
+		System.out.println("edit ing...");
+
+		User user = userService.getCurrentUser();
+ 
+		commentService.update(user.getId(),cmtId,commentModel.getContent());
+		System.out.println("comment edit");
+		
+		model.addAttribute("user",user);
+		
+		List<Comment> comments = commentService.findAllByArticle(articleId); 
+		model.addAttribute("comments",comments);
+		System.out.println("comment list");
+		
+		return "redirect:article?bd="+boardId+"&at="+articleId;
 	}
 
 	@RequestMapping(value="article", method=RequestMethod.POST)

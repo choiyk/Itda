@@ -2,6 +2,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <style> .error {color:red;} </style>
 <c:url var="R" value="/" />
 
@@ -23,8 +24,10 @@
 		</div>
 		<div>
 			<button class="btn pull-left" data-url="meeting?id=${id}">목록으로</button>
+			<c:if test="${article.writer==user.studentNumber }">
 			<button class="btn pull-right" onclick="my_confirm('${R}article_delete?bd=${article.boardId}&at=${article.id}','삭제하시겠습니까?')">삭제</button>
 			<button class="btn pull-right" data-url="${R}article_edit?bd=${article.boardId}&at=${article.id }">수정</button>
+			</c:if>
 		</div>
 	</div>
 	<div class="margin"></div>
@@ -57,7 +60,7 @@
 						<p class="description">${comment.wNickname } / ${comment.date }</p>
 						<div id="comment_content_${status.count}">${comment.content }</div>
 						<div id="comment_rewrite_${status.count}" class="comment_rewrite form">
-							<form:form method="post" modelAttribute="commentRegistrationModel" action="article?bd=${article.boardId}&at=${article.id }">
+							<form:form method="post" modelAttribute="commentRegistrationModel" action="comment_edit?bd=${article.boardId}&at=${article.id }&cm=${comment.id }">
 								<div class="form-row">
 									<div class="form-group col-10">
 										<form:input path="content" type="text" class="form-control" value="${comment.content }"/>
