@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kyung.dto.Article;
 import com.kyung.dto.Category;
+import com.kyung.dto.Comment;
 import com.kyung.dto.User;
 import com.kyung.model.ArticleRegistrationModel;
+import com.kyung.model.CommentRegistrationModel;
 import com.kyung.service.ArticleService;
 import com.kyung.service.BoardService;
+import com.kyung.service.CommentService;
 import com.kyung.service.UserService;
 
 @Controller
@@ -27,26 +30,68 @@ public class BoardController
 	@Autowired BoardService boardService;
 	@Autowired UserService userService;
 	@Autowired ArticleService articleService;
+	@Autowired CommentService commentService;
 
 	@RequestMapping(value="article", method=RequestMethod.GET)
-	public String article(@RequestParam(value="bd")int boardId, @RequestParam(value="at") int articleId, Model model)
+	public String article(@RequestParam(value="bd")int boardId, @RequestParam(value="at") int articleId, 
+			CommentRegistrationModel commentModel, Model model)
 	{
-		System.out.println("article get bd:"+boardId+" at:"+articleId);
+		System.out.println("* article get bd:"+boardId+" at:"+articleId);
+		
 		Article article = new Article();
 		article = articleService.findOne(boardId, articleId);
 		model.addAttribute("article",article);
 
 		int meetingId = boardService.findMeetingByBoard(boardId);
 		model.addAttribute("id", meetingId);
-		//return "redirect:article?bd="+boardId+"&at="+articleId;
+		
+		List<Comment> comments = commentService.findAllByArticle(articleId);
+		
+		model.addAttribute("comments",comments);
+		
+		User user = userService.getCurrentUser();
+		model.addAttribute("user",user);
+		
+		System.out.println("view return");
 		return "user/article";
 	}
 
 	@RequestMapping(value="article", method=RequestMethod.POST)
-	public String article(Model model)
+	public String comment_write(@RequestParam(value="bd") int boardId, @RequestParam(value="at") int articleId, 
+			@Valid CommentRegistrationModel commentModel, BindingResult bindingResult, Model model)
 	{
-		// comment
-		System.out.println("article post");
+		System.out.println("* comment_write");
+		
+		Article article = new Article();
+		article = articleService.findOne(boardId, articleId);
+		model.addAttribute("article",article);
+		
+		int meetingId = boardService.findMeetingByBoard(boardId);
+		model.addAttribute("id", meetingId);
+		
+		if(bindingResult.hasErrors())
+		{
+			System.out.println("binding result");
+			
+			List<Comment> comments = commentService.findAllByArticle(articleId);
+			model.addAttribute("comments",comments);
+			
+			return "user/article";
+		}
+		
+		System.out.println("register ing...");
+		// 레지스터모델 내용 등록
+		User user = userService.getCurrentUser();
+		commentService.create(user.getId(),articleId,commentModel.getContent());
+		System.out.println("comment create");
+		
+		model.addAttribute("user",user);
+		
+		// 코멘트들 뽑아와서 모델로 넘기는 것 - 리스트 
+		List<Comment> comments = commentService.findAllByArticle(articleId); //
+		model.addAttribute("comments",comments);
+		System.out.println("comment list");
+		
 		return "user/article";
 	}
 

@@ -1,13 +1,28 @@
 package com.kyung.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Comment {
+	SimpleDateFormat sim = new SimpleDateFormat("yyyy.MM.dd.  a hh:mm");
+	
 	int id;
 	int writer;
 	int article; // f.k
 	String content;
 	Date date;
+	
+	String wNickname; // writer nickname
+	
+	public String getwNickname() 
+	{
+		return wNickname;
+	}
+	
+	public void setwNickname(String wNickname) 
+	{
+		this.wNickname = wNickname;
+	}
 	
 	public int getId() 
 	{
@@ -41,9 +56,9 @@ public class Comment {
 	{
 		this.content = content;
 	}
-	public Date getDate() 
+	public String getDate() 
 	{
-		return date;
+		return sim.format(date);
 	}
 	public void setDate(Date date) {
 		this.date = date;

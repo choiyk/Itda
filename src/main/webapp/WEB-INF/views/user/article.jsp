@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<style> .error {color:red;} </style>
 <c:url var="R" value="/" />
 
 <section id="content">
@@ -33,33 +35,44 @@
 		<div id="more-features" class="row">
 			<div class="col-lg-12">
 				<div class="box">
+				
+				<c:if test="${empty comments }">
 					<div class="comment">
 						<div>등록된 댓글이 없습니다.</div>
 					</div>
+				</c:if>
+				
+				<c:if test="${!empty comments }">
+				<c:forEach var="comment" items="${comments}">
+					<c:if test="${ comment.writer != user.id}">
 					<div class="comment">
-						<i class="ion-close-round pull-right" data-url="#"></i>
-						<i class="ion-android-create pull-right" data-url="#"></i>
-						<p class="description">최윤경 / 2018.05.23 14:30</p>
-						<div>모임 일정 확인했습니다! 다음 모임 때 뵙겠습니다.</div>
+						<p class="description">${comment.wNickname } / ${comment.date }</p>
+						<div>${comment.content }</div>
 					</div>	
+					</c:if>
+					<c:if test="${ comment.writer == user.id}">
 					<div class="my comment">
 						<i class="ion-close-round pull-right" data-url="#"></i>
 						<i class="ion-android-create pull-right" data-url="#"></i>
-						<p class="description">최윤경 / 2018.05.23 14:30</p>
-						<div>모임 일정 확인했습니다! 다음 모임 때 뵙겠습니다.</div>
+						<p class="description">${comment.wNickname } / ${comment.date }</p>
+						<div>${comment.content }</div>
 					</div>
+					</c:if>
+				</c:forEach>
+				</c:if>
 					
 					<div class="form">
-						<form>
+						<form:form method="post" modelAttribute="commentRegistrationModel" action="article?bd=${article.boardId}&at=${article.id }">
 							<div class="form-row">
 								<div class="form-group col-10">
-									<input type="text" class="form-control" placeholder="댓글을 입력하세요.">
+									<form:input path="content" type="text" class="form-control" placeholder="댓글을 입력하세요."/>
+									<form:errors path="content" class="error"/>
 								</div>
 								<div class="form-group col-2">
 									<button type="submit" class="btn pull-right">등록</button>
 								</div>
 							</div>
-						</form>
+						</form:form>
 					</div>
 	
 				</div>

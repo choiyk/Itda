@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+             
+<mapper namespace="com.kyung.mapper.CommentMapper">
+	<select id="findAllByArticle" resultType="Comment">
+		select c.id 'id', c.writer 'writer', u.nickname 'wNickname', c.article, 'article', c.content 'content', c.date 'date'
+		from article a right join comment c
+		on a.id = c.article
+        join user u
+        on c.writer = u.id
+		where a.id = #{articleId}
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		insert into comment(writer, article, content)
+		values (#{writer}, #{article}, #{content})
+	</insert>
+</mapper>

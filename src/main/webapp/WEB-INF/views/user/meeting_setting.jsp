@@ -24,6 +24,7 @@
 					<button class="btn pull-right" >저장</button>
 				</div>
 			</form:form>
+			<button class="btn pull-right" data-url="meeting?id=${id}">목록으로</button>
 		</div>
 	</div>
 </section>
