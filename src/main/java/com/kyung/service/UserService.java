@@ -1,6 +1,5 @@
 package com.kyung.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,50 +9,54 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.kyung.dto.Meeting;
-import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.MyArticleByUser;
 import com.kyung.dto.MyCommentByUser;
+import com.kyung.dto.MyMeetingByUser;
+/*import com.kyung.dto.MyMeetingByUser;
+>>>>>>> refs/heads/choiyk2*/
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.mapper.UserMapper;
+import com.kyung.model.FindPwModel;
+import com.kyung.model.ResultModel;
 import com.kyung.model.UserRegistrationModel;
 import com.kyung.utils.Encryption;
 
 @Service
 public class UserService {
 	@Autowired UserMapper userMapper;
-	
+
 	public List<Meeting> MeetingsOfMyComment(int userId)
 	{
 		List<Meeting> meetings = userMapper.MeetingsOfMyComment(userId);
 		return meetings;
 	}
-	
+
 	public List<MyCommentByUser> MyCommentByUser(int userId)
 	{
 		List<MyCommentByUser> myComments = userMapper.myCommentByUser(userId);
 		return myComments;
 	}
-	
+
 	public List<Meeting> MeetingsOfMyArticle(int userId)
 	{
 		List<Meeting> meetings = userMapper.MeetingsOfMyArticle(userId);
 		return meetings;
 	}
-	
+
 	public List<MyArticleByUser> MyArticleByUser(int userId)
 	{
 		List<MyArticleByUser> myArticles = userMapper.myArticleByUser(userId);
 		return myArticles;
 	}
-	
+
 	public List<MyMeetingByUser> myMeetingByUser(int userId)
 	{
 		System.out.println("userId : "+userId);
 		List<MyMeetingByUser> myMeetings = userMapper.myMeetingByUser(userId);
 		return myMeetings;
 	}
-	
+
 	public List<UserJoinedMeetings> userJoinMeetings(int userId)
 	{
 		List<UserJoinedMeetings> list=userMapper.userJoinMeetings(userId);
@@ -122,6 +125,24 @@ public class UserService {
 		return false;
 	}
 
+	public boolean hasErrors(FindPwModel findPwModel, BindingResult bindingResult){
+
+		if(bindingResult.hasErrors()){
+			return true;
+		}
+
+		if(findPwModel.getStudentNumber()==null || findPwModel.getStudentNumber().equals("")){
+			bindingResult.rejectValue("studentNumber", null, "학번을 입력해주세요.");
+		}
+
+		if(findPwModel.getAnswer()==null || findPwModel.getAnswer().equals("")){
+			bindingResult.rejectValue("answer", null, "답변을 입력해주세요.");
+		}
+
+		return false;
+
+	}
+
 	public User login(String loginId, String password) {
 		User user = userMapper.findByStudentNumber(loginId);
 		//System.out.println(user.getStudentNumber());
@@ -173,7 +194,7 @@ public class UserService {
 		User user = userMapper.findByStudentNumber(studentNumber);
 		return user;
 	}
-	
+
 	public User findByName(String name)
 	{
 		User user = userMapper.findByName(name);
@@ -208,5 +229,22 @@ public class UserService {
 		System.out.println("pwUpdate:"+password+" "+studentNumber);
 		userMapper.pwUpdate(password, studentNumber);
 	}
+
+	public ResultModel findPw(FindPwModel findPwModel){
+
+		User find = findByStudentNumber(findPwModel.getStudentNumber());
+
+		if(find==null){
+			return new ResultModel(false, "존재하지 않는 회원입니다.");
+		}
+
+		else if(findPwModel.getQuestion()!=Integer.parseInt(find.getQuestion()) || !findPwModel.getAnswer().equals(find.getAnswer())){
+			return new ResultModel(false, "질문에 답이 틀립니다.");
+		}
+
+		else return new ResultModel(true,find.getStudentNumber());
+
+	}
+
 
 }

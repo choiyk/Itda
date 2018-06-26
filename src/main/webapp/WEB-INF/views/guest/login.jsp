@@ -63,6 +63,11 @@
 </section>
 
 <div class="margin"></div>
+
+<section>
+	<p class="text-center"><span class="bar_text" data-url="findPw">비밀번호를 잊으셨나요?</span></p>
+</section>
+
 <div class="margin"></div>
 <div class="margin"></div>
 

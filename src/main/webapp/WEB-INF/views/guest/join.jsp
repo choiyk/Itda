@@ -18,11 +18,9 @@
 		<div class="form">
 			<form:form method="post" modelAttribute="userRegistrationModel">
 				<div class="form-row">
-					<div class="col-8 center">
-						<div class="form-group">
-							<form:input path="studentNumber" type="text" name="studentNumber" class="form-control" placeholder="학번"/>
-							<form:errors path="studentNumber" class="error"/>
-						</div>
+					<div class="form-group center col-lg-8">
+						<form:input path="studentNumber" type="text" name="studentNumber" class="form-control" placeholder="학번"/>
+						<form:errors path="studentNumber" class="error"/>
 					</div>
 				</div>
 				<div class="form-row">
