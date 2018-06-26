@@ -1,5 +1,7 @@
 package com.kyung.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +37,9 @@ public class ArticleService {
 
 	public void delete(int articleId){
 		articleMapper.delete(articleId);
+	}
+
+	public List<Article> findNotice(){
+		return articleMapper.findNotice();
 	}
 }
