@@ -1,5 +1,7 @@
 package com.kyung.controller;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kyung.dto.Category;
 import com.kyung.dto.Department;
 import com.kyung.dto.Meeting;
+import com.kyung.dto.MyArticleByUser;
 import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
@@ -21,7 +25,9 @@ import com.kyung.model.UserModificationModel;
 import com.kyung.model.UserPasswdModificationModel;
 import com.kyung.model.UserPasswordCheckModel;
 import com.kyung.model.UserRegistrationModel;
+import com.kyung.service.BoardService;
 import com.kyung.service.DepartmentService;
+import com.kyung.service.MeetingService;
 import com.kyung.service.UserService;
 import com.kyung.utils.Encryption;
 
@@ -29,6 +35,8 @@ import com.kyung.utils.Encryption;
 public class UserController {
 	@Autowired UserService userService;
 	@Autowired DepartmentService departmentService;
+	@Autowired BoardService boardService;
+	@Autowired MeetingService meetingService;
 
 	@RequestMapping("main")
 	public String main(Model model)
@@ -166,8 +174,46 @@ public class UserController {
 	}
 
 	@RequestMapping("my_article")
-	public String myArtilce()
+	public String myArtilce(Model model)
 	{
+		User user = userService.getCurrentUser();
+		int userId = user.getId();
+		List<MyArticleByUser> myArticles = userService.MyArticleByUser(userId);
+		model.addAttribute("myArticles",myArticles);
+		
+		List<Meeting> meetings = userService.MeetingsOfMyArticle(userId);
+		model.addAttribute("meetings",meetings);
+		/*
+		HashSet<String> meetingName = new HashSet<String>();
+		Iterator<MyArticleByUser> it = myArticles.iterator();
+		
+		while(it.hasNext())
+		{
+			String mname = it.next().getName();
+			meetingName.add(mname);
+			//System.out.println("mname:"+mname);
+		}
+		
+		System.out.println("HashSet");
+		for(String s:meetingName)
+		{
+			System.out.println(s+" ");
+		}*/
+		/*
+		int index=0;
+		List<Meeting> myMeetings;
+		for(String s:meetingName)
+		{
+			myMeetings.add(new Meeting());
+			myMeetings.set(index, element)
+			myMeetings.setName(s);
+			myMeetings.setId(meetingService.findMidByMname(s));
+		}*/
+		
+		//model.addAttribute("myMeetings",myMeetings);
+		//model.addAttribute("myMeetings",meetingName);
+		System.out.println("view return");
+		
 		return "user/my_article";
 	}
 

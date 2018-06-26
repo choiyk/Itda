@@ -18,6 +18,13 @@ public class MeetingService {
 	@Autowired MeetingMapper meetingMapper;
 	@Autowired MeetingMemberService meetingMemberService;
 	@Autowired BoardService boardService;
+	
+	public int findMidByMname(String mName)
+	{
+		int meetingId;
+		meetingId = meetingMapper.findMidByMname(mName);
+		return meetingId;
+	}
 
 	public Board findBoardByMeeting(int meetingId)
 	{

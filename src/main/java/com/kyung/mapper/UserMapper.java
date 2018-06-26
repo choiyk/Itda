@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.kyung.dto.Meeting;
+import com.kyung.dto.MyArticleByUser;
 import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
@@ -25,4 +26,6 @@ public interface UserMapper {
 	void pwUpdate(@Param("password") String password, @Param("studentNumber") String studentNumber);
 	List<UserJoinedMeetings> userJoinMeetings(int id);
 	List<MyMeetingByUser> myMeetingByUser(int userId);
+	List<MyArticleByUser> myArticleByUser(int userId);
+	List<Meeting> MeetingsOfMyArticle(int userId);
 }

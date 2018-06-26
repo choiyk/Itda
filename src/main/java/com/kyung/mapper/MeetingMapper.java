@@ -21,4 +21,5 @@ public interface MeetingMapper {
 	void update(@Param("meeting")Meeting meeting, @Param("meetingId")int id);
 	UserByMeeting findUserByMeeting(@Param("meetingId")int meetingId, @Param("userId")int userId );
 	Board findBoardByMeeting(int meetingId);
+	Integer findMidByMname(String name);
 }

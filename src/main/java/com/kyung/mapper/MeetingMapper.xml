@@ -3,6 +3,12 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
              
 <mapper namespace="com.kyung.mapper.MeetingMapper">
+	
+	<select id="findMidByMname" resultType="Integer">
+		select meeting.id
+		from meeting
+		where meeting.name = #{name}
+	</select>
 
 	<select id="findBoardByMeeting" resultType="Board">
 		select b.id, b.name

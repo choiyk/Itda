@@ -14,6 +14,7 @@ public class Meeting {
 	Date date;
 	//int leader; // f.k
 	
+	
 	public MeetingRegistrationModel toRegistrationMeeting()
 	{
 		MeetingRegistrationModel model = new MeetingRegistrationModel();
