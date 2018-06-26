@@ -32,6 +32,19 @@ public class BoardController
 	@Autowired ArticleService articleService;
 	@Autowired CommentService commentService;
 
+	@RequestMapping(value="comment_delete")
+	public String commentDelete(Model model, @RequestParam(value="bd") int boardId, @RequestParam(value="at") int articleId,
+			@RequestParam(value="ct")int commentId)
+	{
+		
+		commentService.delete(commentId);
+		
+		model.addAttribute("msg", "삭제되었습니다.");
+		model.addAttribute("url", "article?bd="+boardId+"&at="+articleId);
+		
+		return "redirect";
+	}
+	
 	@RequestMapping(value="article", method=RequestMethod.GET)
 	public String article(@RequestParam(value="bd")int boardId, @RequestParam(value="at") int articleId, 
 			CommentRegistrationModel commentModel, Model model)
@@ -80,19 +93,18 @@ public class BoardController
 		}
 		
 		System.out.println("register ing...");
-		// 레지스터모델 내용 등록
+
 		User user = userService.getCurrentUser();
 		commentService.create(user.getId(),articleId,commentModel.getContent());
 		System.out.println("comment create");
 		
 		model.addAttribute("user",user);
 		
-		// 코멘트들 뽑아와서 모델로 넘기는 것 - 리스트 
-		List<Comment> comments = commentService.findAllByArticle(articleId); //
+		List<Comment> comments = commentService.findAllByArticle(articleId); 
 		model.addAttribute("comments",comments);
 		System.out.println("comment list");
 		
-		return "user/article";
+		return "redirect:article?bd="+boardId+"&at="+articleId;
 	}
 
 

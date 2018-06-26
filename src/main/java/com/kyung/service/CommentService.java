@@ -13,6 +13,11 @@ public class CommentService
 {
 	@Autowired CommentMapper commentMapper;
 	
+	public void delete(int commentId)
+	{
+		commentMapper.delete(commentId);
+	}
+	
 	public List<Comment> findAllByArticle(int articleId)
 	{
 		System.out.println("comment service : findcomments");

@@ -16,4 +16,9 @@
 		insert into comment(writer, article, content)
 		values (#{writer}, #{article}, #{content})
 	</insert>
+	
+	<delete id="delete">
+		DELETE FROM Comment 
+		WHERE id = #{commentId}
+	</delete>
 </mapper>

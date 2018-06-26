@@ -52,7 +52,7 @@
 					</c:if>
 					<c:if test="${ comment.writer == user.id}">
 					<div class="my comment">
-						<i class="ion-close-round pull-right" data-url="#"></i>
+						<i class="ion-close-round pull-right" onclick="my_confirm('${R}comment_delete?bd=${article.boardId}&at=${article.id}&ct=${comment.id }','삭제하시겠습니까?')"></i>
 						<i class="ion-android-create pull-right" data-url="#"></i>
 						<p class="description">${comment.wNickname } / ${comment.date }</p>
 						<div>${comment.content }</div>
