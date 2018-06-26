@@ -1,13 +1,19 @@
 package com.kyung.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.ibatis.mapping.FetchType;
+
 public class File {
+	SimpleDateFormat sim = new SimpleDateFormat("yyyy.MM.dd.  a hh:mm");
+	
 	int id;
 	int articleId; // f.k
 	String fileName;
 	int fileSize;
 	Date fileTime;
+	
 	byte[] data; // file
 
 	public int getId() 
@@ -42,9 +48,9 @@ public class File {
 	{
 		this.fileSize = fileSize;
 	}
-	public Date getFileTime() 
+	public String getFileTime() 
 	{
-		return fileTime;
+		return sim.format(fileTime);
 	}
 	public void setFileTime(Date fileTime) 
 	{
