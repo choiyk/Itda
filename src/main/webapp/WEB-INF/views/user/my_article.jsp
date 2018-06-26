@@ -40,6 +40,9 @@
 			</div>
 			</c:forEach>
 			</c:if>
+			<c:if test="${ empty myArticles}">
+				<p class="description">등록된 글이 없습니다.</p>
+			</c:if>
 		</div>
 	</div>
 </section>

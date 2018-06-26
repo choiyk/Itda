@@ -19,6 +19,7 @@ import com.kyung.dto.Article;
 import com.kyung.dto.Department;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.MyArticleByUser;
+import com.kyung.dto.MyCommentByUser;
 import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
@@ -189,43 +190,22 @@ public class UserController {
 		
 		List<Meeting> meetings = userService.MeetingsOfMyArticle(userId);
 		model.addAttribute("meetings",meetings);
-		/*
-		HashSet<String> meetingName = new HashSet<String>();
-		Iterator<MyArticleByUser> it = myArticles.iterator();
 		
-		while(it.hasNext())
-		{
-			String mname = it.next().getName();
-			meetingName.add(mname);
-			//System.out.println("mname:"+mname);
-		}
-		
-		System.out.println("HashSet");
-		for(String s:meetingName)
-		{
-			System.out.println(s+" ");
-		}*/
-		/*
-		int index=0;
-		List<Meeting> myMeetings;
-		for(String s:meetingName)
-		{
-			myMeetings.add(new Meeting());
-			myMeetings.set(index, element)
-			myMeetings.setName(s);
-			myMeetings.setId(meetingService.findMidByMname(s));
-		}*/
-		
-		//model.addAttribute("myMeetings",myMeetings);
-		//model.addAttribute("myMeetings",meetingName);
 		System.out.println("view return");
-		
 		return "user/my_article";
 	}
 
 	@RequestMapping("my_comment")
-	public String myComment()
+	public String myComment(Model model)
 	{
+		User user = userService.getCurrentUser();
+		int userId = user.getId();
+		List<MyCommentByUser> myComments = userService.MyCommentByUser(userId);
+		model.addAttribute("myComments",myComments);
+		
+		List<Meeting> meetings = userService.MeetingsOfMyComment(userId);
+		model.addAttribute("meetings",meetings);
+				
 		return "user/my_comment";
 	}
 

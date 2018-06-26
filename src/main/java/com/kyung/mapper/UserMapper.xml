@@ -3,6 +3,34 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kyung.mapper.UserMapper">
+	
+	<select id="MeetingsOfMyComment" resultType="Meeting">
+		select distinct m.id 'id', m.name 'name', m.mexplain 'mexplain', m.date 'date'
+		from comment c 
+		join article a
+		on c.article = a.id
+		join board b
+		on a.board = b.id
+		join meeting m
+		on b.meetingId = m.id
+		where c.writer = #{userId}
+	</select>
+	
+	<select id="myCommentByUser" resultType="MyCommentByUser">
+		select c.id 'cmId', c.writer 'writer', c.article 'articleId', c.content 'content', c.date 'commentDate',
+		a.board 'boardId', a.title 'title', a.content 'atContent', a.date 'articleDate', a.notice 'notice',
+    		ct.id 'cateId', ct.name 'cateName', b.meetingId 'meetingId', 
+    		m.name 'meetingName', m.mexplain 'mexplain', m.date 'meetingDate'
+		from comment c left join article a
+		on c.article = a.id
+		join category ct
+		on a.category = ct.id
+		join board b
+		on a.board = b.id
+		join meeting m
+		on b.meetingId = m.id
+		where c.writer=#{userId}
+	</select>
 
 	<select id="MeetingsOfMyArticle" resultType="Meeting">
 		select distinct m.id 'id', m.name 'name', m.mexplain 'mexplain', m.date 'date'

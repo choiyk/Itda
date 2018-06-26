@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import com.kyung.dto.Meeting;
 import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.MyArticleByUser;
+import com.kyung.dto.MyCommentByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.mapper.UserMapper;
@@ -21,6 +22,18 @@ import com.kyung.utils.Encryption;
 @Service
 public class UserService {
 	@Autowired UserMapper userMapper;
+	
+	public List<Meeting> MeetingsOfMyComment(int userId)
+	{
+		List<Meeting> meetings = userMapper.MeetingsOfMyComment(userId);
+		return meetings;
+	}
+	
+	public List<MyCommentByUser> MyCommentByUser(int userId)
+	{
+		List<MyCommentByUser> myComments = userMapper.myCommentByUser(userId);
+		return myComments;
+	}
 	
 	public List<Meeting> MeetingsOfMyArticle(int userId)
 	{

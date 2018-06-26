@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.kyung.dto.Meeting;
 import com.kyung.dto.MyArticleByUser;
+import com.kyung.dto.MyCommentByUser;
 import com.kyung.dto.MyMeetingByUser;
 import com.kyung.dto.User;
 import com.kyung.dto.UserJoinedMeetings;
@@ -28,4 +29,6 @@ public interface UserMapper {
 	List<MyMeetingByUser> myMeetingByUser(int userId);
 	List<MyArticleByUser> myArticleByUser(int userId);
 	List<Meeting> MeetingsOfMyArticle(int userId);
+	List<MyCommentByUser> myCommentByUser(int userId);
+	List<Meeting> MeetingsOfMyComment(int userId);
 }
