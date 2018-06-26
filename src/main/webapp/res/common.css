@@ -145,10 +145,18 @@ button:hover {
 	margin-top: 30px;
 }
 
+#content[name="content"]{
+	margin:0px;
+}
+
 @media (max-width: 768px) {
 	#content{
 		margin-top: 20px;
 		font-size: 0.7rem;
+	}
+	
+	#content[name="content"]{
+		margin:0px;
 	}
 }
 
@@ -433,4 +441,13 @@ button:hover {
 	#alarm p{
 		margin-bottom: 10px;
 	}
+}
+
+.comment_rewrite{
+	display:none;
+}
+
+.comment_rewrite .form-group{
+	margin-bottom:3px;
+	margin-top: 10px;
 }

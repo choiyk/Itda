@@ -43,7 +43,7 @@
 				</c:if>
 				
 				<c:if test="${!empty comments }">
-				<c:forEach var="comment" items="${comments}">
+				<c:forEach var="comment" items="${comments}" varStatus="status">
 					<c:if test="${ comment.writer != user.id}">
 					<div class="comment">
 						<p class="description">${comment.wNickname } / ${comment.date }</p>
@@ -53,9 +53,22 @@
 					<c:if test="${ comment.writer == user.id}">
 					<div class="my comment">
 						<i class="ion-close-round pull-right" data-url="#"></i>
-						<i class="ion-android-create pull-right" data-url="#"></i>
+						<i onclick="comment_rewrite_btn(${status.count})" class="comment_rewrite_btn ion-android-create pull-right"></i>
 						<p class="description">${comment.wNickname } / ${comment.date }</p>
-						<div>${comment.content }</div>
+						<div id="comment_content_${status.count}">${comment.content }</div>
+						<div id="comment_rewrite_${status.count}" class="comment_rewrite form">
+							<form:form method="post" modelAttribute="commentRegistrationModel" action="article?bd=${article.boardId}&at=${article.id }">
+								<div class="form-row">
+									<div class="form-group col-10">
+										<form:input path="content" type="text" class="form-control" value="${comment.content }"/>
+										<form:errors path="content" class="error"/>
+									</div>
+									<div class="form-group col-2">
+										<button type="submit" class="btn pull-right">수정</button>
+									</div>
+								</div>
+							</form:form>
+						</div>
 					</div>
 					</c:if>
 				</c:forEach>
