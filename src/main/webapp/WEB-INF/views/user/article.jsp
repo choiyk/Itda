@@ -57,7 +57,7 @@
 						<p class="description">${comment.wNickname } / ${comment.date }</p>
 						<div id="comment_content_${status.count}">${comment.content }</div>
 						<div id="comment_rewrite_${status.count}" class="comment_rewrite form">
-							<form:form method="post" modelAttribute="commentRegistrationModel" action="article?bd=${article.boardId}&at=${article.id }">
+							<form:form method="post" modelAttribute="commentRegistrationModel" action="comment_edit?bd=${article.boardId}&at=${article.id }&cm=${comment.id }">
 								<div class="form-row">
 									<div class="form-group col-10">
 										<form:input path="content" type="text" class="form-control" value="${comment.content }"/>

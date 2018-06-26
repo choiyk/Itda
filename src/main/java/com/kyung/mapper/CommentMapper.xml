@@ -17,6 +17,14 @@
 		values (#{writer}, #{article}, #{content})
 	</insert>
 	
+	<update id="update">
+		UPDATE Comment SET
+			content = #{content},
+			date = NOW()
+		WHERE writer = #{writer}
+		and id = #{cmtId}
+	</update>
+	
 	<delete id="delete">
 		DELETE FROM Comment 
 		WHERE id = #{commentId}

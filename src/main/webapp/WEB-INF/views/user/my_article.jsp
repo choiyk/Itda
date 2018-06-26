@@ -41,7 +41,11 @@
 			</c:forEach>
 			</c:if>
 			<c:if test="${ empty myArticles}">
-				<p class="description">등록된 글이 없습니다.</p>
+			<div class="col-lg-12">
+				<div class="box">
+					<p class="title">등록된 글이 없습니다.</p>
+				</div>
+			</div>
 			</c:if>
 		</div>
 	</div>

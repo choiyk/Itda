@@ -13,6 +13,11 @@ public class CommentService
 {
 	@Autowired CommentMapper commentMapper;
 	
+	public void update(int writer, int cmtId,String content)
+	{
+		commentMapper.update(writer, cmtId, content);
+	}
+	
 	public void delete(int commentId)
 	{
 		commentMapper.delete(commentId);
