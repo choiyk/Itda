@@ -66,7 +66,7 @@ $(function() {
 	$("#alarm").slideDown();
 	$("#alarm_close").click(function(){
 		$("#alarm").slideUp();
-	})
+	});
 
 })
 
@@ -75,5 +75,16 @@ function my_confirm(url, msg){
 	if (r == true) {
 	    location.href=url;
 	} else {
+	}
+}
+
+function comment_rewrite_btn(count){
+	if($("#comment_rewrite_"+count).css('display')=='none'){
+		$("#comment_content_"+count).css('display', 'none');
+		$("#comment_rewrite_"+count).css('display', 'block');
+	}
+	else{
+		$("#comment_content_"+count).css('display', 'block');
+		$("#comment_rewrite_"+count).css('display', 'none');
 	}
 }
