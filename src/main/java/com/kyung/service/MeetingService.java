@@ -71,7 +71,7 @@ public class MeetingService {
 		//System.out.println("meeting leader : "+meeting.getLeader());
 		
 		// add meetingMember
-		meetingMemberService.addInMeeting(meeting, user);
+		meetingMemberService.addInMeeting(meeting, user, 3);
 		
 		// add board
 		int boardId;

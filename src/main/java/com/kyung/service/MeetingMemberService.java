@@ -17,12 +17,12 @@ public class MeetingMemberService
 	@Autowired MeetingMemberMapper meetingMemberMapper;
 
 	//@SuppressWarnings("null")
-	public void addInMeeting(Meeting meeting, User user)
+	public void addInMeeting(Meeting meeting, User user, int userType)
 	{
 		MeetingMember member = new MeetingMember();
 		member.setMeetingId(meeting.getId());
 		member.setMemberId(user.getId());
-		member.setType(3); // 3: meeting manager
+		member.setType(userType); // 3: meeting manager, 2: meeting member
 		meetingMemberMapper.insert(member);
 
 		// test
@@ -32,12 +32,12 @@ public class MeetingMemberService
 		System.out.println("member memberType : "+member.getType());
 	}
 
-	public void addInMeeting(int meetingId, int userId)
+	public void addInMeeting(int meetingId, int userId, int userType)
 	{
 		MeetingMember member = new MeetingMember();
 		member.setMeetingId(meetingId);
 		member.setMemberId(userId);
-		member.setType(3); // 3: meeting manager
+		member.setType(userType); // 3: meeting manager, 2: meeting member
 		meetingMemberMapper.insert(member);
 	}
 

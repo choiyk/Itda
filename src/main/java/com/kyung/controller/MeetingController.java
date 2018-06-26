@@ -187,7 +187,7 @@ public class MeetingController {
 	@RequestMapping(value="meeting_adduser", method=RequestMethod.GET)
 	public String meetingAddUser(Model model, @RequestParam(value="id") int id, @RequestParam(value="uid") int userId){
 
-		meetingMemberService.addInMeeting(id, userId);
+		meetingMemberService.addInMeeting(id, userId, 2);
 
 		return "redirect:meeting_setting?id="+id;
 
