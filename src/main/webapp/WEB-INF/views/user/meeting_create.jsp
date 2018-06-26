@@ -16,7 +16,7 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group center col-lg-12">
-						<textarea name="mexplain" class="form-control" rows="5">모임 설명</textarea>
+						<textarea name="mexplain" class="form-control" rows="5" placeholder="모임설명"></textarea>
 					</div>
 				</div>
 				<div>

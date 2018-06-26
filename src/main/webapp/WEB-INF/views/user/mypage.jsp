@@ -33,7 +33,7 @@
 			</div>
 			<c:if test="${user.type == 1 }">
 			<div class="col-6">
-				<div id="withdraw" class="box" data-url="admin_user">
+				<div class="box" data-url="admin_user">
 					<p class="bigbutton">회원 관리</p>
 				</div>
 			</div>
