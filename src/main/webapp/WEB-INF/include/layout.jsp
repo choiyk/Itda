@@ -44,6 +44,8 @@
 
 <%-- <script src="${R}webjars/jquery/jquery.min.js"></script> --%>
 
+<script src="${R}webjars/sockjs-client/sockjs.min.js"></script>
+
 <script src="${R}res/common.js"></script>
 <link rel="stylesheet" href="${R}res/common.css">
 

@@ -1,7 +1,6 @@
 package com.kyung.mapper;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,7 +11,7 @@ import com.kyung.dto.UserByMeeting;
 
 @Mapper
 public interface MeetingMapper {
-	List<Meeting> findAll(); 
+	List<Meeting> findAll();
 	Meeting findOne(int id);
 	Meeting findByName(String name);
 	//Meeting findByLeader(int leader);
@@ -22,4 +21,6 @@ public interface MeetingMapper {
 	UserByMeeting findUserByMeeting(@Param("meetingId")int meetingId, @Param("userId")int userId );
 	Board findBoardByMeeting(int meetingId);
 	Integer findMidByMname(String name);
+	List<Meeting> findAllByUser(int userId);
+
 }

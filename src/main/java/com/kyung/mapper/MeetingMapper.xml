@@ -44,6 +44,13 @@
 		WHERE leader = #{leader}
 	</select>
 	
+	<select id="findAllByUser" resultType="Meeting">
+		SELECT m.* FROM Meeting m
+		LEFT JOIN meetingMember mm
+		ON m.id = mm.meetingId 
+		WHERE mm.memberId = #{userId}
+	</select>
+	
 	<delete id="delete">
 		DELETE FROM Meeting 
 		WHERE id = #{id}

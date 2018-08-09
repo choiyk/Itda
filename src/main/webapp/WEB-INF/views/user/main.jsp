@@ -68,6 +68,9 @@
 		</div>
 	</div>
 </section>
+
+<section id="alarm">
+</section>
 <!-- 
 <section id="alarm">
 	<div class="container">
@@ -76,3 +79,27 @@
 	</div>
 </section>
  -->
+ <script>
+ 	var meetings = ${jsonMeetings};
+ 	console.log(meetings);
+ 	
+ 	var sock = new SockJS("${R}itda-webSocket");
+ 	sock.onopen = function(){
+ 		console.log("sock \"/itda-webSocket\" Connected");
+ 		for(var i=0; i<meetings.length; i++){
+ 			sock.send(JSON.stringify({meetingId: parseInt(meetings[i].meetingId), type: 'JOIN', content: '로그인되었습니다.', meetingName: meetings[i].meetingName}));
+ 			console.log("sock.send(JSON.stringify({meetingId: "+parseInt(meetings[i].meetingId)+", type: 'JOIN', content: '로그인되었습니다.'', meetingName: "+meetings[i].meetingName+"}));");
+ 		}
+ 		
+ 		sock.onmessage = function(e){
+ 			var e = JSON.parse(e.data);
+ 			var meetingName = e.meetingName;
+ 			var content = e.content;
+ 			console.log(meetingName+"알림!"+content);
+ 			var text = '<div class="container">'+
+ 				'<p class="title">'+meetingName+' 알림!<i id="alarm_close" class="ion-close-round pull-right" data-url="#"></i></p>'+
+ 				'<p class="content">"'+content+'"<br/>새글이 올라왔습니다.</p></div>';
+ 			$("#alarm").append(text);
+ 		}
+ 	}
+ </script>

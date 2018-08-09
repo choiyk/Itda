@@ -1,5 +1,6 @@
 package com.kyung.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +11,16 @@ import com.kyung.dto.Meeting;
 import com.kyung.dto.User;
 import com.kyung.dto.UserByMeeting;
 import com.kyung.mapper.MeetingMapper;
-import com.kyung.mapper.MeetingMemberMapper;
 import com.kyung.model.MeetingRegistrationModel;
+import com.kyung.repository.MeetingRepository;
 
 @Service
 public class MeetingService {
 	@Autowired MeetingMapper meetingMapper;
 	@Autowired MeetingMemberService meetingMemberService;
 	@Autowired BoardService boardService;
-	
+	@Autowired MeetingRepository meetingRepository;
+
 	public int findMidByMname(String mName)
 	{
 		int meetingId;
@@ -32,14 +34,15 @@ public class MeetingService {
 		board = meetingMapper.findBoardByMeeting(meetingId);
 		return board;
 	}
-	
+
 	public UserByMeeting findUserByMeeting(int meetingId, int userId)
 	{
 		UserByMeeting userByMeeting = meetingMapper.findUserByMeeting(meetingId, userId);
 		Optional<UserByMeeting> result = Optional.ofNullable(userByMeeting);
 		return result.orElse(new UserByMeeting());
+
 	}
-	
+
 	/*
 	public UserByMeeting findUserByMeeting(int meetingId, int userId)
 	{
@@ -47,15 +50,15 @@ public class MeetingService {
 		userByMeeting = meetingMapper.findUserByMeeting(meetingId, userId);
 		return userByMeeting;
 	}*/
-	
+
 	public Meeting findOne(int id)
 	{
 		Meeting meeting = new Meeting();;
 		meeting = meetingMapper.findOne(id);
 		return meeting;
 	}
-	
-	public int create(MeetingRegistrationModel meetingModel, User user) 
+
+	public int create(MeetingRegistrationModel meetingModel, User user)
 	{
 		// add meeting
 		Meeting meeting = meetingModel.toMeeting();
@@ -63,26 +66,28 @@ public class MeetingService {
 		//meeting.setLeader(user.getId());
 		meetingMapper.insert(meeting);//
 		System.out.println("meetingMapper insert 완");
-		
+
 		// test
 		System.out.println("meeting id : "+meeting.getId());
 		System.out.println("meeting name : "+meeting.getName());
 		System.out.println("meeting explain : "+meeting.getMexplain());
 		//System.out.println("meeting leader : "+meeting.getLeader());
-		
+
 		// add meetingMember
 		meetingMemberService.addInMeeting(meeting, user, 3);
-		
+
 		// add board
 		int boardId;
 		boardId = boardService.addInMeeting(meeting);
-		
+
 		// default category
 		boardService.defaultCategory(boardId);
-		
+
+		meetingRepository.addMeeting(meeting);
+
 		return meeting.getId();
 	}
-	
+
 	public int update(MeetingRegistrationModel meetingModel,int id)
 	{
 		// add meeting
@@ -91,12 +96,16 @@ public class MeetingService {
 		//meeting.setLeader(user.getId());
 		meetingMapper.update(meeting,id);//
 		System.out.println("meetingMapper update 완");
-				
+
 				// test
 		System.out.println("meeting id : "+meeting.getId());
 		System.out.println("meeting name : "+meeting.getName());
 		System.out.println("meeting explain : "+meeting.getMexplain());
-		
+
 		return meeting.getId();
+	}
+
+	public List<Meeting> findAllByUser(int userId){
+		return meetingMapper.findAllByUser(userId);
 	}
 }

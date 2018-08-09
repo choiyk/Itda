@@ -1,7 +1,6 @@
 package com.kyung.controller;
 
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.kyung.dto.Category;
 import com.kyung.dto.Article;
 import com.kyung.dto.Department;
 import com.kyung.dto.Meeting;
@@ -26,13 +24,15 @@ import com.kyung.dto.UserJoinedMeetings;
 import com.kyung.model.UserModificationModel;
 import com.kyung.model.UserPasswdModificationModel;
 import com.kyung.model.UserPasswordCheckModel;
-import com.kyung.model.UserRegistrationModel;
-import com.kyung.service.BoardService;
+import com.kyung.repository.MeetingRepository;
 import com.kyung.service.ArticleService;
+import com.kyung.service.BoardService;
 import com.kyung.service.DepartmentService;
 import com.kyung.service.MeetingService;
 import com.kyung.service.UserService;
 import com.kyung.utils.Encryption;
+
+import net.sf.json.JSONArray;
 
 @Controller
 public class UserController {
@@ -41,6 +41,12 @@ public class UserController {
 	@Autowired BoardService boardService;
 	@Autowired MeetingService meetingService;
 	@Autowired ArticleService articleService;
+	private final MeetingRepository meetingRepository;
+
+	@Autowired
+	public UserController(MeetingRepository meetingRepository){
+		this.meetingRepository = meetingRepository;
+	}
 
 	@RequestMapping("main")
 	public String main(Model model)
@@ -57,6 +63,15 @@ public class UserController {
 
 		model.addAttribute("meetings",list);
 		model.addAttribute("type",user.getType());
+
+		JSONArray jsonArray = new JSONArray();
+		model.addAttribute("jsonMeetings", jsonArray.fromObject(list));
+
+		Collection<Meeting> meetingMap = meetingRepository.getMeetings();
+		for(Meeting m : meetingMap){
+			System.out.print(m.getName()+" ");
+		}
+
 		return "user/main";
 	}
 
@@ -187,10 +202,10 @@ public class UserController {
 		int userId = user.getId();
 		List<MyArticleByUser> myArticles = userService.MyArticleByUser(userId);
 		model.addAttribute("myArticles",myArticles);
-		
+
 		List<Meeting> meetings = userService.MeetingsOfMyArticle(userId);
 		model.addAttribute("meetings",meetings);
-		
+
 		System.out.println("view return");
 		return "user/my_article";
 	}
@@ -202,10 +217,10 @@ public class UserController {
 		int userId = user.getId();
 		List<MyCommentByUser> myComments = userService.MyCommentByUser(userId);
 		model.addAttribute("myComments",myComments);
-		
+
 		List<Meeting> meetings = userService.MeetingsOfMyComment(userId);
 		model.addAttribute("meetings",meetings);
-				
+
 		return "user/my_comment";
 	}
 

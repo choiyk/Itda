@@ -38,3 +38,36 @@
 		</div>
 	</div>
 </section>
+
+<script>
+/* $(function () {
+    var chatBox = $('.chat_box');
+    var messageInput = $('input[name="message"]');
+    var sendBtn = $('.send');
+    var roomId = $('.content').data('room-id');
+    var member = $('.content').data('member');
+
+    // handshake
+    var sock = new SockJS("/ws/chat");
+
+    // onopen : connection이 맺어졌을 때의 callback
+    sock.onopen = function () {
+        // send : connection으로 message를 전달
+        // connection이 맺어진 후 가입(JOIN) 메시지를 전달
+        sock.send(JSON.stringify({chatRoomId: roomId, type: 'JOIN', writer: member}));
+        
+        // onmessage : message를 받았을 때의 callback
+        sock.onmessage = function (e) {
+            var content = JSON.parse(e.data);
+            chatBox.append('<li>' + content.message + '(' + content.writer + ')</li>')
+        }
+    }
+
+    sendBtn.click(function () {
+        var message = messageInput.val();
+        sock.send(JSON.stringify({chatRoomId: roomId, type: 'CHAT', message: message, writer: member}));
+        messageInput.val('');
+    });
+}); */
+</script>
+
