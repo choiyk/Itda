@@ -61,7 +61,7 @@ public class MeetingRepository {
 			Set<WebSocketSession> sessions = meeting.getSessions();
 			sessions.remove(session);
 		}
-		session.close();
+		//session.close();
 	}
 
 }
